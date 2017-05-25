@@ -109,11 +109,10 @@ public class EmployeeManagementServlet extends HttpServlet {
         	}
         	break;
 
-
+        case "従業員登録":
         	 // DAO、Beanをインスタンス化
             ArrayList<EmployeeBean> sectionList = new ArrayList<EmployeeBean>();
 
-            EmployeeDAO dao = new EmployeeDAO();
 
             // DAOからのreturnをBeanに格納
             try {
@@ -127,6 +126,7 @@ public class EmployeeManagementServlet extends HttpServlet {
 
             // 移譲先の指定
             url = "registEmployee.jsp";
+            break;
         }
 
         RequestDispatcher rd = request.getRequestDispatcher(url);
