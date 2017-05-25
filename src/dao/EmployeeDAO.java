@@ -44,17 +44,17 @@ public class EmployeeDAO {
 
 		try (Connection con = cm.getConnection(); Statement stmt = con.createStatement()) {
 
-			ResultSet res = stmt.executeQuery("SELECT * FROM m_employee");
+			ResultSet res = stmt.executeQuery("SELECT * FROM m_employee ");
 
 			while (res.next()) {
 				EmployeeBean employee = new EmployeeBean();
-				employee.setCode(res.getString("code"));
+				employee.setCode(res.getString("emp_code"));
 				employee.setName(res.getString("l_name") + res.getString("f_name"));
 				employee.setSex(res.getByte("sex"));
 				employee.setName_kana(res.getString("l_kana_name") + res.getString("f_kana_name"));
 				employee.setBirth_day(res.getDate("Birth_day"));
 				employee.setSection_code(res.getString("section_code"));
-				employee.setEmp_date(res.getDate("emp_data"));
+				employee.setEmp_date(res.getDate("emp_date"));
 				employeeList.add(employee);
 			}
 		} catch(SQLException e) {
