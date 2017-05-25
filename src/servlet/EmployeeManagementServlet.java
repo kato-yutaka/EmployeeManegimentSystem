@@ -50,10 +50,19 @@ public class EmployeeManagementServlet extends HttpServlet {
 
         // 削除であるか判定
         String code = null;
+        boolean flg = isNumber(action);
+        if(flg == true){
+        	code = action;
+        	action = "削除";
+        }
+
+        /*
         if(action.length() == 4){
         	code = action;
         	action = "削除";
         }
+        */
+
 
 
         // DAO、Beanをインスタンス化
@@ -138,4 +147,12 @@ public class EmployeeManagementServlet extends HttpServlet {
 
 	}
 
+	static boolean isNumber(String action){
+		try {
+	        Integer.parseInt(action);
+	        return true;
+	        } catch (NumberFormatException e) {
+	        return false;
+	    }
+	}
 }
