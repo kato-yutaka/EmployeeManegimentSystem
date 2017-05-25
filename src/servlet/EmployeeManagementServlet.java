@@ -39,6 +39,9 @@ public class EmployeeManagementServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+		  // エンコーディング指定
+
         request.setCharacterEncoding("Windows-31J");
         response.setCharacterEncoding("Windows-31J");
 
@@ -69,6 +72,7 @@ public class EmployeeManagementServlet extends HttpServlet {
 
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
+
 	}
 
 }

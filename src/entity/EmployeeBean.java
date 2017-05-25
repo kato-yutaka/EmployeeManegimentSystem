@@ -11,6 +11,10 @@ public class EmployeeBean implements Serializable {
 	private java.sql.Date birth_day;
     private String section_code;
     private java.sql.Timestamp emp_date;
+    private String l_name;
+    private String f_name;
+    private String l_kana_name;
+    private String f_kana_name;
 
     public String getCode() {
         return code;
@@ -66,5 +70,36 @@ public class EmployeeBean implements Serializable {
 
     public void setEmp_date(java.sql.Timestamp emp_date){
     	this.emp_date = emp_date;
+    }
+
+    public void setL_name(String l_name) {
+        this.l_name = l_name;
+    }
+
+    public String getL_name(){
+    	return l_name;
+    }
+
+    public void setF_name(String f_name) {
+        this.f_name = f_name;
+    }
+    public String getF_name(){
+    	return f_name;
+    }
+
+    public void setL_kana_name(String l_kana_name) {
+        this.l_kana_name = l_kana_name;
+    }
+
+    public String getL_kana_name(){
+    	return l_kana_name;
+    }
+
+    public void setF_kana_name(String f_kana_name) {
+        this.f_kana_name = f_kana_name;
+    }
+
+    public String getF_kana_name(){
+    	return f_kana_name;
     }
 }
