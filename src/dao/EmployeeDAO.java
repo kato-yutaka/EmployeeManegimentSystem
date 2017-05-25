@@ -36,7 +36,7 @@ public class EmployeeDAO {
 				employee.setCode(res.getString("code"));
 				employee.setName(res.getString("name"));
 				employee.setSex(res.getByte("sex"));
-				employee.setName_kana(res.getString("name_kana"));
+				employee.setName_kana(res.getString("l_kana_name"));
 				employee.setBirth_day(res.getDate("Birth_day"));
 				employee.setSection_code(res.getString("section_code"));
 				employee.setEmp_date(res.getTimestamp("emp_data"));
