@@ -48,5 +48,26 @@ public class EmployeeDAO {
         }
         return employeeList;
 		}
+
+	public void deleteEmployee(String emp_code) throws Exception {
+
+		// データベースへの接続の取得
+		ConnectionManager cm = ConnectionManager.getInstance();
+
+		// データベースへの接続の取得、ステートメント取得
+		try (Connection con = cm.getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet res = stmt.executeQuery("SELECT * FROM m_employee WHERE emp_code = "+emp_code)){
+
+			// 従業員削除
+			stmt.executeUpdate("DELETE FROM m_employee WHERE emp_code = "+emp_code);
+
+		// 例外処理
+		} catch (SQLException e){
+			System.out.println(e.getMessage());
+		}
 	}
+
+}
+
 
