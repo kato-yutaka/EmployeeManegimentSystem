@@ -2,10 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
-<<<<<<< HEAD
-=======
 import javax.servlet.RequestDispatcher;
->>>>>>> branch 'master' of https://github.com/kato-yutaka/EmployeeManegimentSystem.git
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
