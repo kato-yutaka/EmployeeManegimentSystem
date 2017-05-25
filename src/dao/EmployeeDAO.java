@@ -44,7 +44,7 @@ public class EmployeeDAO {
 
 		try (Connection con = cm.getConnection(); Statement stmt = con.createStatement()) {
 
-			ResultSet res = stmt.executeQuery("SELECT * FROM m_employee ");
+			ResultSet res = stmt.executeQuery("SELECT * FROM emp_sys_db.m_employee t1 LEFT OUTER JOIN emp_sys_db.m_section  t2 ON  t1.section_code = t2.section_code ");
 
 			while (res.next()) {
 				EmployeeBean employee = new EmployeeBean();
@@ -53,7 +53,7 @@ public class EmployeeDAO {
 				employee.setSex(res.getByte("sex"));
 				employee.setName_kana(res.getString("l_kana_name") + res.getString("f_kana_name"));
 				employee.setBirth_day(res.getDate("Birth_day"));
-				employee.setSection_code(res.getString("section_code"));
+				employee.setSection_code(res.getString("section_name"));
 				employee.setEmp_date(res.getDate("emp_date"));
 				employeeList.add(employee);
 			}

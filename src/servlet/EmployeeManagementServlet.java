@@ -69,11 +69,6 @@ public class EmployeeManagementServlet extends HttpServlet {
             }
 
 
-            EmployeeBean emp = new EmployeeBean();
-            String code=emp.getCode();
-            System.out.println(code);
-
-
             request.setAttribute("employeList", employeeList);
 
 
