@@ -31,7 +31,7 @@ public class EmployeeDAO {
 				employee.setName_kana(res.getString("name_kana"));
 				employee.setBirth_day(res.getDate("Birth_day"));
 				employee.setSection_code(res.getString("section_code"));
-				employee.setEmp_data(res.getdata("emp_data"));
+				employee.setEmp_date(res.getTimestamp("emp_data"));
 				employeeList.add(employee);
 			}
 		} catch(SQLException e) {
@@ -41,4 +41,4 @@ public class EmployeeDAO {
         return employeeList;
 		}
 	}
-}
+
