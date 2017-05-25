@@ -39,46 +39,42 @@ public class EmployeeManagementServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-		  // エンコーディング指定
-
+		// エンコーディング指定
         request.setCharacterEncoding("Windows-31J");
         response.setCharacterEncoding("Windows-31J");
 
-
         String action = request.getParameter("ACTION");
 
-
-
-
-
-
         String url = null;
+        // DAO、Beanをインスタンス化
+        ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
+        EmployeeDAO dao = new EmployeeDAO();
 
-        if("従業員一覧・削除".equals(action)) {
+        switch(action) {
+        case "従業員一覧・削除":
 
-            // DAO、Beanをインスタンス化
-            ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
-            EmployeeDAO dao = new EmployeeDAO();
+            try {
+                employeeList = dao.selectEmployee();
+            } catch(Exception e) {
 
+            }
+            request.setAttribute("employeList", employeeList);
 
+            url = "employeelist.jsp";
+            break;
+
+        case "従業員一覧へ":
             try {
                 employeeList = dao.selectEmployee();
             } catch(Exception e) {
                 e.printStackTrace();
             }
-
-
             request.setAttribute("employeList", employeeList);
 
-
             url = "employeelist.jsp";
-        }
-        if("入力内容を登録".equals(action)){
-        	 // DAO、Beanをインスタンス化
-            ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
-            EmployeeDAO dao = new EmployeeDAO();
+            break;
 
+        case "入力内容を登録":
         	String l_name = request.getParameter("l_name");
         	String f_name = request.getParameter("f_name");
         	String l_kana_name = request.getParameter("l_kana_name");
@@ -86,6 +82,11 @@ public class EmployeeManagementServlet extends HttpServlet {
         	String sex = request.getParameter("sex");
         	String birth = request.getParameter("emp_code");
         	String emp_code = request.getParameter("emp_code");
+        	break;
+        case "削除":
+        	String code = request.getParameter("CODE");
+        	System.out.println(code);
+        	break;
 
         }
 

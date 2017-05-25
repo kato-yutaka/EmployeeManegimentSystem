@@ -64,7 +64,8 @@ public class EmployeeDAO {
         return employeeList;
 		}
 
-	public void deleteEmployee(String emp_code) throws Exception {
+	@SuppressWarnings("finally")
+	public boolean deleteEmployee(String emp_code, boolean del_fin) throws Exception {
 
 		// データベースへの接続の取得
 		ConnectionManager cm = ConnectionManager.getInstance();
@@ -75,11 +76,17 @@ public class EmployeeDAO {
 			ResultSet res = stmt.executeQuery("SELECT * FROM m_employee WHERE emp_code = "+emp_code)){
 
 			// 従業員削除
-			stmt.executeUpdate("DELETE FROM m_employee WHERE emp_code = "+emp_code);
+			if(res.next() == true){
+				stmt.executeUpdate("DELETE FROM m_employee WHERE emp_code = "+emp_code);
+				del_fin = true;
+			}
 
 		// 例外処理
 		} catch (SQLException e){
-			System.out.println(e.getMessage());
+			del_fin = false;
+
+		} finally {
+			return del_fin;
 		}
 	}
 
