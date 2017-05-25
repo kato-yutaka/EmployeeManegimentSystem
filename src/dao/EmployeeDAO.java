@@ -14,12 +14,12 @@ public class EmployeeDAO {
 
 		 ConnectionManager cm = ConnectionManager.getInstance();
 
-	        ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
+	        employeeBean.get
 
 	        try(Connection con = cm.getConnection();
 	                Statement stmt = con.createStatement()) {
 
-	            ResultSet res = stmt.executeQuery("SELECT * FROM employees");
+	            ResultSet res = stmt.executeQuery("INSRT INTO VALUES(employees));
 
 	            // 結果の取得
 	            while(res.next()) {
