@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.EmployeeDAO;
 import entity.EmployeeBean;
+import entity.Remove;
 
 
 @WebServlet("/EmployeeManagementServlet")
@@ -83,9 +84,21 @@ public class EmployeeManagementServlet extends HttpServlet {
         	String birth = request.getParameter("emp_code");
         	String emp_code = request.getParameter("emp_code");
         	break;
+
         case "削除":
         	String code = request.getParameter("CODE");
-        	System.out.println(code);
+
+        	// インスタンス化
+        	Remove remove = new Remove(code);
+        	// 削除完了・失敗で使用
+        	request.setAttribute("CODE", code);
+        	// 削除処理とフラグ判定
+        	boolean flag = remove.removeEmployee();
+        	if(flag == true){
+        		url = "delete_success.jsp";
+        	}else{
+        		url = "delete_failure.jsp";
+        	}
         	break;
 
         }
