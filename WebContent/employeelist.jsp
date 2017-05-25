@@ -38,7 +38,10 @@
                 <td><%=employee.getBirth_day() %></td>
                 <td><%=employee.getSection_code() %>
                 <td><%=employee.getEmp_date() %>>
+                <td><input type="button" value="íœ"></td>
             </tr>
+
+
             <%
                     }
                 }
