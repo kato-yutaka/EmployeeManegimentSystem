@@ -41,7 +41,7 @@
 					<td>
 						<% if(employee.getSex() == 0) { %>
 						<%= "íj" %>
-						<% else %>
+						<% }else{ %>
 						<%= "èó" %>
 					<% } %>
 					</td>
@@ -51,11 +51,8 @@
 					<td><button type="submit" value=<%=employee.getCode()%>>çÌèú</button></td>
 				</tr>
 			</form>
-
-			<%
-                    }
-
-            %>
+<% } %>
+<% } %>
 		</table>
 		<br>
 		<form action="menu.html" method="POST">
