@@ -49,12 +49,12 @@ public class EmployeeDAO {
 			while (res.next()) {
 				EmployeeBean employee = new EmployeeBean();
 				employee.setCode(res.getString("code"));
-				employee.setName(res.getString("name"));
+				employee.setName(res.getString("l_name") + res.getString("f_name"));
 				employee.setSex(res.getByte("sex"));
-				employee.setName_kana(res.getString("name_kana"));
+				employee.setName_kana(res.getString("l_kana_name") + res.getString("f_kana_name"));
 				employee.setBirth_day(res.getDate("Birth_day"));
 				employee.setSection_code(res.getString("section_code"));
-				employee.setEmp_date(res.getTimestamp("emp_data"));
+				employee.setEmp_date(res.getDate("emp_data"));
 				employeeList.add(employee);
 			}
 		} catch(SQLException e) {
