@@ -90,6 +90,27 @@ public class EmployeeDAO {
 		}
 	}
 
+	public ArrayList<EmployeeBean> selectSection() {
+		ConnectionManager cm = ConnectionManager.getInstance();
+
+		ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
+
+		try (Connection con = cm.getConnection(); Statement stmt = con.createStatement()) {
+
+			ResultSet res = stmt.executeQuery("SELECT section_name FROM m_section");
+
+			while (res.next()) {
+				EmployeeBean employee = new EmployeeBean();
+				employee.setSection_name(res.getString("section_name"));
+				employeeList.add(employee);
+			}
+		} catch(SQLException e) {
+            System.out.println("処理結果：異常が発生しました。");
+            e.printStackTrace();
+        }
+        return employeeList;
+		}
+
 }
 
 

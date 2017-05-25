@@ -1,33 +1,49 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
+<%@ page language="java" contentType="text/html; charset=Windows-31J"
+	pageEncoding="Windows-31J"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="entity.EmployeeBean"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
 <title>Insert title here</title>
 </head>
 <body>
-<div form = "CENTER">
-<h1>å¾“æ¥­å“¡ç™»éŒ²</h1>
 
-<H2>å¾“æ¥­å“¡æƒ…å ±</H2>
+<h1>]‹Æˆõ“o˜^</h1>
+
+<H2>]‹Æˆõî•ñ</H2>
 
 <table>
-	<tr><td>å¾“æ¥­å“¡ã‚³ãƒ¼ãƒ‰</td><td><input type = "text" name = "emp_code" ></td></tr>
-	<tr><td>æ°å</td><td>å§“ï¼š<input type = "text" name = "l_name" >åï¼š<input type = "text" name = "f_name" ></td></tr>
-	<tr><td>æ°åï¼ˆãƒ•ãƒªã‚¬ãƒŠï¼‰</td><td>å§“ï¼ˆã‚»ã‚¤ï¼‰ï¼š<input type = "text" name = "l_kana_name" >åï¼ˆãƒ¡ã‚¤ï¼‰ï¼š<input type = "text" name = "f_kana_name" ></td></tr>
-	<tr><td>æ€§åˆ¥</td><td><input type = "radio" name = "sex" value = "0">ç”·
-						<input type = "radio" name = "sex" value = "1">å¥³</td></tr>
-	<tr><td>ç”Ÿå¹´æœˆæ—¥</td><td><input type="date" name="example1"></td></tr>
+	<tr><td>]‹ÆˆõƒR[ƒh</td><td><input type = "text" name = "emp_code" ></td></tr>
+	<tr><td>Ž–¼</td><td>©F<input type = "text" name = "l_name" >–¼F<input type = "text" name = "f_name" ></td></tr>
+	<tr><td>Ž–¼iƒtƒŠƒKƒij</td><td>©iƒZƒCjF<input type = "text" name = "l_kana_name" >–¼iƒƒCjF<input type = "text" name = "f_kana_name" ></td></tr>
+	<tr><td>«•Ê</td><td><input type = "radio" name = "sex" value = "0">’j
+						<input type = "radio" name = "sex" value = "1">—</td></tr>
+	<tr><td>¶”NŒŽ“ú</td><td><input type="date" name="bitrth_day"></td></tr>
+	<tr><td>Š‘®•”</td><td>
+		 <%
+                ArrayList<EmployeeBean> section =
+                        (ArrayList<EmployeeBean>) request.getAttribute("sectionList");
+                if(section != null) {
+                %>
+                	<select name = "section_name" size = "<%=section.size()%>">
+                <%
+                    for(int i = 0; i < section.size(); i++) {
+                     EmployeeBean section_nam = section.get(i);%>
+                    	<option value="<%=section_nam.getSection_name()%>"><%=section_nam.getSection_name()%></option>
+                    <%}
+                }%>
 
-
-
+ 	</select></td></tr>
+	<tr><td>“üŽÐ“ú</td><td><input type="date" name="emp_date"></td></tr>
 
 
 </table>
-</div>
+
 </body>
-</div>
+
 </html>
 
 

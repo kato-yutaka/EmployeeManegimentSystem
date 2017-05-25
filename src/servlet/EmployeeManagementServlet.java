@@ -41,7 +41,7 @@ public class EmployeeManagementServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = null;
 
-		// エンコーディング指定
+
         request.setCharacterEncoding("Windows-31J");
         response.setCharacterEncoding("Windows-31J");
 
@@ -92,6 +92,7 @@ public class EmployeeManagementServlet extends HttpServlet {
         	String sex = request.getParameter("sex");
         	String birth = request.getParameter("emp_code");
         	String emp_code = request.getParameter("emp_code");
+
         	break;
 
         case "削除":
@@ -108,6 +109,24 @@ public class EmployeeManagementServlet extends HttpServlet {
         	}
         	break;
 
+        case "従業員登録":
+        	 // DAO、Beanをインスタンス化
+            ArrayList<EmployeeBean> sectionList = new ArrayList<EmployeeBean>();
+
+
+            // DAOからのreturnをBeanに格納
+            try {
+               sectionList = dao.selectSection();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+            System.out.print(sectionList.get(1).getSection_name());
+            // requestスコープに格納
+            request.setAttribute("sectionList", sectionList);
+
+            // 移譲先の指定
+            url = "registEmployee.jsp";
+            break;
         }
 
         RequestDispatcher rd = request.getRequestDispatcher(url);
