@@ -12,33 +12,41 @@ public class EmployeeDAO {
 
 	public void insertEmployee(EmployeeBean employeeBean){
 
+
+
+
 		 ConnectionManager cm = ConnectionManager.getInstance();
 
-	        employeeBean.get
 
-	        try(Connection con = cm.getConnection();
-	                Statement stmt = con.createStatement()) {
-
-	            ResultSet res = stmt.executeQuery("INSRT INTO VALUES(employees));
-
-	            // 結果の取得
-	            while(res.next()) {
-	                EmployeeBean employee = new EmployeeBean();
-	                employee.setCode(res.getString("code"));
-	                employee.setName(res.getString("name"));
-	                employee.setAge(res.getInt("age"));
-	                employee.setSection(res.getString("section"));
-
-	                employeeList.add(employee);
-	            }
-
-	        // SQLに関する例外処理
-	        } catch(SQLException e) {
-	            System.out.println("処理結果：異常が発生しました。");
-	            e.printStackTrace();
-	        }
-	        return employeeList;
+	     //       ResultSet res = stmt.executeQuery("INSRT INTO VALUES(employees"));
 
 	}
 
-}
+	public ArrayList<EmployeeBean> selectEmployee() {
+		ConnectionManager cm = ConnectionManager.getInstance();
+
+		ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
+
+		try (Connection con = cm.getConnection(); Statement stmt = con.createStatement()) {
+
+			ResultSet res = stmt.executeQuery("SELECT * FROM m_employee");
+
+			while (res.next()) {
+				EmployeeBean employee = new EmployeeBean();
+				employee.setCode(res.getString("code"));
+				employee.setName(res.getString("name"));
+				employee.setSex(res.getByte("sex"));
+				employee.setName_kana(res.getString("name_kana"));
+				employee.setBirth_day(res.getDate("Birth_day"));
+				employee.setSection_code(res.getString("section_code"));
+				employee.setEmp_date(res.getTimestamp("emp_data"));
+				employeeList.add(employee);
+			}
+		} catch(SQLException e) {
+            System.out.println("処理結果：異常が発生しました。");
+            e.printStackTrace();
+        }
+        return employeeList;
+		}
+	}
+
