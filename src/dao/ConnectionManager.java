@@ -1,19 +1,9 @@
-/*
- * 4_MVCSample
- * ConnectionManager.java
- */
 package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * データベース管理クラス
- *
- * @author emBex Education
- * @version 1.00
- */
 public class ConnectionManager {
 
     private final static String URL = "jdbc:mysql://localhost/sampledb";
@@ -24,9 +14,7 @@ public class ConnectionManager {
 
     private static ConnectionManager instance = new ConnectionManager();
 
-    /**
-     * コンストラクタ.
-     */
+
     private ConnectionManager() {
     }
 
@@ -34,12 +22,7 @@ public class ConnectionManager {
         return instance;
     }
 
-    /**
-     * DBの接続.
-     *
-     * @return コネクション
-     * @throws Exception
-     */
+ //throws Exception
     public Connection getConnection() {
 
         String drv = "com.mysql.jdbc.Driver";

@@ -60,11 +60,11 @@ public class EmployeeBean implements Serializable {
     	this.section_code = section_code;
     }
 
-    public java.sql.Timestamp getemp_date(){
+    public java.sql.Timestamp getEmp_date(){
     	return emp_date;
     }
 
-    public void setemp_date(java.sql.Timestamp emp_date){
+    public void setEmp_date(java.sql.Timestamp emp_date){
     	this.emp_date = emp_date;
     }
 }
