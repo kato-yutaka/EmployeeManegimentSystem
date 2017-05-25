@@ -10,6 +10,35 @@ import entity.EmployeeBean;
 
 public class EmployeeDAO {
 
+	public void insertEmployee(EmployeeBean employeeBean){
 
+		 ConnectionManager cm = ConnectionManager.getInstance();
+
+	        ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
+
+	        try(Connection con = cm.getConnection();
+	                Statement stmt = con.createStatement()) {
+
+	            ResultSet res = stmt.executeQuery("SELECT * FROM employees");
+
+	            // 結果の取得
+	            while(res.next()) {
+	                EmployeeBean employee = new EmployeeBean();
+	                employee.setCode(res.getString("code"));
+	                employee.setName(res.getString("name"));
+	                employee.setAge(res.getInt("age"));
+	                employee.setSection(res.getString("section"));
+
+	                employeeList.add(employee);
+	            }
+
+	        // SQLに関する例外処理
+	        } catch(SQLException e) {
+	            System.out.println("処理結果：異常が発生しました。");
+	            e.printStackTrace();
+	        }
+	        return employeeList;
+
+	}
 
 }
