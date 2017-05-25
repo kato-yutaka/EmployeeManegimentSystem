@@ -39,14 +39,23 @@ public class EmployeeManagementServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String url = null;
 
 		// エンコーディング指定
         request.setCharacterEncoding("Windows-31J");
         response.setCharacterEncoding("Windows-31J");
 
+        // JSPよりパラメータを取得
         String action = request.getParameter("ACTION");
 
-        String url = null;
+        // 削除であるか判定
+        String code = null;
+        if(action.length() == 4){
+        	code = action;
+        	action = "削除";
+        }
+
+
         // DAO、Beanをインスタンス化
         ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
         EmployeeDAO dao = new EmployeeDAO();
@@ -86,8 +95,6 @@ public class EmployeeManagementServlet extends HttpServlet {
         	break;
 
         case "削除":
-        	String code = request.getParameter("CODE");
-
         	// インスタンス化
         	Remove remove = new Remove(code);
         	// 削除完了・失敗で使用
