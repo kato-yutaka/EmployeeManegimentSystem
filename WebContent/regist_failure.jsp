@@ -16,7 +16,7 @@
 	<hr>
 	<br>
 
-	<form action="/EmployeeManegimentSystem/EmployeeManagementServlet" method="POST">
+	<form action="registEmployee.jsp" method="POST">
 		<p>]‹Æˆõî•ñ‚Ì“o˜^‚ÉŽ¸”s‚µ‚Ü‚µ‚½B</p>
 		<input type="submit" name="ACTION" value="“o˜^‰æ–Ê‚Ö">
 	</form>
