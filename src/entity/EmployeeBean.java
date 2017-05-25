@@ -19,6 +19,7 @@ public class EmployeeBean implements Serializable {
     private String l_kana_name;
     private String f_kana_name;
     private Timestamp update_date;
+    private String section_name;
 
     public String getCode() {
         return code;
@@ -112,5 +113,13 @@ public class EmployeeBean implements Serializable {
 
     public Timestamp getUpdate_date(){
     	return update_date;
+    }
+
+    public void setSection_name(String section_name) {
+        this.section_name = section_name;
+    }
+
+    public String getSection_name(){
+    	return section_name;
     }
 }
