@@ -1,6 +1,8 @@
 package entity;
 
-public class EmployeeBean {
+import java.io.Serializable;
+
+public class EmployeeBean implements Serializable {
 
 	private String code;
 	private String name;
