@@ -30,17 +30,19 @@
                     for(int i = 0; i < employeList.size(); i++) {
                         EmployeeBean employee = employeList.get(i);
             %>
+            <form action="/EmployeeManegimentSystem/EmployeeManagementServlet" method="POST">
+            <input type="hidden" name="CODE" value=<%=employee.getCode()%>>
             <tr>
                 <td><%=employee.getCode()%></td>
                 <td><%=employee.getName()%></td>
-                <td><%=employee.getSex()%></td>
                 <td><%=employee.getName_kana()%></td>
+                <td><%=employee.getSex()%></td>
                 <td><%=employee.getBirth_day() %></td>
                 <td><%=employee.getSection_code() %>
                 <td><%=employee.getEmp_date() %>>
-                <td><input type="button" value="íœ"></td>
+                <td><input type="submit" name="ACTION" value="íœ"></td>
             </tr>
-
+			</form>
 
             <%
                     }

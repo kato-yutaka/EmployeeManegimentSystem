@@ -44,17 +44,17 @@ public class EmployeeDAO {
 
 		try (Connection con = cm.getConnection(); Statement stmt = con.createStatement()) {
 
-			ResultSet res = stmt.executeQuery("SELECT * FROM m_employee");
+			ResultSet res = stmt.executeQuery("SELECT * FROM m_employee ");
 
 			while (res.next()) {
 				EmployeeBean employee = new EmployeeBean();
-				employee.setCode(res.getString("code"));
+				employee.setCode(res.getString("emp_code"));
 				employee.setName(res.getString("l_name") + res.getString("f_name"));
 				employee.setSex(res.getByte("sex"));
 				employee.setName_kana(res.getString("l_kana_name") + res.getString("f_kana_name"));
 				employee.setBirth_day(res.getDate("Birth_day"));
 				employee.setSection_code(res.getString("section_code"));
-				employee.setEmp_date(res.getDate("emp_data"));
+				employee.setEmp_date(res.getDate("emp_date"));
 				employeeList.add(employee);
 			}
 		} catch(SQLException e) {
@@ -64,7 +64,8 @@ public class EmployeeDAO {
         return employeeList;
 		}
 
-	public void deleteEmployee(String emp_code) throws Exception {
+	@SuppressWarnings("finally")
+	public boolean deleteEmployee(String emp_code, boolean del_fin) throws Exception {
 
 		// データベースへの接続の取得
 		ConnectionManager cm = ConnectionManager.getInstance();
@@ -75,11 +76,17 @@ public class EmployeeDAO {
 			ResultSet res = stmt.executeQuery("SELECT * FROM m_employee WHERE emp_code = "+emp_code)){
 
 			// 従業員削除
-			stmt.executeUpdate("DELETE FROM m_employee WHERE emp_code = "+emp_code);
+			if(res.next() == true){
+				stmt.executeUpdate("DELETE FROM m_employee WHERE emp_code = "+emp_code);
+				del_fin = true;
+			}
 
 		// 例外処理
 		} catch (SQLException e){
-			System.out.println(e.getMessage());
+			del_fin = false;
+
+		} finally {
+			return del_fin;
 		}
 	}
 
