@@ -127,6 +127,10 @@ public class EmployeeManagementServlet extends HttpServlet {
             // 移譲先の指定
             url = "registEmployee.jsp";
             break;
+
+        default:
+        	url = "menu.html";
+        	break;
         }
 
         RequestDispatcher rd = request.getRequestDispatcher(url);
