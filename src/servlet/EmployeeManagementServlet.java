@@ -49,6 +49,10 @@ public class EmployeeManagementServlet extends HttpServlet {
         String action = request.getParameter("ACTION");
 
 
+
+
+
+
         String url = null;
 
         if("従業員一覧・削除".equals(action)) {
@@ -63,6 +67,12 @@ public class EmployeeManagementServlet extends HttpServlet {
             } catch(Exception e) {
                 e.printStackTrace();
             }
+
+
+            EmployeeBean emp = new EmployeeBean();
+            String code=emp.getCode();
+            System.out.println(code);
+
 
             request.setAttribute("employeList", employeeList);
 
