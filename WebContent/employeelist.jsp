@@ -12,8 +12,9 @@
 <body>
 	<div align="center">
 		<font size="5" color="#000aff">]‹Æˆõˆê——‰æ–Ê</font>
+		<hr>
+	<br>
 	</div>
-	<hr>
 	<div align="center">
 		<table border="1">
 			<tr>

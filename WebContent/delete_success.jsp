@@ -17,7 +17,7 @@ pageEncoding="Windows-31J"%>
 	<br>
 	<form action="/EmployeeManegimentSystem/EmployeeManagementServlet" method="POST">
 		<p><%=emp_code%>‚ðíœ‚µ‚Ü‚µ‚½B</p>
-		<input type="submit" name="ACTION" value="@]‹Æˆõˆê——‚Ö@">
+		<input type="submit" name="ACTION" value="]‹Æˆõˆê——‚Ö">
 	</form>
 	</div>
 </body>
