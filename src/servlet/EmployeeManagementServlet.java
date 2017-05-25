@@ -69,6 +69,20 @@ public class EmployeeManagementServlet extends HttpServlet {
 
             url = "employeelist.jsp";
         }
+        if("入力内容を登録".equals(action)){
+        	 // DAO、Beanをインスタンス化
+            ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
+            EmployeeDAO dao = new EmployeeDAO();
+
+        	String l_name = request.getParameter("l_name");
+        	String f_name = request.getParameter("f_name");
+        	String l_kana_name = request.getParameter("l_kana_name");
+        	String f_kana_name = request.getParameter("f_kana_name");
+        	String sex = request.getParameter("sex");
+        	String birth = request.getParameter("emp_code");
+        	String emp_code = request.getParameter("emp_code");
+
+        }
 
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
