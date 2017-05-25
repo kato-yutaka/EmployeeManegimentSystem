@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,9 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class EmployeeManagementServlet
- */
+import dao.EmployeeDAO;
+import entity.EmployeeBean;
+
+
 @WebServlet("/EmployeeManagementServlet")
 public class EmployeeManagementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -37,15 +39,36 @@ public class EmployeeManagementServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
 		  // エンコーディング指定
+
         request.setCharacterEncoding("Windows-31J");
         response.setCharacterEncoding("Windows-31J");
 
-        // formからの値を取得
+
         String action = request.getParameter("ACTION");
 
-        // 移譲する先のjspを格納する変数url
+
         String url = null;
+
+        if("従業員一覧・削除".equals(action)) {
+
+            // DAO、Beanをインスタンス化
+            ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
+            EmployeeDAO dao = new EmployeeDAO();
+
+
+            try {
+                employeeList = dao.selectEmployee();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+
+            request.setAttribute("employeList", employeeList);
+
+
+            url = "employeelist.jsp";
+        }
 
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);

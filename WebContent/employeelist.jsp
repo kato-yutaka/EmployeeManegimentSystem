@@ -17,13 +17,15 @@
         <table border="1">
             <tr>
                 <td>従業員コード</td>
-                <td>名前</td>
-                <td>年齢</td>
-                <td>部署</td>
+                <td>氏名</td>
+                <td>氏名(フリガナ)</td>
+                <td>性別</td>
+                <td>生年月日</td>
+                <td>所属部署</td>
+                <td>入社日</td>
             </tr>
             <%
-                ArrayList<EmployeeBean> employeList =
-                        (ArrayList<EmployeeBean>) request.getAttribute("employeList");
+                ArrayList<EmployeeBean> employeList = (ArrayList<EmployeeBean>) request.getAttribute("employeList");
                 if(employeList != null) {
                     for(int i = 0; i < employeList.size(); i++) {
                         EmployeeBean employee = employeList.get(i);
@@ -43,7 +45,7 @@
             %>
         </table>
         <br>
-        <form action="employee" method="POST">
+        <form action="menu.html" method="POST">
             <input type="submit" value="メニュー画面へ" name="ACTION">
         </form>
     </div>
