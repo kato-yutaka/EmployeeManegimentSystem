@@ -32,7 +32,7 @@
                     for(int i = 0; i < employeList.size(); i++) {
                         EmployeeBean employee = employeList.get(i);
             %>
-			<form action="/EmployeeManegimentSystem/EmployeeManagementServlet"method="POST">
+			<form action="/EmployeeManegimentSystem/EmployeeManagementServlet" method="POST">
 				<input type="hidden" name="CODE" value=<%=employee.getCode()%>>
 				<tr>
 					<td><%=employee.getCode()%></td>
