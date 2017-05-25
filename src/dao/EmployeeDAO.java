@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -12,13 +13,27 @@ public class EmployeeDAO {
 
 	public void insertEmployee(EmployeeBean employeeBean){
 
-
-
-
 		 ConnectionManager cm = ConnectionManager.getInstance();
+		 try (Connection con = cm.getConnection(); Statement stmt = con.createStatement())
+		 {
+			 String emp_code  = employeeBean.getCode();
+			 String l_name = employeeBean.getL_name();
+			 String f_name = employeeBean.getF_name();
+			 String l_kana_name = employeeBean.getL_kana_name();
+			 String f_kana_name = employeeBean.getF_kana_name();
+			 int sex = employeeBean.getSex();
+			 String section_code = employeeBean.getSection_code();
+			 Date emp_date = employeeBean.getEmp_date();
+			 Date update_date = employeeBean.getEmp_date();
+			 int count = stmt.executeUpdate("INSERT INTO VALUES(\'"+ emp_code + "\',\'"+ l_name +  "\',\'"+ f_name
+					 + "\',\'"+ l_kana_name + "\',\'"+ f_kana_name + "\',\'"+ sex + "\',\'"+ section_code + "\',\'"+ emp_date
+					 + "\',\'"+ update_date + "\'");
 
+		 } catch(SQLException e) {
+	            System.out.println("処理結果：異常が発生しました。");
+	            e.printStackTrace();
+	     }
 
-	     //       ResultSet res = stmt.executeQuery("INSRT INTO VALUES(employees"));
 
 	}
 

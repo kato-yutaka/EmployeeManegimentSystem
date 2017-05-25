@@ -1,6 +1,9 @@
 package entity;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+
+
 
 public class EmployeeBean implements Serializable {
 
@@ -10,11 +13,12 @@ public class EmployeeBean implements Serializable {
 	private byte  sex;
 	private java.sql.Date birth_day;
     private String section_code;
-    private java.sql.Timestamp emp_date;
+    private java.sql.Date emp_date;
     private String l_name;
     private String f_name;
     private String l_kana_name;
     private String f_kana_name;
+    private Timestamp update_date;
 
     public String getCode() {
         return code;
@@ -64,11 +68,11 @@ public class EmployeeBean implements Serializable {
     	this.section_code = section_code;
     }
 
-    public java.sql.Timestamp getEmp_date(){
+    public java.sql.Date getEmp_date(){
     	return emp_date;
     }
 
-    public void setEmp_date(java.sql.Timestamp emp_date){
+    public void setEmp_date(java.sql.Date emp_date){
     	this.emp_date = emp_date;
     }
 
@@ -101,5 +105,12 @@ public class EmployeeBean implements Serializable {
 
     public String getF_kana_name(){
     	return f_kana_name;
+    }
+    public void setUpdate_date(Timestamp update_date) {
+        this.update_date = update_date;
+    }
+
+    public Timestamp getUpdate_date(){
+    	return update_date;
     }
 }
