@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +36,14 @@ public class EmployeeManagementServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		 // エンコーディング指定
+        request.setCharacterEncoding("Windows-31J");
+        response.setCharacterEncoding("Windows-31J");
+
+        // formからの値を取得
+        String action = request.getParameter("ACTION");
+        
 	}
 
 }
