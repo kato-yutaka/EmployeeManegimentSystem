@@ -44,6 +44,7 @@ public class EmployeeManagementServlet extends HttpServlet {
         response.setCharacterEncoding("Windows-31J");
 
         String action = request.getParameter("ACTION");
+
         String url = null;
         // DAO、Beanをインスタンス化
         ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
