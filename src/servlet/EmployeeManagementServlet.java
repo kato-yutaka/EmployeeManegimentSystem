@@ -47,7 +47,7 @@ public class EmployeeManagementServlet extends HttpServlet {
 
         // JSPよりパラメータを取得
         String action = request.getParameter("ACTION");
-
+        System.out.print(action.length());
         // 削除であるか判定
         String code = null;
         if(action.length() == 4){

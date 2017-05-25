@@ -49,7 +49,7 @@
 					<td><%=employee.getBirth_day() %></td>
 					<td><%=employee.getSection_code() %>
 					<td><%=employee.getEmp_date() %>>
-					<td><button type="submit" value=<%=employee.getCode()%>>íœ</button></td>
+					<td><button type="submit" value="<%=employee.getCode()%>">íœ</button></td>
 				</tr>
 			</form>
 <% } %>
