@@ -11,6 +11,8 @@
 	        <font size="6">ログイン失敗しました</font>
 	    </div>
 	    <div align="center">
+	    	UserIdまたはPassWordが間違っています。<br>
+	    	ログイン画面に戻り、もう一度入力してください。
 	        <form action="UserManagementServlet" method="POST">
 	            <br>
 	            <input type="hidden" name="ACTION" value="222">
