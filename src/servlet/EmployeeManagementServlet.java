@@ -106,8 +106,10 @@ public class EmployeeManagementServlet extends HttpServlet {
      			employee.setL_kana_name(l_kana_name);
      			employee.setF_kana_name(f_kana_name);
      			employee.setBirth_day(birth_day);
-     			employee.setSection_code(section_name);
+     			employee.setSection_name(section_name);
      			employee.setEmp_date(emp_date);
+
+
                 dao.insertEmployee(employee);
                 url = "successRegistEmployee.jsp";
              } catch(Exception e) {
