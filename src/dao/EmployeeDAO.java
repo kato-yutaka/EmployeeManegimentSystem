@@ -89,7 +89,7 @@ public class EmployeeDAO {
 
 		   // データベースへの接続の取得、ステートメント取得
 		try (Connection con = cm.getConnection(); Statement stmt = con.createStatement()) {
-			ResultSet res = stmt.executeQuery("SELECT * FROM emp_sys_db.m_employee t1 LEFT OUTER JOIN emp_sys_db.m_section  t2 ON  t1.section_code = t2.section_code ");
+			ResultSet res = stmt.executeQuery("SELECT * FROM emp_sys_db.m_employee t1 LEFT OUTER JOIN emp_sys_db.m_section  t2 ON  t1.section_code = t2.section_code ORDER BY t1.emp_code ");
 
 			// 結果の取得
 			while (res.next()) {
