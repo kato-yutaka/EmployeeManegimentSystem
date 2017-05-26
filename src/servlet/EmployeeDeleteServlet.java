@@ -2,14 +2,11 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import entity.Remove;
 
 /**
  * Servlet implementation class EmployeeDeleteServlet
@@ -47,26 +44,13 @@ public class EmployeeDeleteServlet extends HttpServlet {
 
         // JSPよりパラメータを取得
         String code = request.getParameter("ACTION");
-
-        // 削除であるか判定
         /*
-        String code = null;
-        boolean flg = isNumber(action);
-        if(flg == true){
-        	code = action;
-        	action = "削除";
-        }
+        // 削除完了・失敗で使用
+    	request.setAttribute("CODE", code);
 
-
-        if(action.length() == 4){
-        	code = action;
-        	action = "削除";
-        }
-        */
         // インスタンス化
     	Remove remove = new Remove(code);
-    	// 削除完了・失敗で使用
-    	request.setAttribute("CODE", code);
+
     	// 削除処理とフラグ判定
     	boolean flag = remove.removeEmployee();
     	if(flag == true){
@@ -77,17 +61,10 @@ public class EmployeeDeleteServlet extends HttpServlet {
 
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
+        */
+
+    	System.out.println(code);
 
 
 	}
-
-	static boolean isNumber(String action){
-		try {
-	        Integer.parseInt(action);
-	        return true;
-	        } catch (NumberFormatException e) {
-	        return false;
-	    }
-	}
-
 }

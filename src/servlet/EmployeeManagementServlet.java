@@ -39,6 +39,8 @@ public class EmployeeManagementServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
 		String url = null;
 		// エンコーディング指定
         request.setCharacterEncoding("Windows-31J");
@@ -46,6 +48,7 @@ public class EmployeeManagementServlet extends HttpServlet {
 
         // JSPよりパラメータを取得
         String action = request.getParameter("ACTION");
+
 
         // DAO、Beanをインスタンス化
         ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
@@ -88,6 +91,7 @@ public class EmployeeManagementServlet extends HttpServlet {
         	String f_name = request.getParameter("f_name");
         	String l_kana_name = request.getParameter("l_kana_name");
         	String f_kana_name = request.getParameter("f_kana_name");
+
         	String sex_str = request.getParameter("sex");
         	System.out.println(request.getParameter("birth_day"));
 
@@ -115,6 +119,7 @@ public class EmployeeManagementServlet extends HttpServlet {
              } catch(Exception e) {
                  e.printStackTrace();
              }
+
 
         	break;
 
