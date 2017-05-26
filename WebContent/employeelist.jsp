@@ -47,20 +47,20 @@ function DeleteCheck(){
             %>
 			<form action="/EmployeeManegimentSystem/EmployeeDeleteServlet" method="POST"  onSubmit="return DeleteCheck()">
 				<tr>
-					<td><%=employee.getCode()%></td>
-					<td><%=employee.getName()%></td>
-					<td><%=employee.getName_kana() %></td>
-
+					<td><%=employee.getCode()%></td>         <%--従業員コードを出力 --%>
+					<td><%=employee.getName()%></td>         <%--名前を出力: --%>
+					<td><%=employee.getName_kana() %></td>   <%--名前(カナ)を出力 --%>
 					<td>
-						<% if(employee.getSex() == 0) { %>
-						<%= "男" %>
+						<% if(employee.getSex() == 0) { %>  <%--性別を判定
+						<%= "男" %>                              選択が0だったら男を出力
 						<% }else{ %>
-						<%= "女" %>
+						<%= "女" %>                               その他だったら女を出力--%>
 					<% } %>
 					</td>
-					<td><%=employee.getBirth_day() %></td>
-					<td><%=employee.getSection_code() %>
-					<td><%=employee.getEmp_date() %>
+					<td><%=employee.getBirth_day() %></td>   <%--誕生日を出力 --%>
+					<td><%=employee.getSection_name() %>     <%--所属部署を出力 --%>
+					<td><%=employee.getEmp_date() %>         <%--入社日を出力 --%>
+
 					<td><button type="submit" name="ACTION" value=<%=employee.getCode()%>>削除</button></td>
 				</tr>
 			</form>

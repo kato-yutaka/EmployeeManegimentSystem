@@ -7,19 +7,19 @@ import java.sql.Timestamp;
 
 public class EmployeeBean implements Serializable {
 
-	private String code;
-	private String name;
-	private String name_kana;
-	private byte  sex;
-	private java.sql.Date birth_day;
-    private String section_code;
-    private java.sql.Date emp_date;
-    private String l_name;
-    private String f_name;
-    private String l_kana_name;
-    private String f_kana_name;
-    private Timestamp update_date;
-    private String section_name;
+	private String code;                 //従業員コード
+	private String name;                 //氏名
+	private String name_kana;            //氏名(フリガナ)
+	private byte  sex;                  //性別
+	private java.sql.Date birth_day;     //生年月日
+    private String section_code;         //所属コード
+    private java.sql.Date emp_date;      //入社日
+    private String l_name;               //氏
+    private String f_name;               //名
+    private String l_kana_name;          //氏(フリガナ)
+    private String f_kana_name;          //名(フリガナ)
+    private Timestamp update_date;       //更新日時
+    private String section_name;         //所属部署
 
     public String getCode() {
         return code;
