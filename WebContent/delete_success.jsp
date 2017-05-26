@@ -5,20 +5,23 @@ pageEncoding="Windows-31J"%>
 <head>
     <meta charset="Windows-31J">
 	<title>削除完了画面</title>
+	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
+<%@ include file="header.jsp" %>
 	<%
         request.setCharacterEncoding("Windows-31J");
-        String emp_code = request.getParameter("CODE");
+        String emp_code = (String)request.getAttribute("CODE");
     %>
-	<div>
+	<div class="center">
 	<h1>削除完了画面</h1>
 	<hr>
 	<br>
+	<p>従業員コード：<%=emp_code%> を削除しました。</p>
 	<form action="/EmployeeManegimentSystem/EmployeeManagementServlet" method="POST">
-		<p><%=emp_code%>を削除しました。</p>
 		<input type="submit" name="ACTION" value="従業員一覧へ">
 	</form>
 	</div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>
