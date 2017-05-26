@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Exception.DuplicateException;
 import dao.EmployeeDAO;
 import entity.EmployeeBean;
+import entity.Regist;
 /**
  * Servlet implementation class RegistEmployeeServlet
  */
@@ -63,7 +65,9 @@ public class RegistEmployeeServlet extends HttpServlet {
         ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
         EmployeeDAO dao = new EmployeeDAO();
         ArrayList<String> nullList = new ArrayList<String>();
-        int error_number = 0;
+        ArrayList<String> error_message = new ArrayList<String>();
+        ArrayList<Integer> error_number = new ArrayList<Integer>();
+
         switch(action) {
 
 		case "入力内容を登録":
@@ -80,6 +84,7 @@ public class RegistEmployeeServlet extends HttpServlet {
 	        	birth_day_str = request.getParameter("birth_day");
 	        	section_name = request.getParameter("section_name");
 	        	emp_date_str = request.getParameter("emp_date");
+
 
 	        	//nullチェック
 
@@ -126,6 +131,33 @@ public class RegistEmployeeServlet extends HttpServlet {
 	 				throw new NullPointerException();
 	 			}
 	 			else{
+	 				boolean is_error = false;//エラー判定用
+	 	            employeeList = dao.selectEmployee();
+
+	 	            //従業員コード重複判定
+	 	            for(int i = 0; i < employeeList.size(); i++){
+
+	 	            		if(emp_code.equals(employeeList.get(i).getCode())){
+	 	            			is_error = true;
+	 	            			error_number.add(3);
+	 	            			error_message.add("従業員コードが重複しています");
+
+	 	            		}
+	 	            }
+
+	 	            //カタカナ判定
+	 	            if (l_kana_name.matches(Regist.toMatchRegex(Regist.KATAKANA_CODES))) {
+	 	            	is_error = true;
+	            			error_number.add(4);
+	            			error_message.add("カタカナが入力されていません");
+	 	        	}
+
+	 	            //エラー発生したなら例外スロー
+	 	            if(is_error){
+	 	            	throw new  DuplicateException();
+
+	 	            }
+
 	 				Date birth_day = Date.valueOf(request.getParameter("birth_day"));
 		        	Date emp_date = Date.valueOf(request.getParameter("emp_date"));
 
@@ -150,33 +182,37 @@ public class RegistEmployeeServlet extends HttpServlet {
 	 			}
 	         }
 
+			//未入力例外
 			catch(NullPointerException e){
-				 String error_message = "未入力の項目があります";
-		        	 url = "regist_failure.jsp";
-		             e.printStackTrace();
-		             System.out.println(error_message);
-		             error_number = 1;
-		             System.out.println(nullList.size());
-		             System.out.println(emp_code);
-		             for(int i=0; i < nullList.size(); i++){
-		            	 System.out.println(nullList.get(i));
-		             }
-		          // requestスコープに格納
-			         request.setAttribute("nullList",nullList );
-			         request.setAttribute("error_message",error_message );
-			         request.setAttribute("error_number",error_number );
+
+				error_message.add("未入力の項目があります");
+	        	url = "regist_failure.jsp";
+	            e.printStackTrace();
+	            System.out.println(error_message);
+	            error_number.add(1);
+	            // requestスコープに格納
+		        request.setAttribute("nullList",nullList );
+		        request.setAttribute("error_message",error_message );
+		        request.setAttribute("error_number",error_number );
 			}
+			//日付型例外
 			catch(IllegalArgumentException e){
-				 String error_message = "正しい日付を入力してください";
-		        	 url = "regist_failure.jsp";
-		             e.printStackTrace();
-		             System.out.println(error_message);
-		             error_number = 2;
-		          // requestスコープに格納
-			         request.setAttribute("error_message",error_message );
-			         request.setAttribute("error_number",error_number );
+				error_message.add("正しい日付を入力してください");
+	        	url = "regist_failure.jsp";
+	            e.printStackTrace();
+	            System.out.println(error_message);
+	            error_number.add(2);
+	            // requestスコープに格納
+		        request.setAttribute("error_message",error_message );
+		        request.setAttribute("error_number",error_number );
+		    //その他例外
+			}catch(DuplicateException e){
+				request.setAttribute("error_message",error_message );
+		        request.setAttribute("error_number",error_number );
+		        url = "regist_failure.jsp";
 			}
 	    	break;
+
 		  case "従業員登録":
 	     	 // DAO、Beanをインスタンス化
 	         ArrayList<EmployeeBean> sectionList = new ArrayList<EmployeeBean>();

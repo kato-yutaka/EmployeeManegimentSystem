@@ -24,22 +24,25 @@
 		<p>]‹Æˆõî•ñ‚Ì“o˜^‚É¸”s‚µ‚Ü‚µ‚½B</p>
 
 		 <%
-		 String mes =
-         (String)request.getAttribute("error_message");
-         int number =
-         (int)request.getAttribute("error_number");%>
-		 <%=mes%><%=number %><br>
+		 ArrayList<String> messageList =
+         (ArrayList<String>) request.getAttribute("error_message");
+		 ArrayList<Integer> numberList =
+		         (ArrayList<Integer>) request.getAttribute("error_number");
 
-         <% if(number == 1){
+		 for(int i = 0; i < numberList.size(); i++) {%>
+		 <%= messageList.get(i)%><br>
+
+         <% if(numberList.get(i) == 1){
          	ArrayList<String> nList =
                        (ArrayList<String>) request.getAttribute("nullList");
 
-              for(int i = 0; i < nList.size(); i++) {
-                  String nName = nList.get(i);%>
+              for(int j = 0; j < nList.size(); j++) {
+                  String nName = nList.get(j);%>
                   <%=nName %><br>
               <%}%>
             <%}%>
-
+            <br>
+		<%}%>
 
 
 		<input type="submit" name="ACTION" value="“o˜^‰æ–Ê‚Ö">
