@@ -17,7 +17,7 @@ pageEncoding="Windows-31J"%>
 	<h1>削除失敗画面</h1>
 	<hr>
 	<br>
-	<p>従業員コード：<%=emp_code%> を削除できませんでした。</p>
+	<p>従業員コード：<%=emp_code%> の従業員は存在しません。</p>
 	<form action="/EmployeeManegimentSystem/EmployeeManagementServlet" method="POST">
 		<input type="submit" name="ACTION" value="従業員一覧へ">
 	</form>
