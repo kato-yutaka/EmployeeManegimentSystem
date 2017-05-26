@@ -81,7 +81,7 @@ public class UserManagementServlet extends HttpServlet {
 
             //id,passの認証
             if(id.equals(id_a) && password.equals(password_a)){
-            	url="menu.html";
+            	url="menu.jsp";
             }
             else{
             	url="login_failure.jsp";

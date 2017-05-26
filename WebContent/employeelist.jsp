@@ -68,7 +68,7 @@ function DeleteCheck(){
 		<% } %>
 		</table>
 		<br>
-		<form action="menu.html" method="POST">
+		<form action="menu.jsp" method="POST">
 			<input type="submit" value="ƒƒjƒ…[‰æ–Ê‚Ö" name="ACTION">
 		</form>
 	</div>

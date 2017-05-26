@@ -73,10 +73,8 @@ public class EmployeeManagementServlet extends HttpServlet {
              url = "logout.jsp";
              break;
 
-
-
         default:
-        	url = "menu.html";
+        	url = "menu.jsp";
         	break;
         }
 
