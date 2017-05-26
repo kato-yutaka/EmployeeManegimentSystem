@@ -18,7 +18,7 @@ pageEncoding="Windows-31J"%>
 
 	<br>
 	<p>従業員コード：<%=emp_code%> を削除しました。</p>
-	<form action="/EmployeeManegimentSystem/EmployeeManagementServlet" method="POST">
+	<form action="EmployeeManagementServlet" method="POST">
 		<input type="submit" name="ACTION" value="従業員一覧へ">
 	</form>
 	</div>

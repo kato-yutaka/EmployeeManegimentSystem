@@ -12,7 +12,7 @@
 
 <script type="text/javascript">
 function DeleteCheck(){
-	if(window.confirm('送信してよろしいですか？')){ <%--確認ダイアログを表示--%>
+	if(window.confirm('削除してよろしいですか？')){ <%--確認ダイアログを表示--%>
 		return true;  <%--「OK」時は送信を実行 --%>
 	}
 	else{ <%--「キャンセル」時の処理 --%>
@@ -45,21 +45,21 @@ function DeleteCheck(){
                     for(int i = 0; i < employeList.size(); i++) {
                         EmployeeBean employee = employeList.get(i);
             %>
-			<form action="/EmployeeManegimentSystem/EmployeeDeleteServlet" method="POST"  onSubmit="return DeleteCheck()">
+			<form action="EmployeeDeleteServlet" method="POST"  onSubmit="return DeleteCheck()">
 				<tr>
 					<td><%=employee.getCode()%></td>         <%--従業員コードを出力 --%>
 					<td><%=employee.getName()%></td>         <%--名前を出力: --%>
 					<td><%=employee.getName_kana() %></td>   <%--名前(カナ)を出力 --%>
 					<td>
-						<% if(employee.getSex() == 0) { %>  <%--性別を判定
-						<%= "男" %>                              選択が0だったら男を出力
+						<% if(employee.getSex() == 0) { %>  <%--性別を判定 --%>
+						<%= "男" %>                              <%--選択が0だったら男を出力 --%>
 						<% }else{ %>
-						<%= "女" %>                               その他だったら女を出力--%>
+						<%= "女" %>                               <%--その他だったら女を出力--%>
 					<% } %>
 					</td>
 					<td><%=employee.getBirth_day() %></td>   <%--誕生日を出力 --%>
-					<td><%=employee.getSection_name() %>     <%--所属部署を出力 --%>
-					<td><%=employee.getEmp_date() %>         <%--入社日を出力 --%>
+					<td><%=employee.getSection_code() %></td>     <%--所属部署を出力 --%>
+					<td><%=employee.getEmp_date() %>  </td>       <%--入社日を出力 --%>
 
 					<td><button type="submit" name="ACTION" value=<%=employee.getCode()%>>削除</button></td>
 				</tr>
@@ -68,7 +68,7 @@ function DeleteCheck(){
 		<% } %>
 		</table>
 		<br>
-		<form action="menu.html" method="POST">
+	  <form action="EmployeeManagementServlet" method="POST"  ">
 			<input type="submit" value="メニュー画面へ" name="ACTION">
 		</form>
 	</div>

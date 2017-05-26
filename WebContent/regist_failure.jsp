@@ -15,12 +15,10 @@
         request.setCharacterEncoding("Windows-31J");
         String emp_code = request.getParameter("CODE");
     %>
-
+	<div class="center">
 	<h1>“o˜^Ž¸”s‰æ–Ê</h1>
-	<hr>
-	<br>
 
-	<form action="registEmployee.jsp" method="POST">
+	<form action="RegistEmployeeServlet" method="POST">
 		<p>]‹Æˆõî•ñ‚Ì“o˜^‚ÉŽ¸”s‚µ‚Ü‚µ‚½B</p>
 
 		 <%
@@ -44,8 +42,8 @@
             <br>
 		<%}%>
 
-
-		<input type="submit" name="ACTION" value="“o˜^‰æ–Ê‚Ö">
+		<br>
+		<button type="submit" name="ACTION" value="]‹Æˆõ“o˜^">“o˜^‰æ–Ê‚Ö</button>
 	</form>
 	</div>
 <%@ include file="footer.jsp" %>
