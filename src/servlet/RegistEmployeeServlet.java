@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.EmployeeDAO;
 import entity.EmployeeBean;
-
 /**
  * Servlet implementation class RegistEmployeeServlet
  */
@@ -54,51 +53,119 @@ public class RegistEmployeeServlet extends HttpServlet {
         // DAO、Beanをインスタンス化
         ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
         EmployeeDAO dao = new EmployeeDAO();
-
+        ArrayList<String> nullList = new ArrayList<String>();
+        int error_number = 0;
         switch(action) {
 
 		case "入力内容を登録":
 			try
 	    	{
+				//requestの値を取得
 	    		String emp_code = request.getParameter("emp_code");
 	        	String l_name = request.getParameter("l_name");
 	        	String f_name = request.getParameter("f_name");
 	        	String l_kana_name = request.getParameter("l_kana_name");
 	        	String f_kana_name = request.getParameter("f_kana_name");
-
 	        	String sex_str = request.getParameter("sex");
 	        	System.out.println(request.getParameter("birth_day"));
-
-
-	        	Date birth_day = Date.valueOf(request.getParameter("birth_day"));
+	        	String birth_day_str = request.getParameter("birth_day");
 	        	String section_name = request.getParameter("section_name");
-	        	Date emp_date = Date.valueOf(request.getParameter("emp_date"));
-	        	byte sex = Byte.parseByte(sex_str);
+	        	String emp_date_str = request.getParameter("emp_date");
+
+	        	//nullチェック
 
 
-	    		EmployeeBean employee = new EmployeeBean();
-	    		employee.setCode(emp_code);
-	 			employee.setL_name(l_name);
-	 			employee.setF_name(f_name);
-	 			employee.setSex(sex);
-	 			employee.setL_kana_name(l_kana_name);
-	 			employee.setF_kana_name(f_kana_name);
-	 			employee.setBirth_day(birth_day);
-	 			employee.setSection_name(section_name);
-	 			employee.setEmp_date(emp_date);
+	        	boolean is_null = false;
+
+	        	if(emp_code.equals(null)){
+	 				nullList.add("従業員コード");
+	 				is_null = true;
+	 			}
+	 			if(l_name.equals(null)){
+	 				nullList.add("氏名（姓)");
+	 				is_null = true;
+	 			}
+	 			if(f_name.equals(null)){
+	 				nullList.add("氏名（名)");
+	 				is_null = true;
+	 			}
+	 			if(l_kana_name.equals(null)){
+	 				nullList.add("氏名（セイ)");
+	 				is_null = true;
+	 			}
+	 			if(f_kana_name.equals(null)){
+	 				nullList.add("氏名(メイ)");
+	 				is_null = true;
+	 			}
+	 			if(sex_str.equals(null)){
+	 				nullList.add("性別");
+	 				is_null = true;
+	 			}
+	 			if(birth_day_str.equals(null)){
+	 				nullList.add("生年月日");
+	 				is_null = true;
+	 			}
+	 			if(section_name.equals(null)){
+	 				nullList.add("部署名");
+	 				is_null = true;
+	 			}
+	 			if(emp_date_str.equals(null)){
+	 				nullList.add("入社日");
+	 				is_null = true;
+	 			}
+	 			if(is_null){
+	 				throw new NullPointerException();
+	 			}
+	 			else{
+	 				Date birth_day = Date.valueOf(request.getParameter("birth_day"));
+		        	Date emp_date = Date.valueOf(request.getParameter("emp_date"));
+
+	 				byte sex = Byte.parseByte(sex_str);
+		        	//Beanに値をセット
+		    		EmployeeBean employee = new EmployeeBean();
+		    		employee.setCode(emp_code);
+		 			employee.setL_name(l_name);
+		 			employee.setF_name(f_name);
+		 			employee.setSex(sex);
+		 			employee.setL_kana_name(l_kana_name);
+		 			employee.setF_kana_name(f_kana_name);
+		 			employee.setBirth_day(birth_day);
+		 			employee.setSection_name(section_name);
+		 			employee.setEmp_date(emp_date);
+
+		 			//インサート実行
+		            dao.insertEmployee(employee);
+		            url = "successRegistEmployee.jsp";
 
 
-	            dao.insertEmployee(employee);
-	            url = "successRegistEmployee.jsp";
-	         } catch(Exception  e) {
-	        	 String error_message = "エラー";
-	        	 url = "regist_failure.jsp";
-	             e.printStackTrace();
-	          // requestスコープに格納
-		         request.setAttribute("error_message",error_message );
+	 			}
 	         }
 
-
+			catch(NullPointerException e){
+				 String error_message = "未入力の項目があります";
+		        	 url = "regist_failure.jsp";
+		             e.printStackTrace();
+		             System.out.println(error_message);
+		             error_number = 1;
+		             System.out.println(nullList.size());
+		             for(int i=0; i < nullList.size(); i++){
+		            	 System.out.println(nullList.get(i));
+		             }
+		          // requestスコープに格納
+			         request.setAttribute("nullList",nullList );
+			         request.setAttribute("error_message",error_message );
+			         request.setAttribute("error_number",error_number );
+			}
+			catch(IllegalArgumentException e){
+				 String error_message = "正しい日付を入力してください";
+		        	 url = "regist_failure.jsp";
+		             e.printStackTrace();
+		             System.out.println(error_message);
+		             error_number = 2;
+		          // requestスコープに格納
+			         request.setAttribute("error_message",error_message );
+			         request.setAttribute("error_number",error_number );
+			}
 	    	break;
 		  case "従業員登録":
 	     	 // DAO、Beanをインスタンス化
