@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="Windows-31J">
-	<title>ログアウト</title>
+	<title>ログアウト </title>
 </head>
 <body>
 	<div align="center">
