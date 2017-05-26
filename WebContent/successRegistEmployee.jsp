@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=Windows-31J"
-    pageEncoding="UTF-8"%>
+pageEncoding="Windows-31J"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="EmployeeManagementServlet" method="POST">
+<h1>“o˜^Š®—¹‚µ‚Ü‚µ‚½B</h1>
+<input type="submit" value="]‹Æˆõˆê——Eíœ" name="ACTION">
+</form>
 </body>
 </html>
