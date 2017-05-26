@@ -35,22 +35,12 @@ public class EmployeeDAO {
 			 Date birth_day = employeeBean.getBirth_day();
 			 String section_name = employeeBean.getSection_name();
 			 String section_code = null;
-			 System.out.println(emp_code);
-  			System.out.println(l_name);
-  			System.out.println(f_name);
-  			System.out.println(sex);
-  			System.out.println(l_kana_name);
-  			System.out.println(f_kana_name);
-  			System.out.println(birth_day);
-  			System.out.println(section_name);
 			 ResultSet res = stmt.executeQuery("SELECT section_code FROM m_section where section_name =\'" + section_name+ "\'");
-			 System.out.println("result");
 			 while (res.next()) {
 			 section_code = res.getString("section_code");
 			 System.out.println(section_code);
 			 }
 
-			 System.out.println("result2");
 			 Date emp_date = employeeBean.getEmp_date();
 
 

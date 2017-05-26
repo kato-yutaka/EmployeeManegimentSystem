@@ -8,13 +8,17 @@ pageEncoding="Windows-31J"%>
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
+
 <%@ include file="header.jsp" %>
 	<div class="center">
-	<form action="EmployeeManagementServlet" method="POST">
-	<h1>“o˜^Š®—¹‚µ‚Ü‚µ‚½B</h1>
-	<input type="submit" value="]‹Æˆõˆê——Eíœ" name="ACTION">
-	</form>
-	</div>
-<%@ include file="footer.jsp" %>
+
+<form action="EmployeeManagementServlet" method="POST">
+<h1>“o˜^Š®—¹‚µ‚Ü‚µ‚½B</h1>
+<input type="submit" value="]‹Æˆõˆê——Eíœ" name="ACTION">
+</form>
+<form action="RegistEmployeeServlet" method="POST">
+<input type="submit" value="]‹Æˆõ“o˜^" name="ACTION">
+</form>
+</div>
 </body>
 </html>
