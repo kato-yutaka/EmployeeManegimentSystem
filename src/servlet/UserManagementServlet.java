@@ -50,7 +50,7 @@ public class UserManagementServlet extends HttpServlet {
         String action = request.getParameter("ACTION");
         String id = request.getParameter("id");
         String password = request.getParameter("password");
-
+        //データベースのid,pass変数
         String id_a=null;
         String password_a=null;
         //String user[] = new String[2];
@@ -64,20 +64,22 @@ public class UserManagementServlet extends HttpServlet {
             ArrayList<UserBean> userList = new ArrayList<UserBean>();
             UserDAO dao = new UserDAO();
 
-            //DAOからidをreturn
+            //DAOからuserListをreturn
             try {
-            	id_a = dao.userId();
+            	userList = dao.selectUser();
             } catch(Exception e) {
                 e.printStackTrace();
             }
 
-            //DAOからpassをreturn
-            try {
-            	password_a = dao.passWord();
-            } catch(Exception e) {
-                e.printStackTrace();
+            //豆にuserListインスタンスを持たせる
+            for(int i = 0; i < userList.size(); i++){
+                UserBean user = userList.get(i);
+
+	            id_a=user.getUserId();
+	            password_a=user.getPassword();
             }
 
+            //id,passの認証
             if(id.equals(id_a) && password.equals(password_a)){
             	url="menu.html";
             }
@@ -85,22 +87,8 @@ public class UserManagementServlet extends HttpServlet {
             	url="login_failure.jsp";
             }
 
-
-            /*
-            for(int i = 0; i < userList.size(); i++){
-                UserBean user = userList.get(i);
-
-
-            //id_a=user.getUserId();
-            System.out.println(id_a);
-
-            password_a=user.getPassword();
-            //password_a=bean.getPassword();
-            }
-            */
-
-
         }
+        //ログイン画面へボタンを押した
         else if(action.equals("222")){
         	url="login_form.jsp";
         }
