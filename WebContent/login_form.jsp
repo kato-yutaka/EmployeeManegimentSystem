@@ -12,7 +12,7 @@ pageEncoding="Windows-31J"%>
 		<div class="center">
 		<h1>ログイン画面</h1>
 
-		<form action="UserManagementServlet" method="POST" >
+		<form action="UserManagementServlet" method="POST"  autocomplete="off" >
 		<input type="hidden" name="ACTION" value="111">
 		ユーザー情報の入力<br>
 			<table>

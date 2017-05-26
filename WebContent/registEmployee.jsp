@@ -17,7 +17,7 @@
 <h1>]‹Æˆõ“o˜^</h1>
 
 </div>
-	<form action="RegistEmployeeServlet" method="POST" >
+	<form action="RegistEmployeeServlet" method="POST"  autocomplete="off">
 <table>
 	<tr><td><b><font size="4">]‹Æˆõî•ñ</font></b></td></tr>
 	<tr><td id="bg">]‹ÆˆõƒR[ƒh</td><td><input type = "text" name = "emp_code" ></td></tr>
