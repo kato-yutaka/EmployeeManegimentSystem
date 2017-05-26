@@ -12,7 +12,7 @@
 
 <script type="text/javascript">
 function DeleteCheck(){
-	if(window.confirm('送信してよろしいですか？')){ <%--確認ダイアログを表示--%>
+	if(window.confirm('削除してよろしいですか？')){ <%--確認ダイアログを表示--%>
 		return true;  <%--「OK」時は送信を実行 --%>
 	}
 	else{ <%--「キャンセル」時の処理 --%>
