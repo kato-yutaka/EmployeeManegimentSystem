@@ -54,10 +54,6 @@ public class EmployeeManagementServlet extends HttpServlet {
         EmployeeDAO dao = new EmployeeDAO();
 
         switch(action) {
-        case "従業員一覧・削除":
-
-            url = "EmployeeSelectServlet";
-            break;
 
         case "従業員一覧へ":
             try {
