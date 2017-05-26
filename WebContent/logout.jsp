@@ -5,18 +5,20 @@
 <head>
 	<meta charset="Windows-31J">
 	<title>ログアウト </title>
+	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
-	<div align="center">
-	        <font size="6">ログアウトしました</font>
-	    </div>
-	    <div align="center">
-	    	システムを利用するには再度ログインしてください。
+<%@ include file="header.jsp" %>
+	<div class="center">
+	        <h1>ログアウトしました</h1>
+
+	    	<p>システムを利用するには再度ログインしてください。</p>
 	        <form action="UserManagementServlet" method="POST">
 	            <br>
 	            <input type="hidden" name="ACTION" value="222">
 	            <input type="submit" value="ログイン画面へ">
 	        </form>
-	    </div>
+	</div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>

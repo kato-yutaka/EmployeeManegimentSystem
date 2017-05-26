@@ -1,0 +1,9 @@
+@CHARSET "Windows-31J";
+
+div.center{
+	text-align:center;
+}
+table{
+	margin-left:auto;
+	margin-right:auto;
+}

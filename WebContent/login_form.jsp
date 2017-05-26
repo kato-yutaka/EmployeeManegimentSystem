@@ -1,22 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=Windows-31J"
+pageEncoding="Windows-31J"%>
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<title>ãƒ­ã‚°ã‚¤ãƒ³ç”»é¢</title>
+    	<meta charset="Windows-31J">
+		<title>ƒƒOƒCƒ“‰æ–Ê</title>
+		<link rel="stylesheet" href="emp_sys.css" type="text/css">
 	</head>
 	<body>
-		<h1>å¾“æ¥­å“¡ç®¡ç†ã‚·ã‚¹ãƒ†ãƒ </h1>
-		<hr>
+		<%@ include file="header.jsp" %>
+		<div class="center">
+		<h1>ƒƒOƒCƒ“‰æ–Ê</h1>
+
 		<form action="UserManagementServlet" method="POST" >
 		<input type="hidden" name="ACTION" value="111">
-		ãƒ¦ãƒ¼ã‚¶ãƒ¼æƒ…å ±ã®å…¥åŠ›<br>
+		ƒ†[ƒU[î•ñ‚Ì“ü—Í<br>
 			<table>
-				<tr><td>UserName<input type="text" name="id"></td></tr>
-				<tr><td>PassWord<input type="password" name="password"></td></tr>
-				<tr><td><input type="submit" value="ãƒ­ã‚°ã‚¤ãƒ³"></td></tr>
+				<tr><td>UserName:</td><td><input type="text" name="id"></td></tr>
+				<tr><td>PassWord:</td><td><input type="password" name="password"></td></tr>
 			</table>
+			<br>
+			<input type="submit" value="ƒƒOƒCƒ“">
 		</form>
+		</div>
+		<%@ include file="footer.jsp" %>
 	</body>
 </html>
