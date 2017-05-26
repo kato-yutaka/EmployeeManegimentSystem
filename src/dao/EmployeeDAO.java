@@ -21,17 +21,20 @@ public class EmployeeDAO {
 			 String f_name = employeeBean.getF_name();
 			 String l_kana_name = employeeBean.getL_kana_name();
 			 String f_kana_name = employeeBean.getF_kana_name();
-			 int sex = employeeBean.getSex();
-			 String section_code = employeeBean.getSection_code();
+			 byte sex = employeeBean.getSex();
+			 Date birth_day = employeeBean.getBirth_day();
+			 String section_name = employeeBean.getSection_name();
+			 ResultSet res = stmt.executeQuery("SELECT section_code FROM m_section where section_name =\'" + section_name+ "\'");
 			 Date emp_date = employeeBean.getEmp_date();
-			 Date update_date = employeeBean.getEmp_date();
+			 String section_code = res.getString("section_code");
 			 int count = stmt.executeUpdate("INSERT INTO VALUES(\'"+ emp_code + "\',\'"+ l_name +  "\',\'"+ f_name
-					 + "\',\'"+ l_kana_name + "\',\'"+ f_kana_name + "\',\'"+ sex + "\',\'"+ section_code + "\',\'"+ emp_date
-					 + "\',\'"+ update_date + "\'");
+					 + "\',\'"+ l_kana_name + "\',\'"+ f_kana_name + "\',\'"+ sex + "\',\'"+ birth_day + "\',\'"+ section_code + "\',\'"+ emp_date
+					 + "\',CURRENT_TIMESTAMP");
 
 		 } catch(SQLException e) {
 	            System.out.println("処理結果：異常が発生しました。");
 	            e.printStackTrace();
+
 	     }
 
 

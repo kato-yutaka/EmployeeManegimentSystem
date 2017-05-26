@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -85,13 +86,36 @@ public class EmployeeManagementServlet extends HttpServlet {
             break;
 
         case "入力内容を登録":
+        	String emp_code = request.getParameter("emp_code");
         	String l_name = request.getParameter("l_name");
         	String f_name = request.getParameter("f_name");
         	String l_kana_name = request.getParameter("l_kana_name");
         	String f_kana_name = request.getParameter("f_kana_name");
-        	String sex = request.getParameter("sex");
-        	String birth = request.getParameter("emp_code");
-        	String emp_code = request.getParameter("emp_code");
+        	String sex_str = request.getParameter("sex");
+        	System.out.println(request.getParameter("birth_day"));
+
+
+        	Date birth_day = Date.valueOf(request.getParameter("birth_day"));
+        	String section_name = request.getParameter("section_name");
+        	Date emp_date = Date.valueOf(request.getParameter("emp_date"));
+        	byte sex = Byte.parseByte(sex_str);
+
+        	 try {
+        		EmployeeBean employee = new EmployeeBean();
+        		employee.setCode(emp_code);
+     			employee.setL_name(l_name);
+     			employee.setF_name(f_name);
+     			employee.setSex(sex);
+     			employee.setL_kana_name(l_kana_name);
+     			employee.setF_kana_name(f_kana_name);
+     			employee.setBirth_day(birth_day);
+     			employee.setSection_code(section_name);
+     			employee.setEmp_date(emp_date);
+                dao.insertEmployee(employee);
+                url = "successRegistEmployee.jsp";
+             } catch(Exception e) {
+                 e.printStackTrace();
+             }
 
         	break;
 
