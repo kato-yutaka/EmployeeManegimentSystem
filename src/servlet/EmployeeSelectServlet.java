@@ -13,47 +13,57 @@ import javax.servlet.http.HttpServletResponse;
 import dao.EmployeeDAO;
 import entity.EmployeeBean;
 
-/**
- * Servlet implementation class EmployeeSelectServlet
- */
 @WebServlet("/EmployeeSelectServlet")
 public class EmployeeSelectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public EmployeeSelectServlet() {
-        super();
-    }
+	public EmployeeSelectServlet() {
+		super();
+	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 request.setCharacterEncoding("Windows-31J");
-	     response.setCharacterEncoding("Windows-31J");
-	     String url = null;
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-	     String action = request.getParameter("ACTION");
+		// エンコーディング指定
+		request.setCharacterEncoding("Windows-31J");
+		response.setCharacterEncoding("Windows-31J");
 
-	        ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
-	        EmployeeDAO dao = new EmployeeDAO();
+		// 移譲する先のjspを格納する変数url
+		String url = null;
 
-	        switch(action) {
-	        case "従業員一覧・削除":
+		// formから値を取得
+		String action = request.getParameter("ACTION");
 
-	            try {
-	                employeeList = dao.selectEmployee();
-	            } catch(Exception e) {
+		// DAO、Beanをインスタンス化
+		ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
+		EmployeeDAO dao = new EmployeeDAO();
 
-	            }
-	            request.setAttribute("employeList", employeeList);
+		// formからの値が「従業員一覧・削除」の場合、DAOを介しDBから取得しrequestスコープに格納
+		// 移譲先に「employeelist.jsp」を指定
+		switch (action) {
+		case "従業員一覧・削除":
 
-	            url = "employeelist.jsp";
-	            break;
+			// DAOからのreturnをBeanに格納
+			try {
+				employeeList = dao.selectEmployee();
+			} catch (Exception e) {
 
+			}
 
-	        }
-	        RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
+			// requestスコープに格納
+			request.setAttribute("employeList", employeeList);
+
+			// 遷移する先を指定
+			url = "employeelist.jsp";
+			break;
+		}
+
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
 	}
 }
