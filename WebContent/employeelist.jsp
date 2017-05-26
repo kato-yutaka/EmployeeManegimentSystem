@@ -13,19 +13,15 @@
 <link rel="stylesheet" href="emp_sys.css" type="text/css">
 
 <script type="text/javascript">
-	function DeleteCheck() {
-		if (window.confirm('送信してよろしいですか？')) {
-<%--確認ダイアログを表示--%>
-	return true;
-<%--「OK」時は送信を実行 --%>
-	} else {
-<%--「キャンセル」時の処理 --%>
-	window.alert('キャンセルされました');
-<%-- 警告ダイアログを表示 --%>
-	return false;
-<%-- 送信を中止 --%>
+
+function DeleteCheck() {
+	if (window.confirm('削除してよろしいですか？')) {<%--確認ダイアログを表示--%>
+		return true; <%--「OK」時は送信を実行 --%>
+	} else {  <%--「キャンセル」時の処理 --%>
+		window.alert('キャンセルされました'); <%-- 警告ダイアログを表示 --%>
+		return false; <%-- 送信を中止 --%>
 	}
-	}
+}
 </script>
 
 </head>

@@ -64,6 +64,7 @@ public class EmployeeManagementServlet extends HttpServlet {
             request.setAttribute("employeList", employeeList);
 
             url = "employeelist.jsp";
+            
             break;
 
         case "メニュー画面へ":
