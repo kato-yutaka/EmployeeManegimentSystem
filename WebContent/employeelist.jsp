@@ -33,7 +33,11 @@
                         EmployeeBean employee = employeList.get(i);
             %>
 			<form action="/EmployeeManegimentSystem/EmployeeManagementServlet" method="POST">
+<<<<<<< HEAD
 				<%--input type="hidden" name="CODE" value=<%=employee.getCode()%>--%>
+=======
+
+>>>>>>> branch 'master' of https://github.com/kato-yutaka/EmployeeManegimentSystem.git
 				<tr>
 					<td><%=employee.getCode()%></td>
 					<td><%=employee.getName()%></td>
