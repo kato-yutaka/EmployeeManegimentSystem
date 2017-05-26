@@ -11,5 +11,8 @@ pageEncoding="Windows-31J"%>
 <h1>“o˜^Š®—¹‚µ‚Ü‚µ‚½B</h1>
 <input type="submit" value="]‹Æˆõˆê——Eíœ" name="ACTION">
 </form>
+<form action="RegistEmployeeServlet" method="POST">
+<input type="submit" value="]‹Æˆõ“o˜^" name="ACTION">
+</form>
 </body>
 </html>

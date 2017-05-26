@@ -14,7 +14,7 @@
 <h1>従業員登録</h1>
 
 <H2>従業員情報</H2>
-	<form action="EmployeeManagementServlet" method="POST" >
+	<form action="RegistEmployeeServlet" method="POST" >
 <table>
 	<tr><td>従業員コード</td><td><input type = "text" name = "emp_code" ></td></tr>
 	<tr><td>氏名</td><td>姓：<input type = "text" name = "l_name" >名：<input type = "text" name = "f_name" ></td></tr>
