@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=Windows-31J"
     pageEncoding="Windows-31J"%>
+    <%@ page import="java.util.ArrayList"%>
+<%@ page import="entity.EmployeeBean"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,13 +15,33 @@
         request.setCharacterEncoding("Windows-31J");
         String emp_code = request.getParameter("CODE");
     %>
-	<div class="center">
+
 	<h1>“o˜^¸”s‰æ–Ê</h1>
 	<hr>
 	<br>
 
 	<form action="registEmployee.jsp" method="POST">
 		<p>]‹Æˆõî•ñ‚Ì“o˜^‚É¸”s‚µ‚Ü‚µ‚½B</p>
+
+		 <%
+		 String mes =
+         (String)request.getAttribute("error_message");
+         int number =
+         (int)request.getAttribute("error_number");%>
+		 <%=mes%><%=number %><br>
+
+         <% if(number == 1){
+         	ArrayList<String> nList =
+                       (ArrayList<String>) request.getAttribute("nullList");
+
+              for(int i = 0; i < nList.size(); i++) {
+                  String nName = nList.get(i);%>
+                  <%=nName %><br>
+              <%}%>
+            <%}%>
+
+
+
 		<input type="submit" name="ACTION" value="“o˜^‰æ–Ê‚Ö">
 	</form>
 	</div>
