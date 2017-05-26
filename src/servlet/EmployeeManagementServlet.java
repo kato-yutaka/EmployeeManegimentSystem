@@ -47,7 +47,7 @@ public class EmployeeManagementServlet extends HttpServlet {
 
         // JSPよりパラメータを取得
         String action = request.getParameter("ACTION");
-        System.out.print(action.length());
+
         // 削除であるか判定
         String code = null;
         boolean flg = isNumber(action);
@@ -92,6 +92,13 @@ public class EmployeeManagementServlet extends HttpServlet {
 
             url = "employeelist.jsp";
             break;
+
+        case "ログアウト":
+
+             request.setAttribute("employeList", employeeList);
+
+             url = "logout.jsp";
+             break;
 
         case "入力内容を登録":
         	String l_name = request.getParameter("l_name");
