@@ -91,8 +91,11 @@ public class RegistEmployeeServlet extends HttpServlet {
 	            dao.insertEmployee(employee);
 	            url = "successRegistEmployee.jsp";
 	         } catch(Exception  e) {
-	        	 url = "failedEmployee.jsp";
+	        	 String error_message = "エラー";
+	        	 url = "regist_failure.jsp";
 	             e.printStackTrace();
+	          // requestスコープに格納
+		         request.setAttribute("error_message",error_message );
 	         }
 
 
