@@ -27,19 +27,17 @@
 				<td>“üĞ“ú</td>
 			</tr>
 			<%
+				String emp_code;
                 ArrayList<EmployeeBean> employeList = (ArrayList<EmployeeBean>) request.getAttribute("employeList");
                 if(employeList != null) {
                     for(int i = 0; i < employeList.size(); i++) {
                         EmployeeBean employee = employeList.get(i);
+                        emp_code = employee.getCode();
             %>
-			<form action="/EmployeeManegimentSystem/EmployeeManagementServlet" method="POST">
-<<<<<<< HEAD
-
-=======
-
->>>>>>> branch 'master' of https://github.com/kato-yutaka/EmployeeManegimentSystem.git
+			<form action="/EmployeeManegimentSystem/EmployeeDeleteServlet" method="POST">
+				<input type="hidden" name="ACTION" value="emp_code">
 				<tr>
-					<td><%=employee.getCode()%></td>
+					<td><%=emp_code%></td>
 					<td><%=employee.getName()%></td>
 					<td><%=employee.getName_kana() %></td>
 
@@ -53,7 +51,7 @@
 					<td><%=employee.getBirth_day() %></td>
 					<td><%=employee.getSection_code() %>
 					<td><%=employee.getEmp_date() %>>
-					<td><button type="submit" value=<%=employee.getCode()%>>íœ</button></td>
+					<td><input type="submit" value="íœ"></td>
 				</tr>
 			</form>
 <% } %>
