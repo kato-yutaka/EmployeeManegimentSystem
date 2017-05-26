@@ -7,12 +7,14 @@
 <head>
     <meta charset="Windows-31J">
 	<title>登録失敗画面</title>
+	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
-<%
+<body>
+<%@ include file="header.jsp" %>
+	<%
         request.setCharacterEncoding("Windows-31J");
         String emp_code = request.getParameter("CODE");
     %>
-	<div>
 
 	<h1>登録失敗画面</h1>
 	<hr>
@@ -43,5 +45,6 @@
 		<input type="submit" name="ACTION" value="登録画面へ">
 	</form>
 	</div>
+<%@ include file="footer.jsp" %>
 </body>
 </html>

@@ -54,17 +54,6 @@ public class EmployeeManagementServlet extends HttpServlet {
         EmployeeDAO dao = new EmployeeDAO();
 
         switch(action) {
-        case "従業員一覧・削除":
-
-            try {
-                employeeList = dao.selectEmployee();
-            } catch(Exception e) {
-
-            }
-            request.setAttribute("employeList", employeeList);
-
-            url = "employeelist.jsp";
-            break;
 
         case "従業員一覧へ":
             try {

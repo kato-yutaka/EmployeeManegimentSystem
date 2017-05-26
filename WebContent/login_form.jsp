@@ -22,6 +22,7 @@ pageEncoding="Windows-31J"%>
 			<br>
 			<input type="submit" value="ƒƒOƒCƒ“">
 		</form>
+		<br>
 		</div>
 		<%@ include file="footer.jsp" %>
 	</body>

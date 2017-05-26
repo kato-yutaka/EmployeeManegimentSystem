@@ -15,7 +15,7 @@ pageEncoding="Windows-31J"%>
     %>
 	<div class="center">
 	<h1>削除完了画面</h1>
-	<hr>
+
 	<br>
 	<p>従業員コード：<%=emp_code%> を削除しました。</p>
 	<form action="/EmployeeManegimentSystem/EmployeeManagementServlet" method="POST">

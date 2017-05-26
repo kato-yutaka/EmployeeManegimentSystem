@@ -6,10 +6,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
+<%@ include file="header.jsp" %>
+	<div class="center">
 
 <h1>従業員登録</h1>
 
@@ -24,6 +27,7 @@
 	<tr><td>生年月日</td><td><input type="date" name="birth_day"></td></tr>
 	<tr><td>所属部署</td><td>
 		 <%
+
                 ArrayList<EmployeeBean> section =
                         (ArrayList<EmployeeBean>) request.getAttribute("sectionList");
                 if(section != null) {
@@ -35,16 +39,14 @@
                     	<option value="<%=section_nam.getSection_name()%>"><%=section_nam.getSection_name()%></option>
                     <%}
                 }%>
-
- 	</select></td></tr>
-	<tr><td>入社日</td><td><input type="date" name="emp_date"></td></tr>
-
-</table>
-<input type="submit" value="入力内容を登録" name="ACTION">
+ 		</select></td></tr>
+		<tr><td>入社日</td><td><input type="date" name="emp_date"></td></tr>
+	</table>
+	<input type="submit" value="入力内容を登録" name="ACTION">
 	</form>
-
+	</div>
+<%@ include file="footer.jsp" %>
 </body>
-
 </html>
 
 
