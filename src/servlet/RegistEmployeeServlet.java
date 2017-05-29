@@ -98,159 +98,157 @@ public class RegistEmployeeServlet extends HttpServlet {
 		        reg_session.setAttribute("section_name", section_name);
 		        reg_session.setAttribute("emp_date_str", emp_date_str);
 
-	        	//null、空文字チェック 未入力の項目があれば例外スロー
+	        	//null、空文字チェック
 
 
 	        	boolean is_null = false;
+	        	boolean is_error = false;//エラー判定用
 
 	        	if(emp_code == null || emp_code.length() == 0){
 	 				nullList.add("従業員コード");
 	 				is_null = true;
+	 				is_error = true;
 	 			}
 	 			if(l_name == null|| l_name.length() == 0){
 	 				nullList.add("氏名（姓)");
 	 				is_null = true;
+	 				is_error = true;
 	 			}
 	 			if(f_name == null|| f_name.length() == 0){
 	 				nullList.add("氏名（名)");
 	 				is_null = true;
+	 				is_error = true;
 	 			}
 	 			if(l_kana_name == null|| l_kana_name.length() == 0){
 	 				nullList.add("氏名（セイ)");
 	 				is_null = true;
+	 				is_error = true;
 	 			}
 	 			if(f_kana_name == null|| f_kana_name.length() == 0){
 	 				nullList.add("氏名(メイ)");
 	 				is_null = true;
+	 				is_error = true;
 	 			}
 	 			if(sex_str == null|| sex_str.length() == 0){
 	 				nullList.add("性別");
 	 				is_null = true;
+	 				is_error = true;
 	 			}
 	 			if(birth_day_str == null|| birth_day_str.length() == 0){
 	 				nullList.add("生年月日");
 	 				is_null = true;
+	 				is_error = true;
 	 			}
 	 			if(section_name == null|| section_name.length() == 0){
 	 				nullList.add("部署名");
 	 				is_null = true;
+	 				is_error = true;
 	 			}
 	 			if(emp_date_str.equals(null)|| emp_date_str.length() == 0){
 	 				nullList.add("入社日");
 	 				is_null = true;
+	 				is_error = true;
 	 			}
 	 			if(is_null){
-	 				throw new NullPointerException();//未入力例外スロ－
+	 				error_message.add("未入力の項目があります");
+		            error_number.add(1);
+		            // requestスコープに格納
+			        request.setAttribute("nullList",nullList );
 	 			}
 
-	 			else{
-	 				boolean is_error = false;//エラー判定用
-	 	            employeeList = dao.selectEmployee();//データベースから従業員コードを取得
+ 	            employeeList = dao.selectEmployee();//データベースから従業員コードを取得
 
-	 	            //従業員コード重複判定
-	 	            for(int i = 0; i < employeeList.size(); i++){
+ 	            //従業員コード重複判定
+ 	            for(int i = 0; i < employeeList.size(); i++){
 
-	 	            		if(emp_code.equals(employeeList.get(i).getCode())){
-	 	            			is_error = true;
-	 	            			error_number.add(3);
-	 	            			error_message.add("従業員コードが重複しています");
+ 	            		if(emp_code.equals(employeeList.get(i).getCode())){
+ 	            			is_error = true;
+ 	            			error_number.add(3);
+ 	            			error_message.add("従業員コードが重複しています");
 
-	 	            		}
-	 	            }
+ 	            		}
+ 	            }
 
-	 	            //カタカナ判定
-	 	            if (l_kana_name.matches(Regist.toMatchRegex(Regist.KATAKANA_CODES))) {
-	 	            	is_error = true;
-	            			error_number.add(4);
-	            			error_message.add("フリガナはカタカナで入力してください");
-	 	        	}
+ 	            //カタカナ判定
+ 	            if (l_kana_name.matches(Regist.toMatchRegex(Regist.KATAKANA_CODES))) {
+ 	            	is_error = true;
+            			error_number.add(4);
+            			error_message.add("フリガナはカタカナで入力してください");
+ 	        	}
 
 
 
-	 	           Date birth_day = null;
-	 	           Date emp_date = null;
-	 	            //日付判定
-	 	           if (Regist.checkDate(birth_day_str)){
-	 	        	  if (Regist.compareToday(birth_day_str)){
-	 	        		  //エラーなし
+ 	           Date birth_day = null;
+ 	           Date emp_date = null;
 
-	 	        	  }else{
-	 	        		 is_error = true;
-	            			error_number.add(7);
-	            			error_message.add("生年月日に未来が入力されています:" + birth_day_str);
-	 	        	  }
-	 	           }else{
-	 	        	  is_error = true;
-           			error_number.add(5);
-           			error_message.add("正しい生年月日を入力してください");
-	 	           }
+ 	            //日付判定
+ 	          if(birth_day_str != null && birth_day_str.length() != 0){
+ 	           if (Regist.checkDate(birth_day_str)){
+ 	        	  if (Regist.compareToday(birth_day_str)){
+ 	        		  //エラーなし
 
+ 	        	  }else{
+ 	        		 is_error = true;
+            			error_number.add(7);
+            			error_message.add("生年月日に未来が入力されています:" + birth_day_str);
+ 	        	  }
+ 	           }else{
+ 	        	  is_error = true;
+       			error_number.add(5);
+       			error_message.add("正しい生年月日を入力してください");
+ 	           }
+	    	}
 
+ 	         if(emp_date_str != null && emp_date_str.length() != 0){
+ 	          if (Regist.checkDate(emp_date_str)){
+ 	        	 if (Regist.compareToday(emp_date_str)){
+ 	        		 //エラーなし
 
-	 	          if (Regist.checkDate(emp_date_str)){
-	 	        	 if (Regist.compareToday(emp_date_str)){
-	 	        		 //エラーなし
+ 	        	  }else{
+ 	        		 is_error = true;
+            			error_number.add(8);
+            			error_message.add("入社日に未来が入力されています:" + emp_date_str);
+ 	        	  }
 
-	 	        	  }else{
-	 	        		 is_error = true;
-	            			error_number.add(8);
-	            			error_message.add("入社日に未来が入力されています:" + emp_date_str);
-	 	        	  }
+ 	           }else{
+ 	        	  is_error = true;
+       			error_number.add(6);
+       			error_message.add("正しい入社日を入力してください");
+ 	           }
+ 	         }
+ 	        //エラー発生したなら例外スロー
+ 	            if(is_error){
+ 	            	throw new  DuplicateException();
+ 	            }
 
-	 	           }else{
-	 	        	  is_error = true;
-           			error_number.add(6);
-           			error_message.add("正しい入社日を入力してください");
-	 	           }
-
-	 	        //エラー発生したなら例外スロー
-	 	            if(is_error){
-	 	            	throw new  DuplicateException();
-
-	 	            }
-
-	 	        //日付をsql.Dateに型変換
-	 	         birth_day_str = birth_day_str.replace('/', '-');
-	 	         emp_date_str = emp_date_str.replace('/', '-');
-	 	         birth_day = Date.valueOf(birth_day_str);
-		         emp_date = Date.valueOf(emp_date_str);
-
-
-	 				byte sex = Byte.parseByte(sex_str);
-		        	//Beanに値をセット
-		    		EmployeeBean employee = new EmployeeBean();
-		    		employee.setCode(emp_code);
-		 			employee.setL_name(l_name);
-		 			employee.setF_name(f_name);
-		 			employee.setSex(sex);
-		 			employee.setL_kana_name(l_kana_name);
-		 			employee.setF_kana_name(f_kana_name);
-		 			employee.setBirth_day(birth_day);
-		 			employee.setSection_name(section_name);
-		 			employee.setEmp_date(emp_date);
-
-		 			//インサート実行
-		            dao.insertEmployee(employee);
-		            url = "successRegistEmployee.jsp";
+ 	        //日付をsql.Dateに型変換
+ 	         birth_day_str = birth_day_str.replace('/', '-');
+ 	         emp_date_str = emp_date_str.replace('/', '-');
+ 	         birth_day = Date.valueOf(birth_day_str);
+	         emp_date = Date.valueOf(emp_date_str);
 
 
-	 			}
+ 				byte sex = Byte.parseByte(sex_str);
+	        	//Beanに値をセット
+	    		EmployeeBean employee = new EmployeeBean();
+	    		employee.setCode(emp_code);
+	 			employee.setL_name(l_name);
+	 			employee.setF_name(f_name);
+	 			employee.setSex(sex);
+	 			employee.setL_kana_name(l_kana_name);
+	 			employee.setF_kana_name(f_kana_name);
+	 			employee.setBirth_day(birth_day);
+	 			employee.setSection_name(section_name);
+	 			employee.setEmp_date(emp_date);
+
+	 			//インサート実行
+	            dao.insertEmployee(employee);
+	            url = "successRegistEmployee.jsp";
+	            //入力内容保持セッション削除
+	            reg_session.invalidate();
+
+
 	         }
-
-			//未入力例外
-			catch(NullPointerException e){
-
-				error_message.add("未入力の項目があります");
-	        	url = "regist_failure.jsp";
-	            e.printStackTrace();
-	            System.out.println(error_message);
-	            error_number.add(1);
-	            // requestスコープに格納
-		        request.setAttribute("nullList",nullList );
-		        request.setAttribute("error_message",error_message );
-		        request.setAttribute("error_number",error_number );
-
-			}
 
 			//日付型例外(システム例外）
 			catch(IllegalArgumentException e){
@@ -262,7 +260,7 @@ public class RegistEmployeeServlet extends HttpServlet {
 	            // requestスコープに格納
 		        request.setAttribute("error_message",error_message );
 		        request.setAttribute("error_number",error_number );
-		    //その他例外(カタカナ、従業員コード重複、日付）
+		    //例外(未入力、カタカナ、従業員コード重複、日付）
 			}catch(DuplicateException e){
 				request.setAttribute("error_message",error_message );
 		        request.setAttribute("error_number",error_number );
