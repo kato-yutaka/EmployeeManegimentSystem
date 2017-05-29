@@ -26,7 +26,7 @@ if(access == null){
 		<h1>メニュー画面</h1>
 		<table class="s-tbl"  >
 
-			<tr bgcolor="blue">
+			<tr bgcolor="4FB7E2	">
 				<th></th>
 				<th width="300">タイトル</th>
 				<th width="500">概要</th>
