@@ -8,6 +8,18 @@
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
+<%-- 不正アクセス防止 --%>
+<%
+String access = (String)session.getAttribute("ACCESS");
+if(access == null){
+	response.sendRedirect("unauthorized_access.jsp");
+}
+%>
+<%-- アクセス認証(セッション)破棄 --%>
+<%
+session.removeAttribute("ACCESS");
+session.invalidate();
+%>
 <%@ include file="header.jsp" %>
 	<div class="center">
 	        <h1>ログアウトしました</h1>
