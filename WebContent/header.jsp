@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=Windows-31J"
 pageEncoding="Windows-31J"%>
+<%@ page import="servlet.UserManagementServlet"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +12,7 @@ pageEncoding="Windows-31J"%>
 	<div align="left">
         <font size="6" color="blue">]‹ÆˆõŠÇ—ƒVƒXƒeƒ€</font>
     </div>
+
     <hr>
     <br>
 </body>
