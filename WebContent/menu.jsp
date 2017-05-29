@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<%@ include file="header.jsp"%>
+
 
 
 <%-- 不正アクセス防止 --%>

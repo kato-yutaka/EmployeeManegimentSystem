@@ -10,7 +10,7 @@ pageEncoding="Windows-31J"%>
 </head>
 <body>
 	<div align="left">
-        <font size="6" color="blue">従業員管理システム</font>
+        <a href="menu.jsp"><font size="6" color="blue">従業員管理システム</font></a>
     </div>
 
     <hr>
