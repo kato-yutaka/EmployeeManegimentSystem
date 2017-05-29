@@ -20,10 +20,10 @@ if(access == null){
 
 <form action="EmployeeManagementServlet" method="POST">
 <h1>ìoò^äÆóπÇµÇ‹ÇµÇΩÅB</h1>
+</form>
 
-<br>
 <form action="RegistEmployeeServlet" method="POST">
-<input type="submit" value="è]ã∆àıìoò^" name="ACTION">
+<input type="submit" value="ÉÅÉjÉÖÅ[âÊñ Ç÷" name="ACTION">
 </form>
 </div>
 </body>
