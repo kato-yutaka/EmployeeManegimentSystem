@@ -205,7 +205,7 @@ public class RegistEmployeeServlet extends HttpServlet {
 	            // requestスコープに格納
 		        request.setAttribute("error_message",error_message );
 		        request.setAttribute("error_number",error_number );
-		    //その他例外
+		    //その他例外(カタカナ、従業員コード重複）
 			}catch(DuplicateException e){
 				request.setAttribute("error_message",error_message );
 		        request.setAttribute("error_number",error_number );
@@ -224,7 +224,10 @@ public class RegistEmployeeServlet extends HttpServlet {
 	         } catch(Exception e) {
 	             e.printStackTrace();
 	         }
+	         //現在の日付を取得
+	         java.util.Date date = new java.util.Date();
 	         // requestスコープに格納
+	         request.setAttribute("sectionList", sectionList);
 	         request.setAttribute("sectionList", sectionList);
 
 	         // 移譲先の指定
