@@ -6,12 +6,13 @@
 <meta charset="Windows-31J">
 <title>menu</title>
 <link rel="stylesheet" href="emp_sys.css" type="text/css">
+<script type="text/javascript">
+function window.onbeforeunload(){
+	sessionStorage.clear();
+}
+</script>
 </head>
 <body>
-
-	<%@ include file="header.jsp"%>
-
-
 <%-- 不正アクセス防止 --%>
 <%
 String access = (String)session.getAttribute("ACCESS");
