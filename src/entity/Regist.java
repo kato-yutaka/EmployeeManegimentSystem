@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 
 public class Regist {
+	static public final String DATE_PATTERN ="yyyy-MM-dd";
 
 	public static boolean  nullCheck (String obj, boolean error){
 		if(obj.equals(null)){
@@ -44,7 +45,7 @@ public class Regist {
 			java.util.Date date = DateFormat.getDateInstance().parse(strDate);
 			 // 2つの日付を比較し、結果によってメッセージを変えます
             int diff = today.compareTo(date);
-            if (diff < 0) {//入力が過去の日付
+            if (diff > 0) {//入力が過去の日付
             	return true;
             } else{
             	return false;
@@ -54,6 +55,12 @@ public class Regist {
 			e.printStackTrace();
 			return false;
 		}
+
+	 }
+	 public static String getStrToday() {
+
+		 java.util.Date today = new java.util.Date();
+         return (new java.text.SimpleDateFormat(DATE_PATTERN)).format(today);
 
 	 }
 	// メモ　Timestamp hogeTime = new Timestamp(new SimpleDateFormat("yyyy/MM/dd").parse("2025/02/05").getTime());

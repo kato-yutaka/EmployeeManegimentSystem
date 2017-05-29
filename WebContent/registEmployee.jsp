@@ -32,7 +32,7 @@ if(access == null){
 	<tr><td id="bg">氏名（フリガナ）</td><td>姓(セイ):<input type = "text" name = "l_kana_name" maxlength='10'>　</td><td>名(メイ):<input type = "text" name = "f_kana_name" maxlength='10'></td></tr>
 	<tr><td id="bg">性別</td><td><input type = "radio" name = "sex" value = "0">男　
 						<input type = "radio" name = "sex" value = "1">女</td></tr>
-	<tr><td id="bg">生年月日</td><td><input type="date" name="birth_day"  max="2017-05-30">（手入力例：2000-01-01）</td></tr>
+	<tr><td id="bg">生年月日</td><td><input type="date" name="birth_day"  max=<%= (String)request.getAttribute("today")%>>（手入力例：2000-01-01）</td></tr>
 	<tr><td id="bg">所属部署</td><td>
 		 <%
 
@@ -48,19 +48,18 @@ if(access == null){
                     <%}
                 }%>
  		</select></td></tr>
-		<tr><td id="bg">入社日</td><td><input type="date" name="emp_date" max="2017-05-30">（手入力例：2000-01-01）</td></tr>
+		<tr><td id="bg">入社日</td><td><input type="date" name="emp_date"
+		 max= <%= (String)request.getAttribute("today")%>
+		 >（手入力例：2000-01-01）</td></tr>
 	</table>
 	<br>
 	<div class="center">
 		<input type="submit" value="入力内容を登録" name="ACTION">
-	</div>
-	</form>
 	<form action="EmployeeManagementServlet" method="POST"">
 	<div class="center">
 		<input type="submit" value="メニュー画面へ" name="ACTION">
 	</div>
 	</form>
-
 <%@ include file="footer.jsp" %>
 </body>
 </html>
