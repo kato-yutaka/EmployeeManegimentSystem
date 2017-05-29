@@ -11,21 +11,28 @@
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
+<%-- 不正アクセス防止 --%>
+<%
+String access = (String)session.getAttribute("ACCESS");
+if(access == null){
+	response.sendRedirect("unauthorized_access.jsp");
+}
+%>
 <%@ include file="header.jsp" %>
 <div class="center">
 
 <h1>従業員登録</h1>
 
 </div>
-	<form action="RegistEmployeeServlet" method="POST" >
+	<form action="RegistEmployeeServlet" method="POST"  autocomplete="off">
 <table>
 	<tr><td><b><font size="4">従業員情報</font></b></td></tr>
-	<tr><td id="bg">従業員コード</td><td><input type = "text" name = "emp_code" ></td></tr>
-	<tr><td id="bg">氏名</td><td>姓　　　:<input type = "text" name = "l_name" >　</td><td>名　　　:<input type = "text" name = "f_name" ></td></tr>
-	<tr><td id="bg">氏名（フリガナ）</td><td>姓(セイ):<input type = "text" name = "l_kana_name" >　</td><td>名(メイ):<input type = "text" name = "f_kana_name" ></td></tr>
+	<tr><td id="bg">従業員コード</td><td><input type = "text" name = "emp_code" maxlength='4'></td></tr>
+	<tr><td id="bg">氏名</td><td>姓　　　:<input type = "text" name = "l_name" maxlength='10'>　</td><td>名　　　:<input type = "text" name = "f_name" maxlength='10'></td></tr>
+	<tr><td id="bg">氏名（フリガナ）</td><td>姓(セイ):<input type = "text" name = "l_kana_name" maxlength='10'>　</td><td>名(メイ):<input type = "text" name = "f_kana_name" maxlength='10'></td></tr>
 	<tr><td id="bg">性別</td><td><input type = "radio" name = "sex" value = "0">男　
 						<input type = "radio" name = "sex" value = "1">女</td></tr>
-	<tr><td id="bg">生年月日</td><td><input type="date" name="birth_day"></td></tr>
+	<tr><td id="bg">生年月日</td><td><input type="date" name="birth_day"  max="2017-05-30">（手入力例：2000-01-01）</td></tr>
 	<tr><td id="bg">所属部署</td><td>
 		 <%
 
@@ -41,7 +48,7 @@
                     <%}
                 }%>
  		</select></td></tr>
-		<tr><td id="bg">入社日</td><td><input type="date" name="emp_date"></td></tr>
+		<tr><td id="bg">入社日</td><td><input type="date" name="emp_date" max="2017-05-30">（手入力例：2000-01-01）</td></tr>
 	</table>
 	<br>
 	<div class="center">

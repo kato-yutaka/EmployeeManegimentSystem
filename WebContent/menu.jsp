@@ -8,7 +8,20 @@
 <link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
+
 	<%@ include file="header.jsp"%>
+
+
+<%-- 不正アクセス防止 --%>
+<%
+String access = (String)session.getAttribute("ACCESS");
+if(access == null){
+	response.sendRedirect("unauthorized_access.jsp");
+}
+%>
+<%@ include file="header.jsp" %>
+
+
 	<div align="center">
 		<h1>メニュー画面</h1>
 		<table class="s-tbl"  >

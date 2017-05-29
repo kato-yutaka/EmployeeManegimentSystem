@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDAO;
 import entity.UserBean;
@@ -84,7 +85,9 @@ public class UserManagementServlet extends HttpServlet {
             //id,passの認証
             if(id.equals(id_a) && password.equals(password_a)){
             	url="menu.jsp";
-            	a = 1;
+            	HttpSession session = request.getSession();
+            	session.setAttribute("ACCESS", "チームゆるふわ");
+
             }
             else{
             	url="login_failure.jsp";

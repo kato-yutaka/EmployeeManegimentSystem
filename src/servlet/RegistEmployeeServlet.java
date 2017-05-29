@@ -149,17 +149,57 @@ public class RegistEmployeeServlet extends HttpServlet {
 	 	            if (l_kana_name.matches(Regist.toMatchRegex(Regist.KATAKANA_CODES))) {
 	 	            	is_error = true;
 	            			error_number.add(4);
-	            			error_message.add("カタカナが入力されていません");
+	            			error_message.add("フリガナはカタカナで入力してください");
 	 	        	}
 
-	 	            //エラー発生したなら例外スロー
+
+
+	 	           Date birth_day = null;
+	 	           Date emp_date = null;
+	 	            //日付判定
+	 	           if (Regist.checkDate(birth_day_str)){
+	 	        	  if (Regist.compareToday(birth_day_str)){
+	 	        		  //エラーなし
+
+	 	        	  }else{
+	 	        		 is_error = true;
+	            			error_number.add(7);
+	            			error_message.add("生年月日に未来が入力されています:" + birth_day_str);
+	 	        	  }
+	 	           }else{
+	 	        	  is_error = true;
+           			error_number.add(5);
+           			error_message.add("正しい生年月日を入力してください");
+	 	           }
+
+
+
+	 	          if (Regist.checkDate(emp_date_str)){
+	 	        	 if (Regist.compareToday(emp_date_str)){
+	 	        		 //エラーなし
+
+	 	        	  }else{
+	 	        		 is_error = true;
+	            			error_number.add(8);
+	            			error_message.add("入社日に未来が入力されています:" + emp_date_str);
+	 	        	  }
+
+	 	           }else{
+	 	        	  is_error = true;
+           			error_number.add(6);
+           			error_message.add("正しい入社日を入力してください");
+	 	           }
+
+	 	        //エラー発生したなら例外スロー
 	 	            if(is_error){
 	 	            	throw new  DuplicateException();
 
 	 	            }
 
-	 				Date birth_day = Date.valueOf(request.getParameter("birth_day"));
-		        	Date emp_date = Date.valueOf(request.getParameter("emp_date"));
+	 	        //日付型変換
+	 	         birth_day = Date.valueOf(request.getParameter("birth_day"));
+		         emp_date = Date.valueOf(request.getParameter("emp_date"));
+
 
 	 				byte sex = Byte.parseByte(sex_str);
 		        	//Beanに値をセット
@@ -205,7 +245,7 @@ public class RegistEmployeeServlet extends HttpServlet {
 	            // requestスコープに格納
 		        request.setAttribute("error_message",error_message );
 		        request.setAttribute("error_number",error_number );
-		    //その他例外
+		    //その他例外(カタカナ、従業員コード重複）
 			}catch(DuplicateException e){
 				request.setAttribute("error_message",error_message );
 		        request.setAttribute("error_number",error_number );
@@ -224,7 +264,10 @@ public class RegistEmployeeServlet extends HttpServlet {
 	         } catch(Exception e) {
 	             e.printStackTrace();
 	         }
+	         //現在の日付を取得
+	         java.util.Date date = new java.util.Date();
 	         // requestスコープに格納
+	         request.setAttribute("sectionList", sectionList);
 	         request.setAttribute("sectionList", sectionList);
 
 	         // 移譲先の指定
