@@ -86,7 +86,7 @@ public class RegistEmployeeServlet extends HttpServlet {
 	        	emp_date_str = request.getParameter("emp_date");
 
 
-	        	//nullチェック
+	        	//null、空文字チェック 未入力の項目があれば例外スロー
 
 
 	        	boolean is_null = false;
@@ -128,11 +128,12 @@ public class RegistEmployeeServlet extends HttpServlet {
 	 				is_null = true;
 	 			}
 	 			if(is_null){
-	 				throw new NullPointerException();
+	 				throw new NullPointerException();//未入力例外スロ－
 	 			}
+
 	 			else{
 	 				boolean is_error = false;//エラー判定用
-	 	            employeeList = dao.selectEmployee();
+	 	            employeeList = dao.selectEmployee();//データベースから従業員コードを取得
 
 	 	            //従業員コード重複判定
 	 	            for(int i = 0; i < employeeList.size(); i++){
@@ -196,9 +197,11 @@ public class RegistEmployeeServlet extends HttpServlet {
 
 	 	            }
 
-	 	        //日付型変換
-	 	         birth_day = Date.valueOf(request.getParameter("birth_day"));
-		         emp_date = Date.valueOf(request.getParameter("emp_date"));
+	 	        //日付をsql.Dateに型変換
+	 	         birth_day_str = birth_day_str.replace('/', '-');
+	 	         emp_date_str = emp_date_str.replace('/', '-');
+	 	         birth_day = Date.valueOf(birth_day_str);
+		         emp_date = Date.valueOf(emp_date_str);
 
 
 	 				byte sex = Byte.parseByte(sex_str);
@@ -235,7 +238,7 @@ public class RegistEmployeeServlet extends HttpServlet {
 		        request.setAttribute("error_message",error_message );
 		        request.setAttribute("error_number",error_number );
 			}
-			//日付型例外
+			//日付型例外(システム例外）
 			catch(IllegalArgumentException e){
 				error_message.add("正しい日付を入力してください");
 	        	url = "regist_failure.jsp";
@@ -245,7 +248,7 @@ public class RegistEmployeeServlet extends HttpServlet {
 	            // requestスコープに格納
 		        request.setAttribute("error_message",error_message );
 		        request.setAttribute("error_number",error_number );
-		    //その他例外(カタカナ、従業員コード重複）
+		    //その他例外(カタカナ、従業員コード重複、日付）
 			}catch(DuplicateException e){
 				request.setAttribute("error_message",error_message );
 		        request.setAttribute("error_number",error_number );
@@ -265,10 +268,15 @@ public class RegistEmployeeServlet extends HttpServlet {
 	             e.printStackTrace();
 	         }
 	         //現在の日付を取得
-	         java.util.Date date = new java.util.Date();
+	         java.util.Date today = new java.util.Date();
+
+
+
 	         // requestスコープに格納
 	         request.setAttribute("sectionList", sectionList);
 	         request.setAttribute("sectionList", sectionList);
+
+
 
 	         // 移譲先の指定
 	         url = "registEmployee.jsp";
