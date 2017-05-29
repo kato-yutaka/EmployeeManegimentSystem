@@ -82,10 +82,21 @@ public class RegistEmployeeServlet extends HttpServlet {
 	        	f_kana_name = request.getParameter("f_kana_name");
 	        	sex_str = request.getParameter("sex");
 	        	System.out.println(request.getParameter("birth_day"));
-	        	birth_day_str = request.getParameter("birth_day");
+	        	birth_day_str = (String)request.getParameter("birth_day");
 	        	section_name = request.getParameter("section_name");
 	        	emp_date_str = request.getParameter("emp_date");
 
+		        // セッションオブジェクトを取得し名前を格納
+		        HttpSession reg_session = request.getSession();
+		        reg_session.setAttribute("emp_code", emp_code);
+		        reg_session.setAttribute("l_name", l_name);
+		        reg_session.setAttribute("f_name", f_name);
+		        reg_session.setAttribute("l_kana_name", l_kana_name);
+		        reg_session.setAttribute("f_kana_name", f_kana_name);
+		        reg_session.setAttribute("sex_str", sex_str);
+		        reg_session.setAttribute("birth_day_str", birth_day_str);
+		        reg_session.setAttribute("section_name", section_name);
+		        reg_session.setAttribute("emp_date_str", emp_date_str);
 
 	        	//null、空文字チェック 未入力の項目があれば例外スロー
 
@@ -238,7 +249,9 @@ public class RegistEmployeeServlet extends HttpServlet {
 		        request.setAttribute("nullList",nullList );
 		        request.setAttribute("error_message",error_message );
 		        request.setAttribute("error_number",error_number );
+
 			}
+
 			//日付型例外(システム例外）
 			catch(IllegalArgumentException e){
 				error_message.add("正しい日付を入力してください");
@@ -272,10 +285,7 @@ public class RegistEmployeeServlet extends HttpServlet {
 	         String today = Regist.getStrToday();
 	         System.out.println(today);
 
-	         // セッションオブジェクトを取得し名前を格納
-	         HttpSession session = request.getSession();
-	        // session.setAttribute("name", name);
-	        // session.setAttribute("time", time);
+
 	         // requestスコープに格納
 	         request.setAttribute("sectionList", sectionList);
 	         request.setAttribute("today", today);

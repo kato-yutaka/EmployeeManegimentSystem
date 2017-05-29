@@ -23,16 +23,25 @@ if(access == null){
 
 <h1>従業員登録</h1>
 
+<%
+HttpSession reg_session = request.getSession();
+String section_name  = (String)reg_session.getAttribute("section_name");
+String sex_str  = (String)reg_session.getAttribute("sex_str");
+//String emp_code  = (String)reg_session.getAttribute("emp_code");
+
+%>
 </div>
 	<form action="RegistEmployeeServlet" method="POST"  autocomplete="off">
 <table>
 	<tr><td><b><font size="4">従業員情報</font></b></td></tr>
-	<tr><td id="bg">従業員コード</td><td><input type = "text" name = "emp_code" maxlength='4'></td></tr>
-	<tr><td id="bg">氏名</td><td>姓　　　:<input type = "text" name = "l_name" maxlength='10'>　</td><td>名　　　:<input type = "text" name = "f_name" maxlength='10'></td></tr>
-	<tr><td id="bg">氏名（フリガナ）</td><td>姓(セイ):<input type = "text" name = "l_kana_name" maxlength='10'>　</td><td>名(メイ):<input type = "text" name = "f_kana_name" maxlength='10'></td></tr>
-	<tr><td id="bg">性別</td><td><input type = "radio" name = "sex" value = "0">男　
-						<input type = "radio" name = "sex" value = "1">女</td></tr>
-	<tr><td id="bg">生年月日</td><td><input type="date" name="birth_day"  max=<%= (String)request.getAttribute("today")%>>（手入力例：2000-01-01）</td></tr>
+	<tr><td id="bg">従業員コード</td><td><input type = "text" name = "emp_code" maxlength='4' value = <%=(String)reg_session.getAttribute("emp_code")%> ></td></tr>
+	<tr><td id="bg">氏名</td><td>姓　　　:<input type = "text" name = "l_name" maxlength='10' value = <%=(String)reg_session.getAttribute("l_name")%>>　
+	</td><td>名　　　:<input type = "text" name = "f_name" maxlength='10' value= <%=(String)reg_session.getAttribute("f_name")%> ></td></tr>
+	<tr><td id="bg">氏名（フリガナ）</td><td>姓(セイ):<input type = "text" name = "l_kana_name" maxlength='10' value = <%= (String)reg_session.getAttribute("l_kana_name")%>>
+	　</td><td>名(メイ):<input type = "text" name = "f_kana_name" maxlength='10' value = <%=(String)reg_session.getAttribute("f_kana_name")%>></td></tr>
+	<tr><td id="bg">性別</td><td><input type = "radio" name = "sex" value = "0" <%= "0".equals(sex_str) ? " checked=\"checked\"" : "" %>>男　
+						<input type = "radio" name = "sex" value = "1"  <%= "1".equals(sex_str) ? " checked=\"checked\"" : "" %>>女</td></tr>
+	<tr><td id="bg">生年月日</td><td><input type="date" name="birth_day"  max=<%= (String)request.getAttribute("today")%> value = <%=(String)reg_session.getAttribute("birth_day_str")%>>（手入力例：2000-01-01）</td></tr>
 	<tr><td id="bg">所属部署</td><td>
 		 <%
 
@@ -44,22 +53,27 @@ if(access == null){
                 <%
                     for(int i = 0; i < section.size(); i++) {
                      EmployeeBean section_nam = section.get(i);%>
-                    	<option value="<%=section_nam.getSection_name()%>"><%=section_nam.getSection_name()%></option>
+                    	<option value="<%=section_nam.getSection_name()%>"
+                    	<%= section_nam.getSection_name().equals(section_name) ? " selected=\"selected\"" : "" %>>
+                    	<%=section_nam.getSection_name()%>
+                    	</option>
+
+
                     <%}
                 }%>
  		</select></td></tr>
 		<tr><td id="bg">入社日</td><td><input type="date" name="emp_date"
-		 max= <%= (String)request.getAttribute("today")%>
+		 max= <%= (String)request.getAttribute("today")%> value = <%=(String)reg_session.getAttribute("emp_date_str")%>
 		 >（手入力例：2000-01-01）</td></tr>
 	</table>
 	<br>
 	<div class="center">
 	<input type="submit" value="入力内容を登録" name="ACTION">
-       
-	
+
+
 	</div>
 	</form>
-<%@ include file="footer.jsp" --%>
+<%@ include file="footer.jsp" %>
 </body>
 </html>
 
