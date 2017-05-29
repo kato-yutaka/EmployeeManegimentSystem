@@ -268,13 +268,13 @@ public class RegistEmployeeServlet extends HttpServlet {
 	             e.printStackTrace();
 	         }
 	         //現在の日付を取得
-	         java.util.Date today = new java.util.Date();
-
-
+	         String today = Regist.getStrToday();
+	         System.out.println(today);
 
 	         // requestスコープに格納
 	         request.setAttribute("sectionList", sectionList);
 	         request.setAttribute("sectionList", sectionList);
+	         request.setAttribute("today", today);
 
 
 
