@@ -22,6 +22,7 @@ if(access == null){
 <h1>ìoò^äÆóπÇµÇ‹ÇµÇΩÅB</h1>
 <input type="submit" value="è]ã∆àıàÍóóÇ÷" name="ACTION">
 </form>
+<br>
 <form action="RegistEmployeeServlet" method="POST">
 <input type="submit" value="è]ã∆àıìoò^" name="ACTION">
 </form>
