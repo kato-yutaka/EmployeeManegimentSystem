@@ -32,21 +32,21 @@ if(access == null){
 				<th width="500">概要</th>
 			</tr>
 
-			<tr>
+			<tr bgcolor="D3EDFB">
              <td><a href="employeelist.jsp"><img src="delete.png" width="70" height="70"></a></td>
-             <td>従業員一覧・削除</td>
+             <td align="center">従業員一覧・削除</td>
              <td>従業員の一覧を表示します。<br>従業員の削除をします。</td>
             </tr>
 
-            <tr>
+            <tr bgcolor="D3EDFB">
              <td><a href="registEmployee.jsp"><img src="regist.png" width="70" height="70"></a></td>
-             <td>従業員登録</td>
+             <td align="center">従業員登録</td>
              <td>従業員の登録を行います。</td>
             </tr>
 
-            <tr>
+            <tr bgcolor="D3EDFB">
              <td><a href="logout.jsp"><img src="logout.png" width="70" height="70"></a></td>
-             <td>ログアウト</td>
+             <td align="center">ログアウト</td>
              <td>ログアウトします</td>
 			</tr>
 

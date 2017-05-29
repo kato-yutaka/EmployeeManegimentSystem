@@ -10,16 +10,16 @@ table{
 	margin-right:auto;
 }
 
-.s-tbl {
+table.s-tbl {
 	border-collapse: collapse;
 }
-.s-tbl th, .s-tbl td {
+table.s-tbl th, .s-tbl td {
 	border: 1px solid #000;
 }
-.s-tbl tr:nth-child(odd) {
+table.s-tbl tr:nth-child(odd) {
 	background: #eee;
 }
-.s-tbl tr:hover {
+table.s-tbl tr:hover {
 	background: #ff0;
 }
 
