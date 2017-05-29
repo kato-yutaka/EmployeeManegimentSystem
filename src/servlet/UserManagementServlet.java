@@ -53,10 +53,12 @@ public class UserManagementServlet extends HttpServlet {
         //データベースのid,pass変数
         String id_a=null;
         String password_a=null;
+        int a = 0;
         //String user[] = new String[2];
 
         // 移譲する先のjspを格納する変数url
         String url = null;
+
 
         //ログインボタンを押した
         if(action.equals("111")){
@@ -82,6 +84,7 @@ public class UserManagementServlet extends HttpServlet {
             //id,passの認証
             if(id.equals(id_a) && password.equals(password_a)){
             	url="menu.jsp";
+            	a = 1;
             }
             else{
             	url="login_failure.jsp";
