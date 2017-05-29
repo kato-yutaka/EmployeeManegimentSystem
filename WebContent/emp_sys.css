@@ -4,10 +4,25 @@ div.center{
 	text-align:center;
 
 }
+
 table{
 	margin-left:auto;
 	margin-right:auto;
 }
+
+.s-tbl {
+	border-collapse: collapse;
+}
+.s-tbl th, .s-tbl td {
+	border: 1px solid #000;
+}
+.s-tbl tr:nth-child(odd) {
+	background: #eee;
+}
+.s-tbl tr:hover {
+	background: #ff0;
+}
+
 #bg{
 	width:200px;
 	background-color:#AEF6EF;
