@@ -21,16 +21,16 @@ public class Regist {
 	}
 
 	 public static boolean checkDate(String strDate) {
-	        if (strDate == null || strDate.length() != 10) {
-	            throw new IllegalArgumentException(
-	                    "引数の文字列["+ strDate +"]" +
-	                    "は不正です。");
+
+		 try {
+		 	if (strDate == null || strDate.length() != 10) {
+	            throw new Exception();
 	        }
 	        strDate = strDate.replace('-', '/');
 	        DateFormat format = DateFormat.getDateInstance();
 	        // 日付/時刻解析を厳密に行うかどうかを設定する。
 	        format.setLenient(false);
-	        try {
+
 	            format.parse(strDate);
 	            return true;
 	        } catch (Exception e) {
