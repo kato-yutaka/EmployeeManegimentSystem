@@ -32,7 +32,7 @@ if(access == null){
 	<tr><td id="bg">氏名（フリガナ）</td><td>姓(セイ):<input type = "text" name = "l_kana_name" maxlength='10'>　</td><td>名(メイ):<input type = "text" name = "f_kana_name" maxlength='10'></td></tr>
 	<tr><td id="bg">性別</td><td><input type = "radio" name = "sex" value = "0">男　
 						<input type = "radio" name = "sex" value = "1">女</td></tr>
-	<tr><td id="bg">生年月日</td><td><input type="date" name="birth_day"  max="2017-05-30">（手入力例：2000-01-01）</td></tr>
+	<tr><td id="bg">生年月日</td><td><input type="date" name="birth_day"  max=<%= (String)request.getAttribute("today")%>>（手入力例：2000-01-01）</td></tr>
 	<tr><td id="bg">所属部署</td><td>
 		 <%
 
@@ -48,7 +48,9 @@ if(access == null){
                     <%}
                 }%>
  		</select></td></tr>
-		<tr><td id="bg">入社日</td><td><input type="date" name="emp_date" max="2017-05-30">（手入力例：2000-01-01）</td></tr>
+		<tr><td id="bg">入社日</td><td><input type="date" name="emp_date"
+		 max= <%= (String)request.getAttribute("today")%>
+		 >（手入力例：2000-01-01）</td></tr>
 	</table>
 	<br>
 	<div class="center">
