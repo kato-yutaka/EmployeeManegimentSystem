@@ -34,14 +34,14 @@ String sex_str  = (String)reg_session.getAttribute("sex_str");
 	<form action="RegistEmployeeServlet" method="POST"  autocomplete="off">
 <table>
 	<tr><td><b><font size="4">従業員情報</font></b></td></tr>
-	<tr><td id="bg">従業員コード</td><td><input type = "text" name = "emp_code" maxlength='4' value = <%=(String)reg_session.getAttribute("emp_code")%> ></td></tr>
-	<tr><td id="bg">氏名</td><td>姓　　　:<input type = "text" name = "l_name" maxlength='10' value = <%=(String)reg_session.getAttribute("l_name")%>>　
-	</td><td>名　　　:<input type = "text" name = "f_name" maxlength='10' value= <%=(String)reg_session.getAttribute("f_name")%> ></td></tr>
-	<tr><td id="bg">氏名（フリガナ）</td><td>姓(セイ):<input type = "text" name = "l_kana_name" maxlength='10' value = <%= (String)reg_session.getAttribute("l_kana_name")%>>
-	　</td><td>名(メイ):<input type = "text" name = "f_kana_name" maxlength='10' value = <%=(String)reg_session.getAttribute("f_kana_name")%>></td></tr>
+	<tr><td id="bg">従業員コード</td><td><input type = "text" name = "emp_code" maxlength='4' <%= (String)reg_session.getAttribute("emp_code") != null ? " value = " + (String)reg_session.getAttribute("emp_code") : "" %> ></td></tr>
+	<tr><td id="bg">氏名</td><td>姓　　　<input type = "text" name = "l_name" maxlength='16' <%= (String)reg_session.getAttribute("l_name") != null ? " value = " + (String)reg_session.getAttribute("l_name") : "" %>>　
+	</td><td>名　　　<input type = "text" name = "f_name" maxlength='16'  <%= (String)reg_session.getAttribute("f_name") != null ? " value = " + (String)reg_session.getAttribute("f_name") : "" %> ></td></tr>
+	<tr><td id="bg">氏名（フリガナ）</td><td>姓(セイ)<input type = "text" name = "l_kana_name" maxlength='16'  <%= (String)reg_session.getAttribute("l_kana_name") != null ? " value = " + (String)reg_session.getAttribute("l_kana_name") : "" %>>
+	　</td><td>名(メイ)<input type = "text" name = "f_kana_name" maxlength='16'  <%= (String)reg_session.getAttribute("f_kana_name") != null ? " value = " + (String)reg_session.getAttribute("f_kana_name") : "" %>></td></tr>
 	<tr><td id="bg">性別</td><td><input type = "radio" name = "sex" value = "0" <%= "0".equals(sex_str) ? " checked=\"checked\"" : "" %>>男　
 						<input type = "radio" name = "sex" value = "1"  <%= "1".equals(sex_str) ? " checked=\"checked\"" : "" %>>女</td></tr>
-	<tr><td id="bg">生年月日</td><td><input type="date" name="birth_day"  max=<%= (String)request.getAttribute("today")%> value = <%=(String)reg_session.getAttribute("birth_day_str")%>>（手入力例：2000-01-01）</td></tr>
+	<tr><td id="bg">生年月日</td><td><input type="date" name="birth_day"  max=<%= (String)request.getAttribute("today")%>  <%= (String)reg_session.getAttribute("birth_day_str") != null ? " value = " + (String)reg_session.getAttribute("birth_day_str") : "" %>>（手入力例：2000-01-01）</td></tr>
 	<tr><td id="bg">所属部署</td><td>
 		 <%
 
@@ -58,12 +58,12 @@ String sex_str  = (String)reg_session.getAttribute("sex_str");
                     	<%=section_nam.getSection_name()%>
                     	</option>
 
-
+<%= (String)reg_session.getAttribute("emp_code") != null ? " value = " + (String)reg_session.getAttribute("emp_code") : "" %>
                     <%}
                 }%>
  		</select></td></tr>
 		<tr><td id="bg">入社日</td><td><input type="date" name="emp_date"
-		 max= <%= (String)request.getAttribute("today")%> value = <%=(String)reg_session.getAttribute("emp_date_str")%>
+		 max= <%= (String)request.getAttribute("today")%> <%= (String)reg_session.getAttribute("emp_date_str") != null ? " value = " + (String)reg_session.getAttribute("emp_date_str") : "" %>
 		 >（手入力例：2000-01-01）</td></tr>
 	</table>
 	<br>

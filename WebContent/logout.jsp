@@ -19,6 +19,8 @@ if(access == null){
 <%
 session.removeAttribute("ACCESS");
 session.invalidate();
+HttpSession reg_session = request.getSession(true);
+reg_session.invalidate();
 %>
 <%@ include file="header.jsp" %>
 	<div class="center">
