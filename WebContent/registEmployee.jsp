@@ -68,9 +68,12 @@ String sex_str  = (String)reg_session.getAttribute("sex_str");
 	</table>
 	<br>
 	<div class="center">
-	<input type="submit" value="“ü—Í“à—e‚ð“o˜^" name="ACTION">
-
-
+		<input type="submit" value="“ü—Í“à—e‚ð“o˜^" name="ACTION">
+	</div>
+	</form>
+	<form action="EmployeeManagementServlet" method="POST"">
+	<div class="center">
+		<input type="submit" value="ƒƒjƒ…[‰æ–Ê‚Ö" name="ACTION">
 	</div>
 	</form>
 <%@ include file="footer.jsp" %>

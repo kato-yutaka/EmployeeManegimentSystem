@@ -6,12 +6,13 @@
 <meta charset="Windows-31J">
 <title>menu</title>
 <link rel="stylesheet" href="emp_sys.css" type="text/css">
+<script type="text/javascript">
+function window.onbeforeunload(){
+	sessionStorage.clear();
+}
+</script>
 </head>
 <body>
-
-
-
-
 <%-- 不正アクセス防止 --%>
 <%
 String access = (String)session.getAttribute("ACCESS");
@@ -21,33 +22,46 @@ if(access == null){
 %>
 <%@ include file="header.jsp" %>
 
+<form  method="POST" action="EmployeeSelectServlet" name = "a">
+<input type="hidden" name="ACTION" value="従業員一覧・削除">
+</form>
+
+
+<form  method="POST" action="RegistEmployeeServlet" name = "b">
+<input type="hidden" name="ACTION" value="従業員登録">
+</form>
+
+<form  method="POST" action="EmployeeManagementServlet" name = "c">
+<input type="hidden" name="ACTION" value="ログアウト">
+</form>
 
 	<div align="center">
 		<h1>メニュー画面</h1>
 		<table class="s-tbl"  >
 
-			<tr bgcolor="4FB7E2	">
+			<tr bgcolor="D3EDFB	">
 				<th></th>
-				<th width="300">タイトル</th>
-				<th width="500">概要</th>
+				<th width="200">タイトル</th>
+				<th width="300">概要</th>
 			</tr>
 
-			<tr bgcolor="D3EDFB">
-             <td><a href="employeelist.jsp"><img src="delete.png" width="70" height="70"></a></td>
+
+			<tr >
+             <td><a href= "javascript:document.forms['a'].submit();"><img src="delete.png" width="70" height="70"></a></td>
              <td align="center">従業員一覧・削除</td>
-             <td>従業員の一覧を表示します。<br>従業員の削除をします。</td>
+             <td align="center">従業員の一覧を表示します。<br>従業員の削除をします。</td>
             </tr>
 
-            <tr bgcolor="D3EDFB">
-             <td><a href="registEmployee.jsp"><img src="regist.png" width="70" height="70"></a></td>
+            <tr >
+             <td><a href= "javascript:document.forms['b'].submit();"><img src="regist.png" width="70" height="70"></a></td>
              <td align="center">従業員登録</td>
-             <td>従業員の登録を行います。</td>
+             <td align="center">従業員の登録を行います。</td>
             </tr>
 
-            <tr bgcolor="D3EDFB">
-             <td><a href="logout.jsp"><img src="logout.png" width="70" height="70"></a></td>
+            <tr >
+             <td><a href= "javascript:document.forms['c'].submit();"><img src="logout.png" width="70" height="70"></a></td>
              <td align="center">ログアウト</td>
-             <td>ログアウトします</td>
+             <td align="center">ログアウトします</td>
 			</tr>
 
 		</table>
