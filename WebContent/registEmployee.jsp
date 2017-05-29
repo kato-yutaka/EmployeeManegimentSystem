@@ -55,11 +55,11 @@ if(access == null){
 	<br>
 	<div class="center">
 	<input type="submit" value="“ü—Í“à—e‚ð“o˜^" name="ACTION">
-       
-	
+
+
 	</div>
 	</form>
-<%@ include file="footer.jsp" --%>
+<%@ include file="footer.jsp" %>
 </body>
 </html>
 
