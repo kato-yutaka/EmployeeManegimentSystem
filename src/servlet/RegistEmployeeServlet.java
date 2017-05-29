@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Exception.DuplicateException;
 import dao.EmployeeDAO;
@@ -271,12 +272,13 @@ public class RegistEmployeeServlet extends HttpServlet {
 	         String today = Regist.getStrToday();
 	         System.out.println(today);
 
+	         // セッションオブジェクトを取得し名前を格納
+	         HttpSession session = request.getSession();
+	        // session.setAttribute("name", name);
+	        // session.setAttribute("time", time);
 	         // requestスコープに格納
 	         request.setAttribute("sectionList", sectionList);
-	         request.setAttribute("sectionList", sectionList);
 	         request.setAttribute("today", today);
-
-
 
 	         // 移譲先の指定
 	         url = "registEmployee.jsp";
