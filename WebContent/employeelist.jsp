@@ -26,12 +26,16 @@ function DeleteCheck() {
 
 </head>
 <body>
-
-
+<%-- 不正アクセス防止 --%>
+<%
+String access = (String)session.getAttribute("ACCESS");
+if(access == null){
+	response.sendRedirect("unauthorized_access.jsp");
+}
+%>
 	<%@ include file="header.jsp"%>
 	<div class="center">
 		<h1>従業員一覧画面</h1>
-
 		<br>
 		<table border="1">
 			<tr>
@@ -74,7 +78,6 @@ function DeleteCheck() {
 					<%--所属部署を出力 --%>
 					<td><%=employee.getEmp_date()%></td>
 					<%--入社日を出力 --%>
-
 					<td><button type="submit" name="ACTION"
 							value=<%=employee.getCode()%>>削除</button></td>
 				</tr>
