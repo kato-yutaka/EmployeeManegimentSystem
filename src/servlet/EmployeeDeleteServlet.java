@@ -30,7 +30,8 @@ public class EmployeeDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
+				response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -57,8 +58,10 @@ public class EmployeeDeleteServlet extends HttpServlet {
     	// 削除処理とフラグ判定
     	boolean flag = remove.removeEmployee();
     	if(flag == true){
+    		// 削除成功
     		url = "delete_success.jsp";
     	}else{
+    		// 削除失敗（既に削除されている）
     		url = "delete_failure.jsp";
     	}
 
