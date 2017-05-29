@@ -6,7 +6,7 @@ public class UserBean implements Serializable {
 
 	private String user_id;
 	private String password;
-	private String update_data;
+	private String update_date;
 
 	//user_idのgetter,setter
 	public String getUserId() {
@@ -27,12 +27,12 @@ public class UserBean implements Serializable {
     }
 
     //update_dataのgetter,setter
-    public String getUpdatedata() {
-        return update_data;
+    public String getUpdatedate() {
+        return update_date;
     }
 
-    public void setUpdatedata(String update_data) {
-        this.update_data = update_data;
+    public void setUpdatedate(String update_date) {
+        this.update_date = update_date;
     }
 
 }
