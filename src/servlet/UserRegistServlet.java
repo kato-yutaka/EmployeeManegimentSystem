@@ -55,7 +55,12 @@ public class UserRegistServlet extends HttpServlet {
         user.setPassword(password);
 
         UserDAO dao = new UserDAO();
-        dao.insertUser();
+
+        try {
+        	dao.insertUser();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
 
 
         	url = "successRegistUser.jsp";

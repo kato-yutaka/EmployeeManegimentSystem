@@ -26,8 +26,8 @@ if(access == null){
 
 <table>
 	<tr><td><b><font size="4">従業員情報</font></b></td></tr>
-	<tr><td>ユーザーID</td><td><input type = "text" name = "emp_code" maxlength='4' value = "ID"></td></tr>
-	<tr><td>パスワード</td><td><input type = "text" name = "emp_code" maxlength='4' value = "PASS"> </td></tr>
+	<tr><td>ユーザーID</td><td><input type = "text" name = "ID" maxlength='4'></td></tr>
+	<tr><td>パスワード</td><td><input type = "text" name = "PASS" maxlength='4'> </td></tr>
 	</table>
 <br>
 <form action="EmployeeManagementServlet" method="POST">
