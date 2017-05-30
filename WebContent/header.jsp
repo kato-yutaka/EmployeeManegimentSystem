@@ -10,7 +10,7 @@
 </head>
 <body>
 	<%
-		String id = (String) session.getAttribute("ACCESS");
+	String id = (String) session.getAttribute("ACCESS");
 	%>
 	<div align="left">
         <a href="menu.jsp" style="text-decortion:none;"><font size="6" color="blue">]‹ÆˆõŠÇ—ƒVƒXƒeƒ€</font></a>

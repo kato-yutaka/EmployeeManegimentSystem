@@ -4,11 +4,11 @@ public class Login {
 
 	private String user_id;
 	private String password;
-	private boolean juge;
+	private boolean judge;
 
-	public boolean jugeUser(){
-		
-		return juge;
+	public boolean judgeUser() {
+
+		return judge;
 	}
 
 }

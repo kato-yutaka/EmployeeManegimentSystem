@@ -21,84 +21,87 @@ import entity.UserBean;
 public class UserManagementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserManagementServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UserManagementServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
 		// エンコーディング指定
-        request.setCharacterEncoding("Windows-31J");
-        response.setCharacterEncoding("Windows-31J");
+		request.setCharacterEncoding("Windows-31J");
+		response.setCharacterEncoding("Windows-31J");
 
-        // formからの値を取得
-        String action = request.getParameter("ACTION");
-        String id = request.getParameter("id");
-        String password = request.getParameter("password");
-        //データベースのid,pass変数
-        String id_a=null;
-        String password_a=null;
-        //String user[] = new String[2];
+		// formからの値を取得
+		String action = request.getParameter("ACTION");
+		String id = request.getParameter("id");
+		String password = request.getParameter("password");
+		// データベースのid,pass変数
+		String id_a = null;
+		String password_a = null;
+		// String user[] = new String[2];
 
-        // 移譲する先のjspを格納する変数url
-        String url = null;
+		// 移譲する先のjspを格納する変数url
+		String url = null;
 
+		// ログインボタンを押した
+		if (action.equals("111")) {
+			// DAO、Beanをインスタンス化
+			ArrayList<UserBean> userList = new ArrayList<UserBean>();
+			UserDAO dao = new UserDAO();
 
-        //ログインボタンを押した
-        if(action.equals("111")){
-        	// DAO、Beanをインスタンス化
-            ArrayList<UserBean> userList = new ArrayList<UserBean>();
-            UserDAO dao = new UserDAO();
+			// DAOからuserListをreturn
+			try {
+				userList = dao.selectUser();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
-            //DAOからuserListをreturn
-            try {
-            	userList = dao.selectUser();
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
+			// 豆にuserListインスタンスを持たせる
+			for (int i = 0; i < userList.size(); i++) {
+				UserBean user = userList.get(i);
 
-            //豆にuserListインスタンスを持たせる
-            for(int i = 0; i < userList.size(); i++){
-                UserBean user = userList.get(i);
+				id_a = user.getUserId();
+				password_a = user.getPassword();
+				// id,passの認証
+				if (id.equals(id_a) && password.equals(password_a)) {
+					url = "menu.jsp";
+					HttpSession session = request.getSession();
+					session.setAttribute("ACCESS", id_a);
 
-	            id_a=user.getUserId();
-	            password_a=user.getPassword();
-	            //id,passの認証
-	            if(id.equals(id_a) && password.equals(password_a)){
-	            	url="menu.jsp";
-	            	HttpSession session = request.getSession();
-	            	session.setAttribute("ACCESS", id_a);
+				}
+			}
+			if (url != "menu.jsp") {
+				url = "login_failure.jsp";
+			}
 
-	            }
-            }
-            if(url!="menu.jsp"){
-            	url="login_failure.jsp";
-            }
+		}
+		// ログイン画面へボタンを押した
+		else if (action.equals("222")) {
+			url = "login_form.jsp";
+		}
 
-        }
-        //ログイン画面へボタンを押した
-        else if(action.equals("222")){
-        	url="login_form.jsp";
-        }
-
-        RequestDispatcher rd = request.getRequestDispatcher(url);
-        rd.forward(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
 
 	}
 
