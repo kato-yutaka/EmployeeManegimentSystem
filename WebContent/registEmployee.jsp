@@ -126,10 +126,6 @@
 					max=<%=(String) request.getAttribute("today")%>
 					<%=(String) reg_session.getAttribute("emp_date_str") != null
 					? " value = " + (String) reg_session.getAttribute("emp_date_str") : ""%>>iŽè“ü—Í—áF2000-01-01j</td>
-				<td><input type="text" name="emp_code" maxlength='4'
-					onInput="checkForm(this)"
-					<%=(String) reg_session.getAttribute("emp_code") != null
-					? " value = " + (String) reg_session.getAttribute("emp_code") : ""%>></td>
 			</tr>
 		</table>
 		<br>
