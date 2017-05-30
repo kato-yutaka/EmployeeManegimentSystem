@@ -9,6 +9,18 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
+	<script type="text/javascript">
+
+	function checkForm($this)
+	{
+		var str=$this.value;
+		while(str.match(/[^A-Z^a-z\d\-]/))
+		{
+			str=str.replace(/[^A-Z^a-z\d\-]/,"");
+		}
+		$this.value=str;
+	}
+	</script>
 </head>
 <body>
 <%-- 不正アクセス防止 --%>
@@ -42,7 +54,7 @@ if((ArrayList<Integer>) reg_session.getAttribute("error_tips") != null){
 	<form action="RegistEmployeeServlet" method="POST"  autocomplete="off">
 <table>
 	<tr><td><b><font size="4">従業員情報</font></b></td></tr>
-	<tr><td id=<%= tips.contains(0) ? "bg-red":"bg-blue"%>>従業員コード<%= tips.contains(0) ? "<img src=\"Warning.png\" width=\"14\" height=\"14\">":""%></td><td><input type = "text" name = "emp_code" maxlength='4' <%= (String)reg_session.getAttribute("emp_code") != null ? " value = " + (String)reg_session.getAttribute("emp_code") : "" %> ></td></tr>
+	<tr><td id=<%= tips.contains(0) ? "bg-red":"bg-blue"%>>従業員コード(半角)<%= tips.contains(0) ? "<img src=\"Warning.png\" width=\"14\" height=\"14\">":""%></td><td><input type = "text" name = "emp_code" maxlength='4' onInput="checkForm(this)" <%= (String)reg_session.getAttribute("emp_code") != null ? " value = " + (String)reg_session.getAttribute("emp_code") : "" %> ></td></tr>
 	<tr><td id=<%= tips.contains(1) ? "bg-red":"bg-blue"%>>氏名<%= tips.contains(1) ? "<img src=\"picture/Warning.png\" width=\"14\" height=\"14\">":""%></td><td>姓　　　<input type = "text" name = "l_name" maxlength='16' <%= (String)reg_session.getAttribute("l_name") != null ? " value = " + (String)reg_session.getAttribute("l_name") : "" %>>　
 	名　　　<input type = "text" name = "f_name" maxlength='16'  <%= (String)reg_session.getAttribute("f_name") != null ? " value = " + (String)reg_session.getAttribute("f_name") : "" %> ></td></tr>
 	<tr><td id=<%= tips.contains(2) ? "bg-red":"bg-blue"%>>氏名（フリガナ）<%= tips.contains(2) ? "<img src=\"Warning.png\" width=\"14\" height=\"14\">":""%></td><td>姓(セイ)<input type = "text" name = "l_kana_name" maxlength='16'  <%= (String)reg_session.getAttribute("l_kana_name") != null ? " value = " + (String)reg_session.getAttribute("l_kana_name") : "" %>>
