@@ -18,11 +18,11 @@ if(access == null){
 <%@ include file="header.jsp" %>
 	<div class="center">
 
-<form action="EmployeeManagementServlet" method="POST">
-<h1>登録完了しました。</h1>
-</form>
 
-<form action="RegistEmployeeServlet" method="POST">
+<h1>登録完了しました。</h1>
+
+
+<form action="EmployeeManagementServlet" method="POST">
 <input type="submit" value="メニュー画面へ" name="ACTION">
 </form>
 </div>

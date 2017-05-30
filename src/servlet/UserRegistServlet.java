@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import entity.AddUser;
-import entity.UserBean;
 
 /**
  * Servlet implementation class UserRegistServlet
@@ -54,31 +53,23 @@ public class UserRegistServlet extends HttpServlet {
         switch(action){
         // ユーザの登録
         case "regist":
-
-        	 // 登録するIDまたはpassが未入力の場合、失敗
-        	 /*
+        	// 登録するIDまたはpassが未入力の場合、失敗
         	if(user_id.equals("") || password.equals("")){
         		url = "success_failure.jsp";
-        	}*/
-        	// IDとpassが入力されている場合、登録処理へ
-        	//else{
-        		// UserBeanクラスを利用し、IDとpassを格納
-        		UserBean user = new UserBean();
-        		user.setUserId(user_id);
-        		user.setPassword(password);
-
-
+        	}
+        	//IDとpassが入力されている場合、登録処理へ
+        	else{
         		// ビジネスロジックAddUserをインスタンス化
         		AddUser add = new AddUser();
         		// 戻り値は登録成功か判定の結果
-        		boolean flag = add.addUser();
+        		boolean flag = add.addUser(user_id, password);
         		// true/成功、false/失敗
         		if(flag == true){
         			url = "successRegistUser.jsp";
         		}else{
         			url = "success_failure.jsp";
         		}
-        	//}
+        	}
         	break;
 
         // ユーザ登録画面へ

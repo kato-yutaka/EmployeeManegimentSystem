@@ -91,28 +91,20 @@ public class UserDAO {
 	 }
 
 
-	 public boolean insertUser() throws Exception{
+	 public boolean insertUser(String user_id, String password) throws Exception{
 		 ConnectionManager cm = ConnectionManager.getInstance();
 			try (Connection con = cm.getConnection();
 					Statement stmt = con.createStatement();
 					PreparedStatement pstmt = con
 							.prepareStatement("INSERT INTO m_user VALUES(?, ?, ?)"))
 			{
-				UserBean user = new UserBean();
-
-				// 入力(追加するID、PASSWORD)
-				String user_id = user.getUserId();
-				String passward = user.getPassword();
-
-				System.out.println(user_id);
-        		System.out.println(passward);
 				// 更新日時の定義
 				java.util.Date date = new java.util.Date();
 				java.sql.Timestamp update_date = new java.sql.Timestamp(date.getTime());
 
 				// プレースホルダの値を設定
 				pstmt.setString(1, user_id);
-				pstmt.setString(2, passward);
+				pstmt.setString(2, password);
 				pstmt.setTimestamp(3, update_date);
 
 				// SQLステートメントの実行（更新系）

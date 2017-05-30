@@ -7,10 +7,10 @@ public class AddUser {
 
 	}
 
-	public boolean addUser(){
+	public boolean addUser(String user_id, String password){
 		try{
 			UserDAO dao = new UserDAO();
-	        boolean flag = dao.insertUser();
+	        boolean flag = dao.insertUser(user_id, password);
 	        return flag;
 		}catch(Exception e){
 			return false;
