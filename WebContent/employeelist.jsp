@@ -37,7 +37,7 @@ if(access == null){
 	<div class="center">
 		<h1>]‹Æˆõˆê——‰æ–Ê</h1>
 		<br>
-		<table border="1">
+		<table border="1" >
 			<tr>
 				<th>]‹ÆˆõƒR[ƒh</th>
 				<th>Ž–¼</th>

@@ -36,6 +36,7 @@ if(access == null){
 
 	<div align="center">
 		<h1>ƒƒjƒ…[‰æ–Ê</h1>
+
 		<table class="s-tbl"  >
 
 			<tr bgcolor="D3EDFB	">
