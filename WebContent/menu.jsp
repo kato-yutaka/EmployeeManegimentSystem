@@ -68,7 +68,7 @@
 			<tr>
 				<td><a href="javascript:document.forms['d'].submit();"><img
 						src="picture/user-add.png" width="70" height="70"></a></td>
-				<td align="center">ユーザー情報登録機能</td>
+				<td align="center">ユーザー情報登録</td>
 				<td align="center">ユーザー情報登録を行います。</td>
 			</tr>
 

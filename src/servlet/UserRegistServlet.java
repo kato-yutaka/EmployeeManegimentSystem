@@ -56,14 +56,16 @@ public class UserRegistServlet extends HttpServlet {
 		switch (action) {
 		// ユーザの登録
 		case "regist":
+			// ビジネスロジックAddUserをインスタンス化
+			AddUser add = new AddUser();
+			boolean overlap = add.overlapError(user_id);
 			// 登録するIDまたはpassが未入力の場合、失敗
-			if (user_id.equals("") || password.equals("")) {
+			if (user_id.equals("") || password.equals("") || overlap == true) {
 				url = "success_failure.jsp";
 			}
 			// IDとpassが入力されている場合、登録処理へ
 			else {
-				// ビジネスロジックAddUserをインスタンス化
-				AddUser add = new AddUser();
+
 				// 戻り値は登録成功か判定の結果
 				boolean flag = add.addUser(user_id, password);
 				// true/成功、false/失敗

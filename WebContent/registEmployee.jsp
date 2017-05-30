@@ -126,7 +126,6 @@
 					max=<%=(String) request.getAttribute("today")%>
 					<%=(String) reg_session.getAttribute("emp_date_str") != null
 					? " value = " + (String) reg_session.getAttribute("emp_date_str") : ""%>>iŽè“ü—Í—áF2000-01-01j</td>
-
 			</tr>
 		</table>
 		<br>
