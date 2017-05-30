@@ -1,5 +1,4 @@
 @CHARSET "Windows-31J";
-
 div.center {
 	text-align: center;                     /* ’†‰›Šñ‚¹‚É‚·‚é */
 }
@@ -45,9 +44,6 @@ table.s-tbl:hover tbody tr:hover th {
 	background: #b0e0e6;
 }
 
-
-
-
 .list {
 	border-collapse: collapse;
 }
@@ -55,6 +51,14 @@ table.s-tbl:hover tbody tr:hover th {
 .list th, .s-tbl td {
 	font-size: 12px;
 	border: 1px solid #000;
+
+.s-tbl tr:hover {
+	background: #ff0;
+}
+
+#bg-blue{
+	width:200px;				 				/* ‰¡•‚ğ200px‚É‚·‚é */
+	background-color: #AEF6EF;                  /* ”wŒi‚ÌƒJƒ‰[‚ğ•ÏX‚·‚é */
 }
 
 .list tr:nth-child(2n) {
