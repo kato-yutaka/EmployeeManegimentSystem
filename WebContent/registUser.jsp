@@ -23,18 +23,17 @@ if(access == null){
 <div class="center">
 <h1>ユーザー情報登録</h1>
 </div>
-
-<table>
+<form action="UserRegistServlet" method="POST">
+	<table>
 	<tr><td><b><font size="4">従業員情報</font></b></td></tr>
-	<tr><td>ユーザーID</td><td><input type = "text" name = "ID" maxlength='4'></td></tr>
-	<tr><td>パスワード</td><td><input type = "text" name = "PASS" maxlength='4'> </td></tr>
+	<tr><td>ユーザーID:</td><td><input type = "text" name = "ID" maxlength='24'></td></tr>
+	<tr><td>パスワード:</td><td><input type = "text" name = "PASS" maxlength='32'> </td></tr>
 	</table>
 <br>
-	<form action="EmployeeManagementServlet" method="POST">
 	<div class="center">
-		<input type="submit" value="登録" name="ACTION">
+		<button type="submit" value="regist" name="ACTION">ユーザ登録</button>
 	</div>
-	</form>
+</form>
 <br>
 	<form action="EmployeeManagementServlet" method="POST">
 	<div class="center">

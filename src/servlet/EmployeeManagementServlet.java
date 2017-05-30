@@ -80,12 +80,6 @@ public class EmployeeManagementServlet extends HttpServlet {
 			url = "logout.jsp";
 			break;
 
-		case "ユーザー情報":
-			request.setAttribute("employeList", employeeList);
-
-			url = "registUser.jsp";
-			break;
-
 		default:
 			url = "unauthorized_access.jsp";
 			break;

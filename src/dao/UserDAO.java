@@ -104,6 +104,8 @@ public class UserDAO {
 				String user_id = user.getUserId();
 				String passward = user.getPassword();
 
+				System.out.println(user_id);
+        		System.out.println(passward);
 				// 更新日時の定義
 				java.util.Date date = new java.util.Date();
 				java.sql.Timestamp update_date = new java.sql.Timestamp(date.getTime());
