@@ -18,67 +18,72 @@ import entity.AddUser;
 public class UserRegistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserRegistServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UserRegistServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String url = null;
 
 		// エンコーディング指定
-        request.setCharacterEncoding("Windows-31J");
-        response.setCharacterEncoding("Windows-31J");
+		request.setCharacterEncoding("Windows-31J");
+		response.setCharacterEncoding("Windows-31J");
 
-        // JSPよりパラメータを取得
-        String action = request.getParameter("ACTION");
-        String user_id = request.getParameter("ID");
-        String password = request.getParameter("PASS");
+		// JSPよりパラメータを取得
+		String action = request.getParameter("ACTION");
+		String user_id = request.getParameter("ID");
+		String password = request.getParameter("PASS");
 
+		switch (action) {
+		// ユーザの登録
+		case "regist":
+			// ビジネスロジックAddUserをインスタンス化
+			AddUser add = new AddUser();
+			boolean overlap = add.overlapError(user_id);
+			// 登録するIDまたはpassが未入力の場合、失敗
+			if (user_id.equals("") || password.equals("") || overlap == true) {
+				url = "success_failure.jsp";
+			}
+			// IDとpassが入力されている場合、登録処理へ
+			else {
 
-        switch(action){
-        // ユーザの登録
-        case "regist":
-        	// 登録するIDまたはpassが未入力の場合、失敗
-        	if(user_id.equals("") || password.equals("")){
-        		url = "success_failure.jsp";
-        	}
-        	//IDとpassが入力されている場合、登録処理へ
-        	else{
-        		// ビジネスロジックAddUserをインスタンス化
-        		AddUser add = new AddUser();
-        		// 戻り値は登録成功か判定の結果
-        		boolean flag = add.addUser(user_id, password);
-        		// true/成功、false/失敗
-        		if(flag == true){
-        			url = "successRegistUser.jsp";
-        		}else{
-        			url = "success_failure.jsp";
-        		}
-        	}
-        	break;
+				// 戻り値は登録成功か判定の結果
+				boolean flag = add.addUser(user_id, password);
+				// true/成功、false/失敗
+				if (flag == true) {
+					url = "successRegistUser.jsp";
+				} else {
+					url = "success_failure.jsp";
+				}
+			}
+			break;
 
-        // ユーザ登録画面へ
-        case "add_user":
-        	url = "registUser.jsp";
-        	break;
+		// ユーザ登録画面へ
+		case "add_user":
+			url = "registUser.jsp";
+			break;
 
-        }
-        RequestDispatcher rd = request.getRequestDispatcher(url);
-        rd.forward(request, response);
+		}
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
 	}
 }
