@@ -38,12 +38,11 @@ table.s-tbl:hover tbody tr:hober td {
 }
 
 table.s-tbl:hover tbody tr:hover td {
-	color: #666;
 	background: #ff0;
 }
 
 table.s-tbl:hover tbody tr:hover th {
-	background: #D3EDFB;
+	background: #00ffff;
 }
 
 .s-tbl tr:hover {
