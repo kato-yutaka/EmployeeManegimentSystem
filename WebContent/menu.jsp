@@ -51,33 +51,50 @@
 
 
 			<tr>
-				<td><a style="display: block; width: 100%; height: 73px;" href="javascript:document.forms['a'].submit();"><img
+				<td><a style="display: block; width: 100%; height: 73px; line-height:150%"
+					href="javascript:document.forms['a'].submit();"><img
 						src="picture/userlist.png" width="70" height="70"></a></td>
-				<td align="center" valign="middle"><a style=" top:25%; text-decoration: none; display: block; width: 100%; height: 73px;" href="javascript:document.forms['a'].submit();">従業員一覧・削除</a></td>
-				<td align="center"><a style="text-decoration: none; display: block; width: 100%; height: 73px;" href="javascript:document.forms['a'].submit();">従業員の一覧を表示します。<br>従業員の削除をします。</a>
-				</td>
+				<td align="center"><a
+					style="top: 25%; text-decoration: none; display: block; width: 100%; height: 73px; line-height:73px"
+					href="javascript:document.forms['a'].submit();">従業員一覧・削除</a></td>
+				<td align="center"><a
+					style="text-decoration: none; display: block; line-height:73px "
+					href="javascript:document.forms['a'].submit();">従業員の一覧を表示します。従業員の削除をします。
+				</a></td>
 
 			</tr>
 
 			<tr>
-				<td><a href="javascript:document.forms['b'].submit();"><img
+				<td><a style="display: block; width: 100%; height: 73px;" href="javascript:document.forms['b'].submit();"><img
 						src="picture/user.png" width="70" height="70"></a></td>
-				<td align="center">従業員登録</td>
-				<td align="center">従業員の登録を行います。</td>
+				<td align="center"><a
+					style="top: 25%; text-decoration: none; display: block;width: 100%; height: 73px; line-height:73px "
+					href="javascript:document.forms['b'].submit();">従業員登録</a></td>
+				<td align="center"><a
+					style="top: 25%; text-decoration: none; display: block;width: 100%; height: 73px;  line-height:73px"
+					href="javascript:document.forms['b'].submit();">従業員の登録を行います。</a></td>
 			</tr>
 
 			<tr>
 				<td><a href="javascript:document.forms['d'].submit();"><img
 						src="picture/user-add.png" width="70" height="70"></a></td>
-				<td align="center">ユーザー情報登録</td>
-				<td align="center">ユーザー情報登録を行います。</td>
+				<td align="center"><a
+					style="top: 25%; text-decoration: none; display: block; width: 100%; height: 73px;line-height:73px "
+					href="javascript:document.forms['d'].submit();">ユーザー情報登録</a></td>
+				<td align="center"><a
+					style="top: 25%; text-decoration: none; display: block; width: 100%; height: 73px; line-height:73px "
+					href="javascript:document.forms['d'].submit();">ユーザー情報登録を行います。</a></td>
 			</tr>
 
 			<tr>
 				<td><a href="javascript:document.forms['c'].submit();"><img
 						src="picture/logout.png" width="70" height="70"></a></td>
-				<td align="center">ログアウト</td>
-				<td align="center">ログアウトします</td>
+				<td align="center"><a
+					style="top: 25%; text-decoration: none; display: block; width: 100%; height: 73px; line-height:73px "
+					href="javascript:document.forms['c'].submit();">ログアウト</a></td>
+				<td align="center"><a
+					style="top: 25%; text-decoration: none; display: block; width: 100%; height: 73px; line-height:73px "
+					href="javascript:document.forms['c'].submit();">ログアウトします</a></td>
 			</tr>
 
 		</table>
