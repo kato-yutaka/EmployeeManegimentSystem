@@ -26,8 +26,8 @@ if(access == null){
 <form action="UserRegistServlet" method="POST">
 	<table>
 	<tr><td><b><font size="4">従業員情報</font></b></td></tr>
-	<tr><td>ユーザーID:</td><td><input type = "text" name = "ID" maxlength='24'></td></tr>
-	<tr><td>パスワード:</td><td><input type = "text" name = "PASS" maxlength='32'> </td></tr>
+	<tr><td id="bg-blue">ユーザーID:</td><td><input type = "text" name = "ID" maxlength='24'></td></tr>
+	<tr><td id="bg-blue">パスワード:</td><td><input type = "text" name = "PASS" maxlength='32'> </td></tr>
 	</table>
 <br>
 	<div class="center">
