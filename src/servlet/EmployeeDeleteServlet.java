@@ -53,10 +53,10 @@ public class EmployeeDeleteServlet extends HttpServlet {
     	request.setAttribute("CODE", code);
 
         // インスタンス化
-    	Remove remove = new Remove(code);
+    	Remove remove = new Remove();
 
     	// 削除処理とフラグ判定
-    	boolean flag = remove.removeEmployee();
+    	boolean flag = remove.removeEmployee(code);
     	if(flag == true){
     		// 削除成功
     		url = "delete_success.jsp";

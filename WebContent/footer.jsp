@@ -10,7 +10,7 @@ pageEncoding="Windows-31J"%>
 	<br><br><br>
     <hr>
     <div align="right">
-        <font size="4" color="blue">-- ゆるふわホイップ --</font>
+        <font size="4" color="#00cdcd">-- ゆるふわホイップ --</font>
     </div>
 </body>
 </html>

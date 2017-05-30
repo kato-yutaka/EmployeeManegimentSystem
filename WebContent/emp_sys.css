@@ -33,9 +33,6 @@ table {
 	background: #b0e0e6;
 }
 
-table.s-tbl:hover tbody tr:hober td {
-	background: #ff0;
-}
 
 table.s-tbl:hover tbody tr:hover td {
 	background: #ff0;
@@ -58,6 +55,11 @@ table.s-tbl:hover tbody tr:hover th {
 	background: #ff0;
 }
 
+#bg-blue{
+	width:200px;				 				/* 横幅を200pxにする */
+	background-color: #AEF6EF;                  /* 背景のカラーを変更する */
+}
+
 .list tr:nth-child(2n) {
 	background: #eee;
 }
@@ -69,9 +71,10 @@ table.s-tbl:hover tbody tr:hover th {
 #bg-blue {
 	width: 200px; /* 横幅を200pxにする */
 	background-color: #AEF6EF; /* 背景のカラーを変更する */
-}
+	}
 
 #bg-red {
 	width: 200px;
 	background-color: #FF69B4;
 }
+

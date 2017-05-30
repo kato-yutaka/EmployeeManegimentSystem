@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div align="left">
-        <a href="menu.jsp"><font size="6" color="blue">従業員管理システム</font></a>
+        <font size="6" color="blue">従業員管理システム</font>
         <br>
     </div>
 	<hr>
