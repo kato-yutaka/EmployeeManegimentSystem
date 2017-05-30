@@ -17,7 +17,7 @@
 		}
 		$this.value = str;
 	}
-	</script>
+</script>
 </head>
 <body>
 	<%-- 不正アクセス防止 --%>
@@ -56,7 +56,8 @@
 
 			<tr>
 				<td id=<%=tips.contains(0) ? "bg-red" : "bg-blue"%>>従業員コード(半角)<%=tips.contains(0) ? "<img src=\"Warning.png\" width=\"14\" height=\"14\">" : ""%></td>
-				<td><input type="text" name="emp_code" maxlength='4' onInput="checkForm(this)"
+				<td><input type="text" name="emp_code" maxlength='4'
+					onInput="checkForm(this)"
 					<%=(String) reg_session.getAttribute("emp_code") != null
 					? " value = " + (String) reg_session.getAttribute("emp_code") : ""%>></td>
 			</tr>
@@ -83,8 +84,8 @@
 			<tr>
 				<td id=<%=tips.contains(3) ? "bg-red" : "bg-blue"%>>性別<%=tips.contains(3) ? "<img src=\"picture/Warning.png\" width=\"14\" height=\"14\">" : ""%></td>
 				<td><input type="radio" name="sex" value="0"
-					<%="0".equals(sex_str) ? " checked=\"checked\"" : ""%>>男
-					<input type="radio" name="sex" value="1"
+					<%="0".equals(sex_str) ? " checked=\"checked\"" : ""%>>男 <input
+					type="radio" name="sex" value="1"
 					<%="1".equals(sex_str) ? " checked=\"checked\"" : ""%>>女</td>
 			</tr>
 			<tr>
@@ -125,6 +126,10 @@
 					max=<%=(String) request.getAttribute("today")%>
 					<%=(String) reg_session.getAttribute("emp_date_str") != null
 					? " value = " + (String) reg_session.getAttribute("emp_date_str") : ""%>>（手入力例：2000-01-01）</td>
+				<td><input type="text" name="emp_code" maxlength='4'
+					onInput="checkForm(this)"
+					<%=(String) reg_session.getAttribute("emp_code") != null
+					? " value = " + (String) reg_session.getAttribute("emp_code") : ""%>></td>
 			</tr>
 		</table>
 		<br>
