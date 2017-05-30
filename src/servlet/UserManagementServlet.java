@@ -79,16 +79,15 @@ public class UserManagementServlet extends HttpServlet {
 
 	            id_a=user.getUserId();
 	            password_a=user.getPassword();
-            }
+	            //id,passの認証
+	            if(id.equals(id_a) && password.equals(password_a)){
+	            	url="menu.jsp";
+	            	HttpSession session = request.getSession();
+	            	session.setAttribute("ACCESS", "チームゆるふわ");
 
-            //id,passの認証
-            if(id.equals(id_a) && password.equals(password_a)){
-            	url="menu.jsp";
-            	HttpSession session = request.getSession();
-            	session.setAttribute("ACCESS", "チームゆるふわ");
-
+	            }
             }
-            else{
+            if(url!="menu.jsp"){
             	url="login_failure.jsp";
             }
 

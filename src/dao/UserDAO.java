@@ -91,7 +91,7 @@ public class UserDAO {
 	 }
 
 
-	 public void insertUser(){
+	 public boolean insertUser() throws Exception{
 		 ConnectionManager cm = ConnectionManager.getInstance();
 			try (Connection con = cm.getConnection();
 					Statement stmt = con.createStatement();
@@ -116,15 +116,14 @@ public class UserDAO {
 				// SQLステートメントの実行（更新系）
 				try {
 					pstmt.executeUpdate();
-					// ファイルに関する例外処理
+					return true;
+
+				// ファイルに関する例外処理
 				} catch (SQLException e) {
-					System.out.println("以下のレコードを挿入できません。");
+					return false;
 				}
-
 			} catch (SQLException e) {
-				System.out.println("処理結果：異常が発生しました。");
-				e.printStackTrace();
-
+				return false;
 			}
 
 	 }
