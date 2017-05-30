@@ -8,7 +8,7 @@ pageEncoding="Windows-31J"%>
 		<link rel="stylesheet" href="emp_sys.css" type="text/css">
 	</head>
 	<body>
-		<%@ include file="header.jsp" %>
+		<%@ include file="header_login.jsp" %>
 		<div class="center">
 		<h1>ƒƒOƒCƒ“‰æ–Ê</h1>
 
