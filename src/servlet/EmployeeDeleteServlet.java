@@ -18,55 +18,58 @@ import entity.Remove;
 public class EmployeeDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EmployeeDeleteServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-				response.getWriter().append("Served at: ").append(request.getContextPath());
+	public EmployeeDeleteServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// 削除専用処理
 
 		String url = null;
 		// エンコーディング指定
-        request.setCharacterEncoding("Windows-31J");
-        response.setCharacterEncoding("Windows-31J");
+		request.setCharacterEncoding("Windows-31J");
+		response.setCharacterEncoding("Windows-31J");
 
-        // JSPよりパラメータを取得
-        String code = request.getParameter("ACTION");
+		// JSPよりパラメータを取得
+		String code = request.getParameter("ACTION");
 
-        // 削除完了・失敗で使用
-    	request.setAttribute("CODE", code);
+		// 削除完了・失敗で使用
+		request.setAttribute("CODE", code);
 
-        // インスタンス化
-    	Remove remove = new Remove();
+		// インスタンス化
+		Remove remove = new Remove();
 
-    	// 削除処理とフラグ判定
-    	boolean flag = remove.removeEmployee(code);
-    	if(flag == true){
-    		// 削除成功
-    		url = "delete_success.jsp";
-    	}else{
-    		// 削除失敗（既に削除されている）
-    		url = "delete_failure.jsp";
-    	}
+		// 削除処理とフラグ判定
+		boolean flag = remove.removeEmployee(code);
+		if (flag == true) {
+			// 削除成功
+			url = "delete_success.jsp";
+		} else {
+			// 削除失敗（既に削除されている）
+			url = "delete_failure.jsp";
+		}
 
-        RequestDispatcher rd = request.getRequestDispatcher(url);
-        rd.forward(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
 
 	}
 }

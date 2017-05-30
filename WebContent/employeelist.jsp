@@ -4,32 +4,29 @@
 <%@ page import="entity.EmployeeBean"%>
 <%@ page import="servlet.UserManagementServlet"%>
 
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
-<title>従業員一覧画面</title>
-<link rel="stylesheet" href="emp_sys.css" type="text/css">
+	<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
+	<title>従業員一覧画面</title>
+	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 
-<script type="text/javascript">
+	<script type="text/javascript">
 	function DeleteCheck() {
 		if (window.confirm('削除してよろしいですか？')) {
-<%--確認ダイアログを表示--%>
-	return true;
-<%--「OK」時は送信を実行 --%>
-	} else {
-<%--「キャンセル」時の処理 --%>
-	window.alert('キャンセルされました');
-<%-- 警告ダイアログを表示 --%>
-	return false;
-<%-- 送信を中止 --%>
-	}
+	<%--確認ダイアログを表示--%>
+			return true;
+	<%--「OK」時は送信を実行 --%>
+		} else {
+	<%--「キャンセル」時の処理 --%>
+			window.alert('キャンセルされました');
+	<%-- 警告ダイアログを表示 --%>
+		return false;
+	<%-- 送信を中止 --%>
+		}
 	}
 </script>
-
 </head>
 <body>
 	<%-- 不正アクセス防止 --%>
@@ -43,7 +40,7 @@
 	<div class="center">
 		<h1>従業員一覧画面</h1>
 		<br>
-		<table class="list" >
+		<table class="list">
 			<tr bgcolor="#adff2f">
 				<th>従業員コード</th>
 				<th>氏名</th>
@@ -65,11 +62,18 @@
 			<form action="EmployeeDeleteServlet" method="POST"
 				onSubmit="return DeleteCheck()">
 
-           <% if(i % 2 == 0){%>
-                <tr bgcolor=" #EFEFEF">
-			<%}else{ %>
+				<%
+					if (i % 2 == 0) {
+				%>
+				<tr bgcolor=" #EFEFEF">
+					<%
+						} else {
+					%>
+
 				<tr>
-			<% } %>
+					<%
+						}
+					%>
 					<td><%=employee.getCode()%></td>
 					<%--従業員コードを出力 --%>
 					<td style="width: 140px;"><%=employee.getName()%></td>
@@ -91,7 +95,7 @@
 					<%--所属部署を出力 --%>
 					<td style="width: 150px;"><%=employee.getEmp_date()%></td>
 					<%--入社日を出力 --%>
-					<td class = "a"><button type="submit" name="ACTION"
+					<td class="a"><button type="submit" name="ACTION"
 							value=<%=employee.getCode()%>>削除</button></td>
 				</tr>
 			</form>
