@@ -42,14 +42,6 @@ table.s-tbl:hover tbody tr:hover th {
 	background: #b0e0e6;
 }
 
-.list {
-	border-collapse: collapse;
-}
-
-.list th, .s-tbl td {
-	font-size: 12px;
-	border: 1px solid #000;
-}
 
 .s-tbl tr:hover {
 	background: #ff0;
@@ -60,14 +52,6 @@ table.s-tbl:hover tbody tr:hover th {
 	background-color: #AEF6EF;                  /* ”wŒi‚ÌƒJƒ‰[‚ğ•ÏX‚·‚é */
 }
 
-.list tr:nth-child(2n) {
-	background: #eee;
-}
-
-.a
- display:block;
-  }
-
 #bg-blue {
 	width: 200px; /* ‰¡•‚ğ200px‚É‚·‚é */
 	background-color: #AEF6EF; /* ”wŒi‚ÌƒJƒ‰[‚ğ•ÏX‚·‚é */
@@ -77,4 +61,18 @@ table.s-tbl:hover tbody tr:hover th {
 	width: 200px;
 	background-color: #FF69B4;
 }
+
+.list{
+	border-collapse: collapse;
+}
+
+.list th, .list td {
+	border: 1px solid #000;
+}
+
+table.list:hover tbody tr:hover td {
+	background: #ff0;
+}
+
+
 
