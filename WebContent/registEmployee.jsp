@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
-	<title>Insert title here</title>
+	<title>従業員登録</title>
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 	<script type="text/javascript">
 	function checkForm($this) {

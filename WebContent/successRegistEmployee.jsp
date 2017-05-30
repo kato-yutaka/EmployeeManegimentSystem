@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=Windows-31J"
-pageEncoding="Windows-31J"%>
+	pageEncoding="Windows-31J"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,25 +8,25 @@ pageEncoding="Windows-31J"%>
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
-<%-- ïsê≥ÉAÉNÉZÉXñhé~ --%>
-<%
-String access = (String)session.getAttribute("ACCESS");
-if(access == null){
-	response.sendRedirect("unauthorized_access.jsp");
-}
-%>
-<%@ include file="header.jsp" %>
+	<%-- ïsê≥ÉAÉNÉZÉXñhé~ --%>
+	<%
+		String access = (String) session.getAttribute("ACCESS");
+		if (access == null) {
+			response.sendRedirect("unauthorized_access.jsp");
+		}
+	%>
+	<%@ include file="header.jsp"%>
 	<div class="center">
 
 
-<h1>ìoò^äÆóπÇµÇ‹ÇµÇΩÅB</h1>
-<form action="EmployeeManagementServlet" method="POST">
-<input type="submit" value="è]ã∆àıàÍóóÇ÷" name ="ACTION">
-</form>
-<br>
-<form action="RegistEmployeeServlet" method="POST">
-<input type="submit" value="è]ã∆àıìoò^" name="ACTION">
-</form>
-</div>
+		<h1>ìoò^äÆóπÇµÇ‹ÇµÇΩÅB</h1>
+		<form action="EmployeeManagementServlet" method="POST">
+			<input type="submit" value="è]ã∆àıàÍóóÇ÷" name="ACTION">
+		</form>
+		<br>
+		<form action="RegistEmployeeServlet" method="POST">
+			<input type="submit" value="è]ã∆àıìoò^" name="ACTION">
+		</form>
+	</div>
 </body>
 </html>

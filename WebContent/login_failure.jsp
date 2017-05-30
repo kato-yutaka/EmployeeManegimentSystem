@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=Windows-31J"
-    pageEncoding="Windows-31J"%>
+	pageEncoding="Windows-31J"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,18 +9,21 @@
 </head>
 <body>
 
-<%@ include file="header.jsp" %>
+	<%@ include file="header.jsp"%>
 	<div class="center">
-        <h1>ログイン失敗しました</font></h1>
+		<h1>
+			ログイン失敗しました</font>
+		</h1>
 
-	    	<p><b><font color="red">ユーザー名</font></b>または<b><font color="red">パスワード</font></b>が間違っています。<br>
-	    	ログイン画面に戻り、もう一度入力してください。</p>
-	        <form action="UserManagementServlet" method="POST">
-	            <br>
-	            <input type="hidden" name="ACTION" value="222">
-	            <input type="submit" value="ログイン画面へ">
-	        </form>
-	    </div>
-<%@ include file="footer.jsp" %>
+		<p>
+			<b><font color="red">ユーザー名</font></b>または<b><font color="red">パスワード</font></b>が間違っています。<br>
+			ログイン画面に戻り、もう一度入力してください。
+		</p>
+		<form action="UserManagementServlet" method="POST">
+			<br> <input type="hidden" name="ACTION" value="222"> <input
+				type="submit" value="ログイン画面へ">
+		</form>
+	</div>
+	<%@ include file="footer.jsp"%>
 </body>
 </html>
