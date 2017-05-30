@@ -42,14 +42,6 @@ table.s-tbl:hover tbody tr:hover th {
 	background: #b0e0e6;
 }
 
-.list {
-	border-collapse: collapse;
-}
-
-.list th, .s-tbl td {
-	font-size: 12px;
-	border: 1px solid #000;
-}
 
 .s-tbl tr:hover {
 	background: #ff0;
@@ -64,9 +56,13 @@ table.s-tbl:hover tbody tr:hover th {
 	background: #eee;
 }
 
-.a
- display:block;
-  }
+
+ .link{
+ 	display:block;
+ 	width:100%;
+ 	height:100%;
+
+ }
 
 #bg-blue {
 	width: 200px; /* â°ïùÇ200pxÇ…Ç∑ÇÈ */
@@ -77,4 +73,18 @@ table.s-tbl:hover tbody tr:hover th {
 	width: 200px;
 	background-color: #FF69B4;
 }
+
+.list{
+	border-collapse: collapse;
+}
+
+.list th, .list td {
+	border: 1px solid #000;
+}
+
+table.list:hover tbody tr:hover td {
+	background: #ff0;
+}
+
+
 

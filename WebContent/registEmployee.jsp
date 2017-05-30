@@ -55,7 +55,7 @@
 			</tr>
 
 			<tr>
-				<td id=<%=tips.contains(0) ? "bg-red" : "bg-blue"%>>従業員コード(半角)<%=tips.contains(0) ? "<img src=\"Warning.png\" width=\"14\" height=\"14\">" : ""%></td>
+				<td id=<%=tips.contains(0) ? "bg-red" : "bg-blue"%>>従業員コード(半角)<%=tips.contains(0) ? "<img src=\"picture/Warning.png\" width=\"14\" height=\"14\">" : ""%></td>
 				<td><input type="text" name="emp_code" maxlength='4'
 					onInput="checkForm(this)"
 					<%=(String) reg_session.getAttribute("emp_code") != null
@@ -93,7 +93,7 @@
 				<td><input type="date" name="birth_day"
 					max=<%=(String) request.getAttribute("today")%>
 					<%=(String) reg_session.getAttribute("birth_day_str") != null
-					? " value = " + (String) reg_session.getAttribute("birth_day_str") : ""%>>（手入力例：2000-01-01）</td>
+					? " value = " + (String) reg_session.getAttribute("birth_day_str") : " value = 1990-01-01"%>>（手入力例：2000-01-01）</td>
 			</tr>
 			<tr>
 				<td id=<%=tips.contains(5) ? "bg-red" : "bg-blue"%>>所属部署<%=tips.contains(5) ? "<img src=\"picture/Warning.png\" width=\"14\" height=\"14\">" : ""%></td>
