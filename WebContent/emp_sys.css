@@ -64,9 +64,13 @@ table.s-tbl:hover tbody tr:hover th {
 	background: #eee;
 }
 
-.a
- display:block;
-  }
+
+ .link{
+ 	display:block;
+ 	width:100%;
+ 	height:100%;
+
+ }
 
 #bg-blue {
 	width: 200px; /* ‰¡•‚ğ200px‚É‚·‚é */

@@ -7,7 +7,7 @@
 <title>menu</title>
 <link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
-<body>
+<body link="#000000">
 
 
 
@@ -40,6 +40,7 @@
 	<div align="center">
 		<h1>メニュー画面</h1>
 
+
 		<table class="s-tbl">
 
 			<tr bgcolor="#b0e0e6">
@@ -50,10 +51,10 @@
 
 
 			<tr>
-				<td><a href="javascript:document.forms['a'].submit();"><img
+				<td><a style="display: block; width: 100%; height: 73px;" href="javascript:document.forms['a'].submit();"><img
 						src="picture/userlist.png" width="70" height="70"></a></td>
-				<td align="center">従業員一覧・削除</td>
-				<td align="center">従業員の一覧を表示します。<br>従業員の削除をします。
+				<td align="center" valign="middle"><a style=" top:25%; text-decoration: none; display: block; width: 100%; height: 73px;" href="javascript:document.forms['a'].submit();">従業員一覧・削除</a></td>
+				<td align="center"><a style="text-decoration: none; display: block; width: 100%; height: 73px;" href="javascript:document.forms['a'].submit();">従業員の一覧を表示します。<br>従業員の削除をします。</a>
 				</td>
 
 			</tr>
