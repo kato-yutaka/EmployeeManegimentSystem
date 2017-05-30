@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="Windows-31J">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
 <title>menu</title>
 <link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
@@ -39,7 +39,7 @@
 
 		<table class="s-tbl">
 
-			<tr bgcolor="D3EDFB	">
+			<tr bgcolor="#b0e0e6">
 				<th></th>
 				<th width="200">タイトル</th>
 				<th width="300">概要</th>
