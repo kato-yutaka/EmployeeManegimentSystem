@@ -8,36 +8,36 @@
 <link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
-<%-- 不正アクセス防止 --%>
-<%
-String access = (String)session.getAttribute("ACCESS");
-if(access == null){
-	response.sendRedirect("unauthorized_access.jsp");
-}
-%>
-<%@ include file="header.jsp" %>
+	<%-- 不正アクセス防止 --%>
+	<%
+		String access = (String) session.getAttribute("ACCESS");
+		if (access == null) {
+			response.sendRedirect("unauthorized_access.jsp");
+		}
+	%>
+	<%@ include file="header.jsp"%>
 
-<form  method="POST" action="EmployeeSelectServlet" name = "a">
-<input type="hidden" name="ACTION" value="従業員一覧・削除">
-</form>
+	<form method="POST" action="EmployeeSelectServlet" name="a">
+		<input type="hidden" name="ACTION" value="従業員一覧・削除">
+	</form>
 
 
-<form  method="POST" action="RegistEmployeeServlet" name = "b">
-<input type="hidden" name="ACTION" value="従業員登録">
-</form>
+	<form method="POST" action="RegistEmployeeServlet" name="b">
+		<input type="hidden" name="ACTION" value="従業員登録">
+	</form>
 
-<form  method="POST" action="EmployeeManagementServlet" name = "c">
-<input type="hidden" name="ACTION" value="ログアウト">
-</form>
+	<form method="POST" action="EmployeeManagementServlet" name="c">
+		<input type="hidden" name="ACTION" value="ログアウト">
+	</form>
 
-<form  method="POST" action="UserRegistServlet" name = "d">
-<input type="hidden" name="ACTION" value="add_user">
-</form>
+	<form method="POST" action="UserRegistServlet" name="d">
+		<input type="hidden" name="ACTION" value="add_user">
+	</form>
 
 	<div align="center">
 		<h1>メニュー画面</h1>
 
-		<table class="s-tbl"  >
+		<table class="s-tbl">
 
 			<tr bgcolor="D3EDFB	">
 				<th></th>
@@ -46,28 +46,33 @@ if(access == null){
 			</tr>
 
 
-			<tr >
-             <td><a href= "javascript:document.forms['a'].submit();"><img src="delete.png" width="70" height="70"></a></td>
-             <td align="center">従業員一覧・削除</td>
-             <td align="center">従業員の一覧を表示します。<br>従業員の削除をします。</td>
-            </tr>
-
-            <tr >
-             <td><a href= "javascript:document.forms['b'].submit();"><img src="regist.png" width="70" height="70"></a></td>
-             <td align="center">従業員登録</td>
-             <td align="center">従業員の登録を行います。</td>
-            </tr>
-
-            <tr >
-             <td><a href= "javascript:document.forms['c'].submit();"><img src="logout.png" width="70" height="70"></a></td>
-             <td align="center">ログアウト</td>
-             <td align="center">ログアウトします</td>
+			<tr>
+				<td><a href="javascript:document.forms['a'].submit();"><img
+						src="picture/userlist.png" width="70" height="70"></a></td>
+				<td align="center">従業員一覧・削除</td>
+				<td align="center">従業員の一覧を表示します。<br>従業員の削除をします。
+				</td>
 			</tr>
 
-			<tr >
-             <td><a href= "javascript:document.forms['d'].submit();"><img src="user.png" width="70" height="70"></a></td>
-             <td align="center">ユーザー情報登録機能</td>
-             <td align="center">ユーザー情報登録する機能です。</td>
+			<tr>
+				<td><a href="javascript:document.forms['b'].submit();"><img
+						src="picture/user.png" width="70" height="70"></a></td>
+				<td align="center">従業員登録</td>
+				<td align="center">従業員の登録を行います。</td>
+			</tr>
+
+			<tr>
+				<td><a href="javascript:document.forms['d'].submit();"><img
+						src="picture/user-add.png" width="70" height="70"></a></td>
+				<td align="center">ユーザー情報登録機能</td>
+				<td align="center">ユーザー情報登録する機能です。</td>
+			</tr>
+
+			<tr>
+				<td><a href="javascript:document.forms['c'].submit();"><img
+						src="picture/logout.png" width="70" height="70"></a></td>
+				<td align="center">ログアウト</td>
+				<td align="center">ログアウトします</td>
 			</tr>
 
 		</table>
