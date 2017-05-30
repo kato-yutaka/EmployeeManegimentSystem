@@ -264,7 +264,7 @@ public class RegistEmployeeServlet extends HttpServlet {
 	            dao.insertEmployee(employee);
 	            url = "successRegistEmployee.jsp";
 	            //入力内容保持セッション削除
-	           // reg_session.invalidate();
+
 
 
 	         }

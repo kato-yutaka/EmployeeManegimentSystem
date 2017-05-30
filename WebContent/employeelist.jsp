@@ -46,6 +46,7 @@ if(access == null){
 				<th>生年月日</th>
 				<th>所属部署</th>
 				<th>入社日</th>
+				<th>削除</th>
 			</tr>
 			<%
 				ArrayList<EmployeeBean> employeList = (ArrayList<EmployeeBean>) request.getAttribute("employeList");
@@ -55,6 +56,7 @@ if(access == null){
 			%>
 			<form action="EmployeeDeleteServlet" method="POST"
 				onSubmit="return DeleteCheck()">
+
 				<tr>
 					<td><%=employee.getCode()%></td>
 					<%--従業員コードを出力 --%>
