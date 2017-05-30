@@ -122,11 +122,11 @@ public class EmployeeDAO {
 		// データベースへの接続の取得、ステートメント取得
 		try (Connection con = cm.getConnection();
 				Statement stmt = con.createStatement();
-				ResultSet res = stmt.executeQuery("SELECT * FROM m_employee WHERE emp_code = " + emp_code)) {
+				ResultSet res = stmt.executeQuery("SELECT * FROM m_employee WHERE emp_code = \'" + emp_code+ "\'")) {
 
 			// 従業員削除
 			if (res.next() == true) {
-				stmt.executeUpdate("DELETE FROM m_employee WHERE emp_code = " + emp_code);
+				stmt.executeUpdate("DELETE FROM m_employee WHERE emp_code = \'" + emp_code + "\'");
 				del_fin = true;
 			}
 
