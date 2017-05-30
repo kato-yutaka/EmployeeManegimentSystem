@@ -30,7 +30,7 @@ if(access == null){
 	<tr><td>パスワード</td><td><input type = "text" name = "emp_code" maxlength='4' value = "PASS"> </td></tr>
 	</table>
 <br>
-<form action="EmployeeManagementServlet" method="POST">
+	<form action="EmployeeManagementServlet" method="POST">
 	<div class="center">
 		<input type="submit" value="登録" name="ACTION">
 	</div>

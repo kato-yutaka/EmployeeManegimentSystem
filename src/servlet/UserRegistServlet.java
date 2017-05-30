@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.UserDAO;
+import entity.AddUser;
 import entity.UserBean;
 
 /**
@@ -50,15 +50,23 @@ public class UserRegistServlet extends HttpServlet {
         String user_id = request.getParameter("ID");
         String password = request.getParameter("PASS");
 
-        UserBean user = new UserBean();
-        user.setUserId(user_id);
-        user.setPassword(password);
+        if(user_id.equals("") || password.equals("")){
+        	url = "";
+        }else{
+        	UserBean user = new UserBean();
+        	user.setUserId(user_id);
+        	user.setPassword(password);
 
-        UserDAO dao = new UserDAO();
-        dao.insertUser();
+        	AddUser add = new AddUser();
+        	boolean flag = add.addUser();
 
+        	if(flag == true){
+        		url = "successRegistUser.jsp";
+        	}else{
+        		url = "";
+        	}
+        }
 
-        	url = "successRegistUser.jsp";
 
 
         RequestDispatcher rd = request.getRequestDispatcher(url);
