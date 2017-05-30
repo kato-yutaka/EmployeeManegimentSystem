@@ -22,27 +22,35 @@ if(access == null){
 <div class="center">
 
 <h1>従業員登録</h1>
-
+<%--<%= tips.contains(0) ? "bg-red":"bg-blue"--%>
 <%
 HttpSession reg_session = request.getSession();
+
 String section_name  = (String)reg_session.getAttribute("section_name");
 String sex_str  = (String)reg_session.getAttribute("sex_str");
 //String emp_code  = (String)reg_session.getAttribute("emp_code");
+
+ArrayList<Integer> tips = new ArrayList<Integer>();//tipsにnullが入っているとtips.contains()でエラーが起きるため先に宣言
+//error_tipsをnullチェック
+if((ArrayList<Integer>) reg_session.getAttribute("error_tips") != null){
+	tips = (ArrayList<Integer>) reg_session.getAttribute("error_tips");
+	out.print("<font color = \"red\">警告：エラー項目があります</font>");
+}
 
 %>
 </div>
 	<form action="RegistEmployeeServlet" method="POST"  autocomplete="off">
 <table>
 	<tr><td><b><font size="4">従業員情報</font></b></td></tr>
-	<tr><td id="bg">従業員コード</td><td><input type = "text" name = "emp_code" maxlength='4' <%= (String)reg_session.getAttribute("emp_code") != null ? " value = " + (String)reg_session.getAttribute("emp_code") : "" %> ></td></tr>
-	<tr><td id="bg">氏名</td><td>姓　　　<input type = "text" name = "l_name" maxlength='16' <%= (String)reg_session.getAttribute("l_name") != null ? " value = " + (String)reg_session.getAttribute("l_name") : "" %>>　
+	<tr><td id=<%= tips.contains(0) ? "bg-red":"bg-blue"%>>従業員コード</td><td><input type = "text" name = "emp_code" maxlength='4' <%= (String)reg_session.getAttribute("emp_code") != null ? " value = " + (String)reg_session.getAttribute("emp_code") : "" %> ></td></tr>
+	<tr><td id=<%= tips.contains(1) ? "bg-red":"bg-blue"%>>氏名</td><td>姓　　　<input type = "text" name = "l_name" maxlength='16' <%= (String)reg_session.getAttribute("l_name") != null ? " value = " + (String)reg_session.getAttribute("l_name") : "" %>>　
 	</td><td>名　　　<input type = "text" name = "f_name" maxlength='16'  <%= (String)reg_session.getAttribute("f_name") != null ? " value = " + (String)reg_session.getAttribute("f_name") : "" %> ></td></tr>
-	<tr><td id="bg">氏名（フリガナ）</td><td>姓(セイ)<input type = "text" name = "l_kana_name" maxlength='16'  <%= (String)reg_session.getAttribute("l_kana_name") != null ? " value = " + (String)reg_session.getAttribute("l_kana_name") : "" %>>
+	<tr><td id=<%= tips.contains(2) ? "bg-red":"bg-blue"%>>氏名（フリガナ）</td><td>姓(セイ)<input type = "text" name = "l_kana_name" maxlength='16'  <%= (String)reg_session.getAttribute("l_kana_name") != null ? " value = " + (String)reg_session.getAttribute("l_kana_name") : "" %>>
 	　</td><td>名(メイ)<input type = "text" name = "f_kana_name" maxlength='16'  <%= (String)reg_session.getAttribute("f_kana_name") != null ? " value = " + (String)reg_session.getAttribute("f_kana_name") : "" %>></td></tr>
-	<tr><td id="bg">性別</td><td><input type = "radio" name = "sex" value = "0" <%= "0".equals(sex_str) ? " checked=\"checked\"" : "" %>>男　
+	<tr><td id=<%= tips.contains(3) ? "bg-red":"bg-blue"%>>性別</td><td><input type = "radio" name = "sex" value = "0" <%= "0".equals(sex_str) ? " checked=\"checked\"" : "" %>>男　
 						<input type = "radio" name = "sex" value = "1"  <%= "1".equals(sex_str) ? " checked=\"checked\"" : "" %>>女</td></tr>
-	<tr><td id="bg">生年月日</td><td><input type="date" name="birth_day"  max=<%= (String)request.getAttribute("today")%>  <%= (String)reg_session.getAttribute("birth_day_str") != null ? " value = " + (String)reg_session.getAttribute("birth_day_str") : "" %>>（手入力例：2000-01-01）</td></tr>
-	<tr><td id="bg">所属部署</td><td>
+	<tr><td id=<%= tips.contains(4) ? "bg-red":"bg-blue"%>>生年月日</td><td><input type="date" name="birth_day"  max=<%= (String)request.getAttribute("today")%>  <%= (String)reg_session.getAttribute("birth_day_str") != null ? " value = " + (String)reg_session.getAttribute("birth_day_str") : "" %>>（手入力例：2000-01-01）</td></tr>
+	<tr><td id=<%= tips.contains(5) ? "bg-red":"bg-blue"%>>所属部署</td><td>
 		 <%
 
                 ArrayList<EmployeeBean> section =
@@ -62,7 +70,7 @@ String sex_str  = (String)reg_session.getAttribute("sex_str");
                     <%}
                 }%>
  		</select></td></tr>
-		<tr><td id="bg">入社日</td><td><input type="date" name="emp_date"
+		<tr><td id=<%= tips.contains(6) ? "bg-red":"bg-blue"%>>入社日</td><td><input type="date" name="emp_date"
 		 max= <%= (String)request.getAttribute("today")%> <%= (String)reg_session.getAttribute("emp_date_str") != null ? " value = " + (String)reg_session.getAttribute("emp_date_str") : "" %>
 		 >（手入力例：2000-01-01）</td></tr>
 	</table>

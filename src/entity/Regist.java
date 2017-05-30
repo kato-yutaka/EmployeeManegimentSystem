@@ -37,7 +37,7 @@ public class Regist {
 	            return false;
 	        }
 	 }
-	 public static boolean compareToday(String strDate) {
+	 public static boolean compareToday(String strDate) {//入力された日付が過去ならfalse、それ以外ならtrueを返す
 	 try {
 		 strDate = strDate.replace('-', '/');
 		 //現在日付の取得
@@ -45,10 +45,10 @@ public class Regist {
 			java.util.Date date = DateFormat.getDateInstance().parse(strDate);
 			 // 2つの日付を比較し、結果によってメッセージを変えます
             int diff = today.compareTo(date);
-            if (diff > 0) {//入力が過去の日付
-            	return true;
-            } else{
+            if (diff < 0) {//入力が過去の日付
             	return false;
+            } else{
+            	return true;
             }
          } catch (ParseException e) {
 			// TODO 自動生成された catch ブロック
