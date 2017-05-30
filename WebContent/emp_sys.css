@@ -48,8 +48,22 @@ table.s-tbl:hover tbody tr:hover th {
 .s-tbl tr:hover {
 	background: #ff0;
 }
+<<<<<<< HEAD
+
+#bg-blue{
+	width:200px;				 				/* ‰¡•‚ð200px‚É‚·‚é */
+	background-color: #AEF6EF;                  /* ”wŒi‚ÌƒJƒ‰[‚ð•ÏX‚·‚é */
+}
+#bg-red{
+	width:200px;
+	background-color:#FF69B4;
+}
+
+
+=======
 
 #bg {
 	width: 200px; /* ‰¡•‚ð200px‚É‚·‚é */
 	background-color: #AEF6EF; /* ”wŒi‚ÌƒJƒ‰[‚ð•ÏX‚·‚é */
 }
+>>>>>>> branch 'master' of https://github.com/kato-yutaka/EmployeeManegimentSystem.git

@@ -52,6 +52,7 @@ public class RegistEmployeeServlet extends HttpServlet {
         // JSPよりパラメータを取得
         String action = request.getParameter("ACTION");
 
+        // 使用する値の初期化
         String emp_code = null;
     	String l_name = null;
     	String f_name = null;
@@ -65,12 +66,16 @@ public class RegistEmployeeServlet extends HttpServlet {
         // DAO、Beanをインスタンス化
         ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
         EmployeeDAO dao = new EmployeeDAO();
-        ArrayList<String> nullList = new ArrayList<String>();
-        ArrayList<String> error_message = new ArrayList<String>();
-        ArrayList<Integer> error_number = new ArrayList<Integer>();
+
+        //例外用リスト作成
+        ArrayList<String> nullList = new ArrayList<String>();//未入力項目
+        ArrayList<String> error_message = new ArrayList<String>();//例外時に表示するメッセージ
+        ArrayList<Integer> error_number = new ArrayList<Integer>();//例外判別番号
+        ArrayList<Integer> error_tips = new ArrayList<Integer>();//例外項目番号(0:従業員コード～6：入社日)エラー項目を赤く表示するために使用
+
+        HttpSession reg_session = request.getSession();
 
         switch(action) {
-
 		case "入力内容を登録":
 			try
 	    	{
@@ -87,7 +92,7 @@ public class RegistEmployeeServlet extends HttpServlet {
 	        	emp_date_str = request.getParameter("emp_date");
 
 		        // セッションオブジェクトを取得し名前を格納
-		        HttpSession reg_session = request.getSession();
+	        	//reg_session.setAttribute("error_tips",error_tips );//テスト
 		        reg_session.setAttribute("emp_code", emp_code);
 		        reg_session.setAttribute("l_name", l_name);
 		        reg_session.setAttribute("f_name", f_name);
@@ -101,53 +106,62 @@ public class RegistEmployeeServlet extends HttpServlet {
 	        	//null、空文字チェック
 
 
-	        	boolean is_null = false;
-	        	boolean is_error = false;//エラー判定用
+	        	boolean is_null = false;//未入力エラー判定用
+	        	boolean is_error = false;//その他エラー判定用
 
 	        	if(emp_code == null || emp_code.length() == 0){
 	 				nullList.add("従業員コード");
 	 				is_null = true;
 	 				is_error = true;
+	 				error_tips.add(0);
 	 			}
 	 			if(l_name == null|| l_name.length() == 0){
 	 				nullList.add("氏名（姓)");
 	 				is_null = true;
 	 				is_error = true;
+	 				error_tips.add(1);
 	 			}
 	 			if(f_name == null|| f_name.length() == 0){
 	 				nullList.add("氏名（名)");
 	 				is_null = true;
 	 				is_error = true;
+	 				error_tips.add(1);
 	 			}
 	 			if(l_kana_name == null|| l_kana_name.length() == 0){
 	 				nullList.add("氏名（セイ)");
 	 				is_null = true;
 	 				is_error = true;
+	 				error_tips.add(2);
 	 			}
 	 			if(f_kana_name == null|| f_kana_name.length() == 0){
 	 				nullList.add("氏名(メイ)");
 	 				is_null = true;
 	 				is_error = true;
+	 				error_tips.add(2);
 	 			}
 	 			if(sex_str == null|| sex_str.length() == 0){
 	 				nullList.add("性別");
 	 				is_null = true;
 	 				is_error = true;
+	 				error_tips.add(3);
 	 			}
 	 			if(birth_day_str == null|| birth_day_str.length() == 0){
 	 				nullList.add("生年月日");
 	 				is_null = true;
 	 				is_error = true;
+	 				error_tips.add(4);
 	 			}
 	 			if(section_name == null|| section_name.length() == 0){
 	 				nullList.add("部署名");
 	 				is_null = true;
 	 				is_error = true;
+	 				error_tips.add(5);
 	 			}
 	 			if(emp_date_str.equals(null)|| emp_date_str.length() == 0){
 	 				nullList.add("入社日");
 	 				is_null = true;
 	 				is_error = true;
+	 				error_tips.add(6);
 	 			}
 	 			if(is_null){
 	 				error_message.add("未入力の項目があります");
@@ -165,18 +179,17 @@ public class RegistEmployeeServlet extends HttpServlet {
  	            			is_error = true;
  	            			error_number.add(3);
  	            			error_message.add("従業員コードが重複しています");
-
+ 	            			error_tips.add(0);
  	            		}
  	            }
 
  	            //カタカナ判定
- 	            if (l_kana_name.matches(Regist.toMatchRegex(Regist.KATAKANA_CODES))) {
+ 	            if (l_kana_name.matches(Regist.toMatchRegex(Regist.KATAKANA_CODES)) && f_kana_name.matches(Regist.toMatchRegex(Regist.KATAKANA_CODES))) {
  	            	is_error = true;
             			error_number.add(4);
             			error_message.add("フリガナはカタカナで入力してください");
+            			error_tips.add(2);
  	        	}
-
-
 
  	           Date birth_day = null;
  	           Date emp_date = null;
@@ -191,13 +204,15 @@ public class RegistEmployeeServlet extends HttpServlet {
  	        		 is_error = true;
             			error_number.add(7);
             			error_message.add("生年月日に未来が入力されています:" + birth_day_str);
+            			error_tips.add(4);
  	        	  }
  	           }else{
  	        	  is_error = true;
        			error_number.add(5);
        			error_message.add("正しい生年月日を入力してください");
+       			error_tips.add(4);
  	           }
-	    	}
+	    	 }
 
  	         if(emp_date_str != null && emp_date_str.length() != 0){
  	          if (Regist.checkDate(emp_date_str)){
@@ -208,25 +223,29 @@ public class RegistEmployeeServlet extends HttpServlet {
  	        		 is_error = true;
             			error_number.add(8);
             			error_message.add("入社日に未来が入力されています:" + emp_date_str);
+            			error_tips.add(6);
  	        	  }
 
  	           }else{
  	        	  is_error = true;
        			error_number.add(6);
        			error_message.add("正しい入社日を入力してください");
+       			error_tips.add(6);
  	           }
  	         }
+
  	        //エラー発生したなら例外スロー
  	            if(is_error){
  	            	throw new  DuplicateException();
  	            }
+
+ 	        ////例外確認終了////
 
  	        //日付をsql.Dateに型変換
  	         birth_day_str = birth_day_str.replace('/', '-');
  	         emp_date_str = emp_date_str.replace('/', '-');
  	         birth_day = Date.valueOf(birth_day_str);
 	         emp_date = Date.valueOf(emp_date_str);
-
 
  				byte sex = Byte.parseByte(sex_str);
 	        	//Beanに値をセット
@@ -262,8 +281,10 @@ public class RegistEmployeeServlet extends HttpServlet {
 		        request.setAttribute("error_number",error_number );
 		    //例外(未入力、カタカナ、従業員コード重複、日付）
 			}catch(DuplicateException e){
+
 				request.setAttribute("error_message",error_message );
 		        request.setAttribute("error_number",error_number );
+		        reg_session.setAttribute("error_tips",error_tips );
 		        url = "regist_failure.jsp";
 			}
 	    	break;
@@ -272,6 +293,13 @@ public class RegistEmployeeServlet extends HttpServlet {
 	     	 // DAO、Beanをインスタンス化
 	         ArrayList<EmployeeBean> sectionList = new ArrayList<EmployeeBean>();
 
+	         //エラー項目表示用
+	         /*ArrayList<Integer> tips = new ArrayList<Integer>();
+	         if ( (ArrayList<Integer>)reg_session.getAttribute("error_tips") == null){
+	        	 System.out.println("nullだ");
+	         }
+	         tips.add(100);
+	         reg_session.setAttribute("error_tips",tips );*/
 
 	         // DAOからのreturnをBeanに格納
 	         try {
