@@ -1,18 +1,19 @@
 @CHARSET "Windows-31J";
+
 div.center {
-	text-align: center;                     /* 中央寄せにする */
+	text-align: center; /* 中央寄せにする */
 }
 
 table {
-	margin-left: auto;                      /* 左のマージンを中央に配置する */
-	margin-right: auto;                     /* 右のマージンを中央に配置する */
+	margin-left: auto; /* 左のマージンを中央に配置する */
+	margin-right: auto; /* 右のマージンを中央に配置する */
 }
 
 .panel-heading {
-	padding: 10px 15px;                     /* パディング上下左右を10px、15pxに変更する */
-	border-bottom: 1px solid transparent;   /* 下ボーダーに線を引く */
-	border-top-left-radius: 3px;            /* 左上の角丸を変更する */
-	border-top-right-radius: 3px;           /* 右上の角丸を変更する */
+	padding: 10px 15px; /* パディング上下左右を10px、15pxに変更する */
+	border-bottom: 1px solid transparent; /* 下ボーダーに線を引く */
+	border-top-left-radius: 3px; /* 左上の角丸を変更する */
+	border-top-right-radius: 3px; /* 右上の角丸を変更する */
 }
 
 .s-tbl {
@@ -51,36 +52,21 @@ table.s-tbl:hover tbody tr:hover th {
 .list th, .s-tbl td {
 	font-size: 12px;
 	border: 1px solid #000;
-
-.s-tbl tr:hover {
+	s-tbl tr: hover{
 	background: #ff0;
 }
 
-#bg-blue{
-	width:200px;				 				/* 横幅を200pxにする */
-	background-color: #AEF6EF;                  /* 背景のカラーを変更する */
-}
+
 
 .list tr:nth-child(2n) {
 	background: #eee;
 }
 
-
-
-
-
 #bg-blue {
 	width: 200px; /* 横幅を200pxにする */
 	background-color: #AEF6EF; /* 背景のカラーを変更する */
 }
-
 #bg-red {
 	width: 200px;
 	background-color: #FF69B4;
-}
-
-
-#bg {
-	width: 200px; /* 横幅を200pxにする */
-	background-color: #AEF6EF; /* 背景のカラーを変更する */
 }
