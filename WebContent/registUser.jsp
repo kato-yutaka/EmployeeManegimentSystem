@@ -10,6 +10,7 @@
 	<title>ユーザー情報登録</title>
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 	<script type="text/javascript">
+	// 半角のみ入力可能
 	function checkForm($this) {
 		var str = $this.value;
 		while (str.match(/[^A-Z^a-z\d\-]/)) {
@@ -17,7 +18,7 @@
 		}
 		$this.value = str;
 	}
-	</script>
+</script>
 </head>
 <body>
 	<%-- 不正アクセス防止 --%>
@@ -38,25 +39,27 @@
 				<td><b><font size="4">従業員情報</font></b></td>
 			</tr>
 			<tr>
-				<td id="bg-blue">ユーザーID:</td>
-				<td><input type="text" name="ID" maxlength='24'  onInput="checkForm(this)"></td>
+				<td id="bg-blue">ユーザーID(半角):</td>
+				<td><input type="text" name="ID" maxlength='24'
+					onInput="checkForm(this)"></td>
 			</tr>
 			<tr>
-				<td id="bg-blue">パスワード:</td>
-				<td><input type="text" name="PASS" maxlength='32'  onInput="checkForm(this)"></td>
+				<td id="bg-blue">パスワード(半角):</td>
+				<td><input type="text" name="PASS" maxlength='32'
+					onInput="checkForm(this)"></td>
 			</tr>
 		</table>
 		<br>
 		<div class="center">
-			<button type="submit" value="regist" name="ACTION">ユーザ登録</button>
+			<button type="submit" value="regist" name="ACTION">&ensp;ユーザ登録画面へ&ensp;</button>
 		</div>
 	</form>
-	<br>
-	<form action="EmployeeManagementServlet" method="POST">
-		<div class="center">
-			<input type="submit" value="メニュー画面へ" name="ACTION">
-		</div>
-	</form>
+
+	<div class="center">
+		<form action="EmployeeManagementServlet" method="POST">
+			<button type="submit" value="メニュー画面へ" name="ACTION">&ensp;&ensp;メニュー画面へ&ensp;&ensp;</button>
+		</form>
+	</div>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>

@@ -83,7 +83,7 @@ public class UserManagementServlet extends HttpServlet {
 	            if(id.equals(id_a) && password.equals(password_a)){
 	            	url="menu.jsp";
 	            	HttpSession session = request.getSession();
-	            	session.setAttribute("ACCESS", "チームゆるふわ");
+	            	session.setAttribute("ACCESS", id_a);
 
 	            }
             }
