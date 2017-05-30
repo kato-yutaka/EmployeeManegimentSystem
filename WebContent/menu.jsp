@@ -30,8 +30,13 @@ if(access == null){
 <input type="hidden" name="ACTION" value="ログアウト">
 </form>
 
+<form  method="POST" action="UserRegistServlet" name = "d">
+<input type="hidden" name="ACTION" value="add_user">
+</form>
+
 	<div align="center">
 		<h1>メニュー画面</h1>
+
 		<table class="s-tbl"  >
 
 			<tr bgcolor="D3EDFB	">
@@ -57,6 +62,12 @@ if(access == null){
              <td><a href= "javascript:document.forms['c'].submit();"><img src="logout.png" width="70" height="70"></a></td>
              <td align="center">ログアウト</td>
              <td align="center">ログアウトします</td>
+			</tr>
+
+			<tr >
+             <td><a href= "javascript:document.forms['d'].submit();"><img src="logout.png" width="70" height="70"></a></td>
+             <td align="center">ユーザー情報登録機能</td>
+             <td align="center">ユーザー情報登録する機能です。</td>
 			</tr>
 
 		</table>

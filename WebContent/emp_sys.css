@@ -1,33 +1,45 @@
 @CHARSET "Windows-31J";
 
-div.center{
-	text-align:center;
-
+div.center {
+	text-align: center;                         /* 中央寄せにする */
 }
 
-table{
-	margin-left:auto;
-	margin-right:auto;
+table {
+	margin-left: auto;                          /* 左のマージンを中央に配置する */
+	margin-right: auto;                         /* 右のマージンを中央に配置する */
 }
 
-table.s-tbl {
+.panel-heading {
+	padding: 10px 15px;                         /* パディング上下左右を10px、15pxに変更する */
+	border-bottom: 1px solid transparent;       /* 下ボーダーに線を引く */
+	border-top-left-radius: 3px;                /* 左上の角丸を変更する */
+	border-top-right-radius: 3px;               /* 右上の角丸を変更する */
+}
+
+.s-tbl {
 	border-collapse: collapse;
 }
-table.s-tbl th, .s-tbl td {
+.s-tbl th, .s-tbl td {
+	font-size:12px;
 	border: 1px solid #000;
 }
-table.s-tbl tr:nth-child(odd) {
+.s-tbl tr:nth-child(2n) {
 	background: #eee;
 }
-table.s-tbl tr:hover {
+.s-tbl tr:first-child, .s-tbl th:first-child {
+	background: #0ff;
+}
+.s-tbl tr:hover {
 	background: #ff0;
 }
 
 #bg-blue{
-	width:200px;
-	background-color:#AEF6EF;
+	width:200px;				 				/* 横幅を200pxにする */
+	background-color: #AEF6EF;                  /* 背景のカラーを変更する */
 }
 #bg-red{
 	width:200px;
 	background-color:#FF69B4;
 }
+
+

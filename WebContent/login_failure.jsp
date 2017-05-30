@@ -8,18 +8,12 @@
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
-<%-- 不正アクセス防止 --%>
-<%
-String access = (String)session.getAttribute("ACCESS");
-if(access == null){
-	response.sendRedirect("unauthorized_access.jsp");
-}
-%>
+
 <%@ include file="header.jsp" %>
 	<div class="center">
-	        <h1>ログイン失敗しました</h1>
+        <h1>ログイン失敗しました</font></h1>
 
-	    	<p>UserIdまたはPassWordが間違っています。<br>
+	    	<p><b><font color="red">ユーザー名</font></b>または<b><font color="red">パスワード</font></b>が間違っています。<br>
 	    	ログイン画面に戻り、もう一度入力してください。</p>
 	        <form action="UserManagementServlet" method="POST">
 	            <br>
