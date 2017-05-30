@@ -58,12 +58,13 @@ table.s-tbl:hover tbody tr:hover th {
 	background: #ff0;
 }
 
-
-
 .list tr:nth-child(2n) {
 	background: #eee;
-
 }
+
+.a
+ display:block;
+  }
 
 #bg-blue {
 	width: 200px; /* ‰¡•‚ğ200px‚É‚·‚é */
