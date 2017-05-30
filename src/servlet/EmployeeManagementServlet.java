@@ -13,80 +13,86 @@ import javax.servlet.http.HttpServletResponse;
 import dao.EmployeeDAO;
 import entity.EmployeeBean;
 
-
 @WebServlet("/EmployeeManagementServlet")
 public class EmployeeManagementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EmployeeManagementServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public EmployeeManagementServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		String url = null;
 		// エンコーディング指定
-        request.setCharacterEncoding("Windows-31J");
-        response.setCharacterEncoding("Windows-31J");
+		request.setCharacterEncoding("Windows-31J");
+		response.setCharacterEncoding("Windows-31J");
 
-        // JSPよりパラメータを取得
-        String action = request.getParameter("ACTION");
+		// JSPよりパラメータを取得
+		String action = request.getParameter("ACTION");
 
+		// DAO、Beanをインスタンス化
+		ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
+		EmployeeDAO dao = new EmployeeDAO();
 
-        // DAO、Beanをインスタンス化
-        ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
-        EmployeeDAO dao = new EmployeeDAO();
+		switch (action) {
 
-        switch(action) {
+		case "従業員一覧へ":
+			try {
+				employeeList = dao.selectEmployee();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			request.setAttribute("employeList", employeeList);
 
-        case "従業員一覧へ":
-            try {
-                employeeList = dao.selectEmployee();
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
-            request.setAttribute("employeList", employeeList);
+			url = "employeelist.jsp";
 
-            url = "employeelist.jsp";
+			break;
 
-            break;
+		case "メニュー画面へ":
+			request.setAttribute("employeList", employeeList);
+			url = "menu.jsp";
+			break;
 
-        case "メニュー画面へ":
-        	 request.setAttribute("employeList", employeeList);
-        	 url = "menu.jsp";
-        	 break;
+		case "ログアウト":
 
+			request.setAttribute("employeList", employeeList);
 
-        case "ログアウト":
+			url = "logout.jsp";
+			break;
 
-             request.setAttribute("employeList", employeeList);
+		case "ユーザー情報":
+			request.setAttribute("employeList", employeeList);
 
-             url = "logout.jsp";
-             break;
+			url = "registUser.jsp";
+			break;
 
-        default:
-        	url = "unauthorized_access.jsp";
-        	break;
-        }
+		default:
+			url = "unauthorized_access.jsp";
+			break;
+		}
 
-        RequestDispatcher rd = request.getRequestDispatcher(url);
-        rd.forward(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
 
 	}
 }
