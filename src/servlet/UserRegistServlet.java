@@ -46,29 +46,47 @@ public class UserRegistServlet extends HttpServlet {
         response.setCharacterEncoding("Windows-31J");
 
         // JSPよりパラメータを取得
-        //String action = request.getParameter("ACTION");
+        String action = request.getParameter("ACTION");
         String user_id = request.getParameter("ID");
         String password = request.getParameter("PASS");
 
-        if(user_id.equals("") || password.equals("")){
-        	url = "";
-        }else{
-        	UserBean user = new UserBean();
-        	user.setUserId(user_id);
-        	user.setPassword(password);
 
-        	AddUser add = new AddUser();
-        	boolean flag = add.addUser();
+        switch(action){
+        // ユーザの登録
+        case "regist":
 
-        	if(flag == true){
-        		url = "successRegistUser.jsp";
-        	}else{
-        		url = "";
-        	}
+        	 // 登録するIDまたはpassが未入力の場合、失敗
+        	 /*
+        	if(user_id.equals("") || password.equals("")){
+        		url = "success_failure.jsp";
+        	}*/
+        	// IDとpassが入力されている場合、登録処理へ
+        	//else{
+        		// UserBeanクラスを利用し、IDとpassを格納
+        		UserBean user = new UserBean();
+        		user.setUserId(user_id);
+        		user.setPassword(password);
+
+
+        		// ビジネスロジックAddUserをインスタンス化
+        		AddUser add = new AddUser();
+        		// 戻り値は登録成功か判定の結果
+        		boolean flag = add.addUser();
+        		// true/成功、false/失敗
+        		if(flag == true){
+        			url = "successRegistUser.jsp";
+        		}else{
+        			url = "success_failure.jsp";
+        		}
+        	//}
+        	break;
+
+        // ユーザ登録画面へ
+        case "add_user":
+        	url = "registUser.jsp";
+        	break;
+
         }
-
-
-
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
 	}

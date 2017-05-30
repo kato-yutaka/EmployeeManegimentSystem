@@ -18,12 +18,10 @@ if(access == null){
 
 <%@ include file="header.jsp" %>
 	<div class="center">
-        <h1>ユーザー情報の登録に失敗しました</font></h1>
-
-	        <form action="EmployeeManagementServlet" method="POST">
-	            <br>
-	            <input type="hidden" name="ACTION" value="メニュー画面へ">
-	            <input type="submit" value="メニュー画面へ">
+        <h1>ユーザー情報の登録に失敗しました</h1>
+		<br>
+			<form action="UserRegistServlet" method="POST">
+	            <button type="submit" name="ACTION" value="add_user">ユーザ登録画面へ</button>
 	        </form>
 	    </div>
 <%@ include file="footer.jsp" %>

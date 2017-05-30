@@ -30,8 +30,8 @@ if(access == null){
 <input type="hidden" name="ACTION" value="ログアウト">
 </form>
 
-<form  method="POST" action="EmployeeManagementServlet" name = "d">
-<input type="hidden" name="ACTION" value="ユーザー情報">
+<form  method="POST" action="UserRegistServlet" name = "d">
+<input type="hidden" name="ACTION" value="add_user">
 </form>
 
 	<div align="center">
