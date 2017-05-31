@@ -61,11 +61,10 @@
 			<button type="submit" value="regist" name="ACTION">&ensp;入力内容を登録&ensp;</button>
 		</div>
 	</form>
-	<div class="center">
-		<form action="EmployeeManagementServlet" method="POST">
-			<button type="submit" value="メニュー画面へ" name="ACTION">&ensp;&ensp;&ensp;メニュー画面へ&ensp;&ensp;&ensp;</button>
-		</form>
-	</div>
+	<form style="top:150px; position:fixed; z-index:1;" action="EmployeeManagementServlet" method="POST" name="menu">
+		<input type="hidden" value="メニュー画面へ" name="ACTION">
+		<a href="javascript:document.forms['menu'].submit();"><img src="picture/menu01.png" width="80" height="50"></a>
+	</form>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
