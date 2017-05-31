@@ -60,7 +60,7 @@
 					href="javascript:document.forms['a'].submit();">従業員一覧・削除</a></td>
 				<td align="center"><a
 					style="text-decoration: none; display: block; line-height: 73px"
-					href="javascript:document.forms['a'].submit();">従業員の一覧を表示します。従業員の削除をします。
+					href="javascript:document.forms['a'].submit();">従業員の一覧を表示・削除を行います。
 				</a></td>
 
 			</tr>
