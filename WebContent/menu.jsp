@@ -77,10 +77,10 @@
 						src="picture/user-add.png" width="70" height="70"></a></td>
 				<td align="center"><a
 					style="top: 25%; text-decoration: none; display: block; width: 100%; height: 73px; line-height: 73px"
-					href="javascript:document.forms['d'].submit();"><font size = 3>ユーザー情報登録</font></a></td>
+					href="javascript:document.forms['d'].submit();"><font size = 3>ユーザ情報登録</font></a></td>
 				<td align="center"><a
 					style="top: 25%; text-decoration: none; display: block; width: 100%; height: 73px; line-height: 73px"
-					href="javascript:document.forms['d'].submit();"><font size = 3>新規ユーザーの登録を行います。</font></a></td>
+					href="javascript:document.forms['d'].submit();"><font size = 3>新規ユーザの登録を行います。</font></a></td>
 			</tr>
 
 			<tr>
