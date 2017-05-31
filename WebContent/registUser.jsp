@@ -61,7 +61,7 @@
 			<button type="submit" value="regist" name="ACTION">&ensp;ユーザー登録画面へ&ensp;</button>
 		</div>
 	</form>
-	<form style="top:150px; position:fixed; z-index:1;" action="EmployeeManagementServlet" method="POST" name="menu">
+	<form style="position:absolute; top:150px; right:0; z-index:1;" action="EmployeeManagementServlet" method="POST" name="menu">
 		<input type="hidden" value="メニュー画面へ" name="ACTION">
 		<a href="javascript:document.forms['menu'].submit();"><img src="picture/menu01.png" width="80" height="50"></a>
 	</form>
