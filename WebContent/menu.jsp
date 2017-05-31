@@ -9,8 +9,6 @@
 </head>
 <body link="#000000" >
 
-
-
 	<%-- 不正アクセス防止 --%>
 	<%
 		String access = (String) session.getAttribute("ACCESS");
@@ -38,6 +36,8 @@
 	</form>
 
 	<div align="center">
+	<br>
+	<br>
 		<h1>メニュー画面</h1>
 
 		<table class="s-tbl">
