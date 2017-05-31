@@ -9,10 +9,12 @@
 	<title>HEADER</title>
 </head>
 <body >
+ <div class = "a">
 	<div align="left">
 		<font size="6" color="blue">]‹ÆˆõŠÇ—ƒVƒXƒeƒ€</font> <br>
 	</div>
 	<hr>
+	</div>
 	<br>
 </body>
 </html>

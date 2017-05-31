@@ -10,9 +10,11 @@
 	<br>
 	<br>
 	<br>
+		<div class = "a">
 	<hr>
 	<div align="right">
 		<font size="4" color="#00cdcd">-- ゆるふわホイップ --</font>
+	</div>
 	</div>
 </body>
 </html>

@@ -20,8 +20,14 @@ table {
 	border-top-right-radius: 3px; /* ‰Eã‚ÌŠpŠÛ‚ğ•ÏX‚·‚é */
 }
 
+
+div.a{
+background: #ff0;
+}
+
 .s-tbl {
 	border-collapse: collapse;
+
 }
 
 .s-tbl th, .s-tbl td {
@@ -62,6 +68,10 @@ table.s-tbl:hover tbody tr:hover th {
 	display: block;
 	width: 100%;
 	height: 100%;
+}
+
+.a{
+	background-color: #AEF6EF;
 }
 
 #bg-blue {
