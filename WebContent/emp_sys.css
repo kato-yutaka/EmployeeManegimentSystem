@@ -1,5 +1,9 @@
 @CHARSET "Windows-31J";
 
+button{
+	margin-bottom:4px;
+}
+
 div.center {
 	text-align: center; /* ’†‰›Šñ‚¹‚É‚·‚é */
 }

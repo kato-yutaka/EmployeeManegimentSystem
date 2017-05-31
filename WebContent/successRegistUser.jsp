@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
-	<title>Insert title here</title>
+	<title>登録完了</title>
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>

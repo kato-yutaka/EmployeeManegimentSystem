@@ -39,25 +39,24 @@
 				<td><b><font size="4">従業員情報</font></b></td>
 			</tr>
 			<tr>
-				<td id="bg-blue">ユーザーID(半角):</td>
+				<td id="bg-blue">ユーザーID(半角)</td>
 				<td><input type="text" name="ID" maxlength='24'
 					onInput="checkForm(this)"></td>
 			</tr>
 			<tr>
-				<td id="bg-blue">パスワード(半角):</td>
+				<td id="bg-blue">パスワード(半角)</td>
 				<td><input type="text" name="PASS" maxlength='32'
 					onInput="checkForm(this)"></td>
 			</tr>
 		</table>
 		<br>
 		<div class="center">
-			<button type="submit" value="regist" name="ACTION">&ensp;ユーザ登録画面へ&ensp;</button>
+			<button type="submit" value="regist" name="ACTION">&ensp;ユーザー登録画面へ&ensp;</button>
 		</div>
 	</form>
-
 	<div class="center">
 		<form action="EmployeeManagementServlet" method="POST">
-			<button type="submit" value="メニュー画面へ" name="ACTION">&ensp;&ensp;メニュー画面へ&ensp;&ensp;</button>
+			<button type="submit" value="メニュー画面へ" name="ACTION">&ensp;&ensp;&ensp;メニュー画面へ&ensp;&ensp;&ensp;</button>
 		</form>
 	</div>
 	<%@ include file="footer.jsp"%>
