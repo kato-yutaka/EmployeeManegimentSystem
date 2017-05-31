@@ -221,7 +221,14 @@ public class RegistEmployeeServlet extends HttpServlet {
 				if (emp_date_str != null && emp_date_str.length() != 0) {
 					if (Regist.checkDate(emp_date_str)) {
 						if (Regist.compareToday(emp_date_str)) {
+							if (Regist.compareDays(birth_day_str,emp_date_str)) {
 							// エラーなし
+							} else {
+								is_error = true;
+								error_number.add(9);
+								error_message.add("入社日に生年月日よりも過去の日付が入力されています");
+								error_tips.add(6);
+							}
 
 						} else {
 							is_error = true;
