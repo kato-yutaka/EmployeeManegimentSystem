@@ -43,7 +43,7 @@
 	<form action="UserRegistServlet" method="POST" autocomplete="off">
 		<table>
 			<tr>
-				<td><b><font size="4">従業員情報</font></b></td>
+				<td><b><font size="4">ユーザー情報</font></b></td>
 			</tr>
 			<tr>
 				<td id=<%=error != null ? "bg-red" : "bg-blue"%>>ユーザーID(半角)<%=error != null ? "<img src=\"picture/Warning.png\" width=\"14\" height=\"14\">" : ""%></td>
