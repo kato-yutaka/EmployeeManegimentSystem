@@ -10,14 +10,14 @@
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
-<%-- •s³ƒAƒNƒZƒX–hŽ~ --%>
-<%
-String access = (String)session.getAttribute("ACCESS");
-if(access == null){
-	response.sendRedirect("unauthorized_access.jsp");
-}
-%>
-<%@ include file="header.jsp" %>
+	<%-- •s³ƒAƒNƒZƒX–hŽ~ --%>
+	<%
+	String access = (String)session.getAttribute("ACCESS");
+	if(access == null){
+		response.sendRedirect("unauthorized_access.jsp");
+	}
+	%>
+	<%@ include file="header.jsp" %>
 	<%
         request.setCharacterEncoding("Windows-31J");
         String emp_code = request.getParameter("CODE");
@@ -53,6 +53,6 @@ if(access == null){
 		<button type="submit" name="ACTION" value="]‹Æˆõ“o˜^">&ensp;“o˜^‰æ–Ê‚Ö&ensp;</button>
 	</form>
 	</div>
-<%@ include file="footer.jsp" %>
+	<%@ include file="footer.jsp" %>
 </body>
 </html>

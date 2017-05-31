@@ -6,7 +6,6 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
 	<title>従業員一覧画面</title>
@@ -14,16 +13,15 @@
 
 	<script type="text/javascript">
 	function DeleteCheck() {
+		<%--確認ダイアログを表示--%>
 		if (window.confirm('削除してよろしいですか？')) {
-	<%--確認ダイアログを表示--%>
+			<%--「OK」時は送信を実行 --%>
 			return true;
-	<%--「OK」時は送信を実行 --%>
-		} else {
-	<%--「キャンセル」時の処理 --%>
+		}else { <%--「キャンセル」時の処理 --%>
+			<%-- 警告ダイアログを表示 --%>
 			window.alert('キャンセルされました');
-	<%-- 警告ダイアログを表示 --%>
-		return false;
-	<%-- 送信を中止 --%>
+			<%-- 送信を中止 --%>
+			return false;
 		}
 	}
 </script>
