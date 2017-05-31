@@ -12,7 +12,7 @@
 	<%
 	String id = (String) session.getAttribute("ACCESS");
 	%>
-	<div class="a">
+	<div class="a" >
 		<div align="left" style="float: left;">
 			<a href="menu.jsp" style="text-decoration: none;"><font size="6"
 				color="blue">]‹ÆˆõŠÇ—ƒVƒXƒeƒ€</font></a>

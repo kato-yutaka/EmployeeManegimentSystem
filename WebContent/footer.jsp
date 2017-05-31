@@ -10,7 +10,7 @@
 
 <div class = "g">
 <div class = "h" align="right">
-	<hr>
+
 
 		<font size="4" color="#00cdcd">-- ゆるふわホイップ --</font>
 	</div>
