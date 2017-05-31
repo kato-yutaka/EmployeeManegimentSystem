@@ -23,10 +23,9 @@
         String emp_code = request.getParameter("CODE");
     %>
 	<div class="center">
-	<h1>“o˜^¸”s‰æ–Ê</h1>
+	<h1>]‹Æˆõî•ñ‚Ì“o˜^‚É¸”s‚µ‚Ü‚µ‚½B</h1>
 
 	<form action="RegistEmployeeServlet" method="POST">
-		<p>]‹Æˆõî•ñ‚Ì“o˜^‚É¸”s‚µ‚Ü‚µ‚½B</p>
 
 		 <%
 		 ArrayList<String> messageList =
