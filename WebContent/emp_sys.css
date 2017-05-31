@@ -5,7 +5,7 @@ button {
 }
 
 div.center {
-	text-align: center; /* ’†‰›Šñ‚¹‚É‚·‚é */
+	text-align:center;
 }
 
 table {
@@ -25,17 +25,23 @@ div.a {
 }
 
 }
+div.footer{
+	position:fixed;
+	top:100%;
+	bottom:0;
+	background: #f3f3f3;
+}
 div.b {
 	/* container‚©‚ç‚Ìâ‘ÎˆÊ’u‚ğ’è‹` */
 	position: absolute;
-	bottom: 0;
+	bottom:0;
 	width: 100%;
 	height: 40px;
 	background: #f3f3f3;
 }
 
 div.h {
-	position: relative;
+	position:fixed;
 	width: 100%;
 	height: auto !important;
 	height: 100%;
@@ -44,11 +50,10 @@ div.h {
 }
 
 div.g {
-	position: absolute;
+	position:fixed;
 	bottom: 0;
 	width: 100%;
 	height: 40px;
-
 }
 
 .s-tbl {

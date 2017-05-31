@@ -2,6 +2,7 @@
 	pageEncoding="Windows-31J"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="Windows-31J">
 	<title>ログイン画面</title>
