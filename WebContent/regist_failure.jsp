@@ -35,7 +35,7 @@
 		         (ArrayList<Integer>) request.getAttribute("error_number");
 
 		 for(int i = 0; i < numberList.size(); i++) {%>
-		 <%= messageList.get(i)%><br>
+		 <B><font color = "red"><%= messageList.get(i)%></font></B><br>
 
          <% if(numberList.get(i) == 1){
          	ArrayList<String> nList =
@@ -43,7 +43,7 @@
 
               for(int j = 0; j < nList.size(); j++) {
                   String nName = nList.get(j);%>
-                  <%=nName %><br>
+                  <font color = "red"><%=nName %></font><br>
               <%}%>
             <%}%>
             <br>

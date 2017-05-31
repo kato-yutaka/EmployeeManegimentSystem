@@ -105,7 +105,7 @@
 		</table>
 		<br>
 		</div>
-		<form style="top:150px; position:fixed; z-index:1;" action="EmployeeManagementServlet" method="POST" name="menu">
+		<form style="position:fixed; top:150px; right:0; z-index:1;" action="EmployeeManagementServlet" method="POST" name="menu">
 			<input type="hidden" value="ƒƒjƒ…[‰æ–Ê‚Ö" name="ACTION">
 			<a href="javascript:document.forms['menu'].submit();"><img src="picture/menu01.png" width="80" height="50"></a>
 		</form>
