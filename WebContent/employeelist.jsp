@@ -71,13 +71,13 @@
 					<%
 						}
 					%>
-					<td><%=employee.getCode()%></td>
+					<td style="width: 130px"><%=employee.getCode()%></td>
 					<%--従業員コードを出力 --%>
-					<td style="width: 140px;"><%=employee.getName()%></td>
+					<td style="width: 170px;"><%=employee.getName()%></td>
 					<%--名前を出力: --%>
-					<td style="width: 140px;"><%=employee.getName_kana()%></td>
+					<td style="width: 170px;"><%=employee.getName_kana()%></td>
 					<%--名前(カナ)を出力 --%>
-					<td style="width: 140px;">
+					<td style="width: 50px;">
 						<%
 						if (employee.getSex() == 0) {
 						%> <%--性別を判定 --%> <%="男"%> <%--選択が0だったら男を出力 --%> <%
@@ -86,13 +86,13 @@
  						}
  						%>
 					</td>
-					<td style="width: 150px;"><%=employee.getBirth_day()%></td>
+					<td style="width: 130px;"><%=employee.getBirth_day()%></td>
 					<%--生年月日を出力 --%>
-					<td><%=employee.getSection_code()%></td>
+					<td style="width: 100px"><%=employee.getSection_code()%></td>
 					<%--所属部署を出力 --%>
-					<td style="width: 150px;"><%=employee.getEmp_date()%></td>
+					<td style="width: 130px;"><%=employee.getEmp_date()%></td>
 					<%--入社日を出力 --%>
-					<td class="a"><button type="submit" name="ACTION"
+					<td class="q"><button type="submit" name="ACTION"
 							value=<%=employee.getCode()%>>削除</button></td>
 				</tr>
 			</form>

@@ -125,7 +125,7 @@
 				<td><input type="date" name="emp_date"
 					max=<%=(String) request.getAttribute("today")%>
 					<%=(String) reg_session.getAttribute("emp_date_str") != null
-					? " value = " + (String) reg_session.getAttribute("emp_date_str") : ""%>>（手入力例：2000-01-01）</td>
+					? " value = " + (String) reg_session.getAttribute("emp_date_str") : "value = " + (String) request.getAttribute("today")%>>（手入力例：2000-01-01）</td>
 			</tr>
 		</table>
 		<br>

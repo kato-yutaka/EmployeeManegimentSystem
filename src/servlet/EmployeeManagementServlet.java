@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.EmployeeDAO;
 import entity.EmployeeBean;
@@ -70,6 +71,17 @@ public class EmployeeManagementServlet extends HttpServlet {
 
 		case "メニュー画面へ":
 			request.setAttribute("employeList", employeeList);
+			HttpSession reg_session = request.getSession();
+			reg_session.removeAttribute("emp_code");
+			reg_session.removeAttribute("l_name");
+			reg_session.removeAttribute("f_name");
+			reg_session.removeAttribute("l_kana_name");
+			reg_session.removeAttribute("f_kana_name");
+			reg_session.removeAttribute("sex_str");
+			reg_session.removeAttribute("birth_day_str");
+			reg_session.removeAttribute("section_name");
+			reg_session.removeAttribute("emp_date_str");
+			reg_session.removeAttribute("error_tips");
 			url = "menu.jsp";
 			break;
 
