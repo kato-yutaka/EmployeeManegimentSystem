@@ -9,10 +9,10 @@
 </head>
 <body>
 
-	<%@ include file="header.jsp"%>
+	<%@ include file="header_login.jsp"%>
 	<div class="center">
 		<h1>
-			ログイン失敗しました</font>
+			ログイン失敗しました
 		</h1>
 
 		<p>
