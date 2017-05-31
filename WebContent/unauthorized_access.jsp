@@ -20,7 +20,7 @@
 			正規の手続き（ログイン）を行ってください。
 		</font> <br> <br>
 		<form action="UserManagementServlet" method="POST">
-			<button type="submit" name="ACTION" value="222">ログイン画面へ</button>
+			<button type="submit" name="ACTION" value="222">&ensp;ログイン画面へ&ensp;</button>
 		</form>
 	</div>
 	<%@ include file="footer.jsp"%>
