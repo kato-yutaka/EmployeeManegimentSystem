@@ -36,7 +36,7 @@
 		<%
 		if (error != null) {
 			out.print(
-					"<img src=\"picture/Warning.png\" width=\"14\" height=\"14\"><font color='red'>警告：正しく入力されませんでした。</font>");
+					"<B><img src=\"picture/Warning.png\" width=\"14\" height=\"14\"><font color='red'>警告：正しく入力されませんでした。</B></font>");
 		}
 		%>
 	</div>
@@ -58,7 +58,7 @@
 		</table>
 		<br>
 		<div class="center">
-			<button type="submit" value="regist" name="ACTION">&ensp;ユーザー登録画面へ&ensp;</button>
+			<button type="submit" value="regist" name="ACTION">&ensp;入力内容を登録&ensp;</button>
 		</div>
 	</form>
 	<form style="position:absolute; top:150px; right:0; z-index:1;" action="EmployeeManagementServlet" method="POST" name="menu">

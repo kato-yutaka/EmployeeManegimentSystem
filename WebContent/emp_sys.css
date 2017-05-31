@@ -1,7 +1,7 @@
 @CHARSET "Windows-31J";
 
-button{
-	margin-bottom:4px;
+button {
+	margin-bottom: 4px;
 }
 
 div.center {
@@ -20,13 +20,39 @@ table {
 	border-top-right-radius: 3px; /* 右上の角丸を変更する */
 }
 
-div.a{
-background: #f3f3f3;
+div.a {
+	background: #f3f3f3;
+}
+
+}
+div.b {
+	/* containerからの絶対位置を定義 */
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	background: #f3f3f3;
+}
+
+div.h {
+	position: relative;
+	width: 100%;
+	height: auto !important;
+	height: 100%;
+	min-height: 100%;
+	background: #f3f3f3;
+}
+
+div.g {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+
 }
 
 .s-tbl {
 	border-collapse: collapse;
-
 }
 
 .s-tbl th, .s-tbl td {
@@ -69,7 +95,7 @@ table.s-tbl:hover tbody tr:hover th {
 	height: 100%;
 }
 
-.a{
+.a {
 	background-color: #AEF6EF;
 }
 
