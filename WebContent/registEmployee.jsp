@@ -6,10 +6,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
-	<title>従業員登録</title>
-	<link rel="stylesheet" href="emp_sys.css" type="text/css">
-	<script type="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
+<title>従業員登録</title>
+<link rel="stylesheet" href="emp_sys.css" type="text/css">
+<script type="text/javascript">
 	function checkForm($this) {
 		var str = $this.value;
 		while (str.match(/[^A-Z^a-z\d\-]/)) {
@@ -33,19 +33,24 @@
 		<h1>従業員登録</h1>
 		<%--<%= tips.contains(0) ? "bg-red":"bg-blue"--%>
 		<%
+			//入力内容の保存のためにセッションを取得
 			HttpSession reg_session = request.getSession();
 
-			String section_name = (String) reg_session.getAttribute("section_name");
-			String sex_str = (String) reg_session.getAttribute("sex_str");
+			String section_name = (String) reg_session.getAttribute("section_name");//部署名
+			String sex_str = (String) reg_session.getAttribute("sex_str");//性別
 			//String emp_code  = (String)reg_session.getAttribute("emp_code");
 
 			ArrayList<Integer> tips = new ArrayList<Integer>();//tipsにnullが入っているとtips.contains()でエラーが起きるため先に宣言
 			//error_tipsをnullチェック
 			if ((ArrayList<Integer>) reg_session.getAttribute("error_tips") != null) {
-				tips = (ArrayList<Integer>) reg_session.getAttribute("error_tips");
+				tips = (ArrayList<Integer>) reg_session.getAttribute("error_tips");//ここに格納された項目番号の背景を赤くする
 				out.print(
-						"<font color = \"red\"><img src=\"picture/Warning.png\" width=\"14\" height=\"14\">警告：エラー項目があります</font>");
+						"<B><font color = \"red\"><img src=\"picture/Warning.png\" width=\"14\" height=\"14\">警告：エラー項目があります</font></B>");
 			}
+
+			/*
+
+			*/
 		%>
 	</div>
 	<form action="RegistEmployeeServlet" method="POST" autocomplete="off">
@@ -125,7 +130,8 @@
 				<td><input type="date" name="emp_date"
 					max=<%=(String) request.getAttribute("today")%>
 					<%=(String) reg_session.getAttribute("emp_date_str") != null
-					? " value = " + (String) reg_session.getAttribute("emp_date_str") : "value = " + (String) request.getAttribute("today")%>>（手入力例：2000-01-01）</td>
+					? " value = " + (String) reg_session.getAttribute("emp_date_str")
+					: "value = " + (String) request.getAttribute("today")%>>（手入力例：2000-01-01）</td>
 			</tr>
 		</table>
 		<br>
@@ -141,5 +147,3 @@
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
-
-
