@@ -8,7 +8,7 @@
 	<meta charset="Windows-31J">
 	<title>HEADER</title>
 </head>
-<body>
+<body >
 	<div align="left">
 		<font size="6" color="blue">従業員管理システム</font> <br>
 	</div>
