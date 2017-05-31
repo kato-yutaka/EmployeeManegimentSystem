@@ -26,8 +26,8 @@
 
 		<p>システムを利用するには再度ログインしてください。</p>
 		<form action="UserManagementServlet" method="POST">
-			<br> <input type="hidden" name="ACTION" value="222"> <input
-				type="submit" value="ログイン画面へ">
+			<br>
+			<button type="submit" name="ACTION" value="222">&ensp;ログイン画面へ&ensp;</button>
 		</form>
 	</div>
 	<%@ include file="footer.jsp"%>

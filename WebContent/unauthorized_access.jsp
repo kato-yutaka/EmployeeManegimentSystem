@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<%@ include file="header_login.jsp"%>
 	<%
 		request.setCharacterEncoding("Windows-31J");
 		String emp_code = (String) request.getAttribute("CODE");
