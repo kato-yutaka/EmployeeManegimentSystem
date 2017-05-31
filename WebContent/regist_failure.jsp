@@ -50,7 +50,7 @@ if(access == null){
 		<%}%>
 
 		<br>
-		<button type="submit" name="ACTION" value="]‹Æˆõ“o˜^">&ensp;&ensp;&ensp;“o˜^‰æ–Ê‚Ö&ensp;&ensp;&ensp;</button>
+		<button type="submit" name="ACTION" value="]‹Æˆõ“o˜^">&ensp;“o˜^‰æ–Ê‚Ö&ensp;</button>
 	</form>
 	</div>
 <%@ include file="footer.jsp" %>

@@ -21,11 +21,10 @@
 
 		<h1>“o˜^Š®—¹‚µ‚Ü‚µ‚½B</h1>
 		<form action="EmployeeManagementServlet" method="POST">
-			<input type="submit" value="]‹Æˆõˆê——‚Ö" name="ACTION">
+			<botton type="submit" value="]‹Æˆõˆê——‚Ö" name="ACTION">&ensp;]‹Æˆõˆê——‚Ö&ensp;</botton>
 		</form>
-		<br>
 		<form action="RegistEmployeeServlet" method="POST">
-			<input type="submit" value="]‹Æˆõ“o˜^" name="ACTION">
+			<button type="submit" value="]‹Æˆõ“o˜^" name="ACTION">&ensp;&nbsp;]‹Æˆõ“o˜^&nbsp;&ensp;</button>
 		</form>
 	</div>
 </body>

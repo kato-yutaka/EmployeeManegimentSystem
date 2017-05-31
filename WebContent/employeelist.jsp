@@ -81,12 +81,12 @@
 					<%--名前(カナ)を出力 --%>
 					<td style="width: 140px;">
 						<%
-							if (employee.getSex() == 0) {
+						if (employee.getSex() == 0) {
 						%> <%--性別を判定 --%> <%="男"%> <%--選択が0だったら男を出力 --%> <%
- 	} else {
- %> <%="女"%> <%--その他だったら女を出力--%> <%
- 	}
- %>
+ 						} else {
+ 						%> <%="女"%> <%--その他だったら女を出力--%> <%
+ 						}
+ 						%>
 					</td>
 					<td style="width: 150px;"><%=employee.getBirth_day()%></td>
 					<%--生年月日を出力 --%>
@@ -106,7 +106,7 @@
 			%>
 		</table>
 		<br>
-		<form action="EmployeeManagementServlet" method="POST"">
+		<form action="EmployeeManagementServlet" method="POST">
 			<input type="submit" value="メニュー画面へ" name="ACTION">
 		</form>
 	</div>

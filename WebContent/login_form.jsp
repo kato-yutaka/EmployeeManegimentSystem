@@ -13,7 +13,7 @@
 		<h1>ログイン画面</h1>
 
 		<form action="UserManagementServlet" method="POST" autocomplete="off">
-			<input type="hidden" name="ACTION" value="111"> ユーザー情報の入力<br>
+			ユーザー情報の入力<br>
 			<table>
 				<tr>
 					<td><b>ユーザー名</b>:</td>
@@ -24,7 +24,8 @@
 					<td><input type="password" name="password"></td>
 				</tr>
 			</table>
-			<br> <input type="submit" value="ログイン">
+			<br>
+			<button type="submit" name="ACTION" value="111">&ensp;ログイン&ensp;</button>
 		</form>
 		<br>
 	</div>

@@ -23,7 +23,7 @@
 
 
 		<form action="EmployeeManagementServlet" method="POST">
-			<input type="submit" value="メニュー画面へ" name="ACTION">
+			<button type="submit" value="メニュー画面へ" name="ACTION">&ensp;メニュー画面へ&ensp;</button>
 		</form>
 	</div>
 </body>
