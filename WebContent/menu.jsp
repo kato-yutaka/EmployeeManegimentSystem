@@ -36,8 +36,6 @@
 	</form>
 
 	<div align="center">
-	<br>
-	<br>
 		<h1>ƒƒjƒ…[‰æ–Ê</h1>
 
 		<table class="s-tbl">

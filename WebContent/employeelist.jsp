@@ -95,6 +95,7 @@
 					<td class="q"><button type="submit" name="ACTION"
 							value=<%=employee.getCode()%>>íœ</button></td>
 				</tr>
+
 			</form>
 			<%
 				}
@@ -103,6 +104,8 @@
 				}
 			%>
 		</table>
+		<br>
+		<br>
 		<br>
 		</div>
 		<form style="position:fixed; top:150px; right:0; z-index:1;" action="EmployeeManagementServlet" method="POST" name="menu">
