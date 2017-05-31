@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
+
 	<%-- 不正アクセス防止 --%>
 	<%
 	String access = (String)session.getAttribute("ACCESS");
@@ -21,6 +22,7 @@
 	session.invalidate();
 	%>
 	<%@ include file="header_login.jsp"%>
+
 	<div class="center">
 		<h1>ログアウトしました</h1>
 

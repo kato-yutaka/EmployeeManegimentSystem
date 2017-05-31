@@ -59,9 +59,7 @@
 					href="javascript:document.forms['a'].submit();">従業員一覧・削除</a></td>
 				<td align="center"><a
 					style="text-decoration: none; display: block; line-height: 73px"
-					href="javascript:document.forms['a'].submit();">従業員の一覧の表示または削除を行います。
-				</a></td>
-
+					href="javascript:document.forms['a'].submit();">従業員の一覧の表示・削除を行います。</a></td>
 			</tr>
 
 			<tr>
@@ -73,7 +71,7 @@
 					href="javascript:document.forms['b'].submit();">従業員登録</a></td>
 				<td align="center"><a
 					style="top: 25%; text-decoration: none; display: block; width: 100%; height: 73px; line-height: 73px"
-					href="javascript:document.forms['b'].submit();">従業員の登録を行います。</a></td>
+					href="javascript:document.forms['b'].submit();">新規従業員の登録を行います。</a></td>
 			</tr>
 
 			<tr>
