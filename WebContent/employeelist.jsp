@@ -106,7 +106,7 @@
 			%>
 		</table>
 		<br>
-		<form action="EmployeeManagementServlet" method="POST"">
+		<form style="top: 150px; position: fixed;z-index: 1;" action="EmployeeManagementServlet" method="POST"">
 			<input type="submit" value="ƒƒjƒ…[‰æ–Ê‚Ö" name="ACTION">
 		</form>
 	</div>
