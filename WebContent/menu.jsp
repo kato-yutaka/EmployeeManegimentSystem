@@ -2,12 +2,12 @@
 	pageEncoding="Windows-31J"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
+<head >
 <meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
 <title>menu</title>
 <link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
-<body link="#000000">
+<body link="#000000" >
 
 
 
@@ -18,7 +18,7 @@
 			response.sendRedirect("unauthorized_access.jsp");
 		}
 	%>
-	<%@ include file="header.jsp"%>
+	<%@ include file="header.jsp" %>
 
 	<form method="POST" action="EmployeeSelectServlet" name="a">
 		<input type="hidden" name="ACTION" value="従業員一覧・削除">
