@@ -104,11 +104,11 @@
 			%>
 		</table>
 		<br>
-
-		<form style="top: 150px; position: fixed;z-index: 1;" action="EmployeeManagementServlet" method="POST"">
-			<input type="submit" value="メニュー画面へ" name="ACTION">
+		</div>
+		<form style="top:150px; position:fixed; z-index:1;" action="EmployeeManagementServlet" method="POST" name="menu">
+			<input type="hidden" value="メニュー画面へ" name="ACTION">
+			<a href="javascript:document.forms['menu'].submit();"><img src="picture/menu01.png" width="80" height="50"></a>
 		</form>
-	</div>
 	<%@ include file="footer.jsp"%>
 </body>
 </html>
