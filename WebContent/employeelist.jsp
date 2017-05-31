@@ -39,7 +39,6 @@
 	<%@ include file="header.jsp"%>
 	<div class="center">
 		<h1>]‹Æˆõˆê——‰æ–Ê</h1>
-		<br>
 		<table class="list">
 			<tr bgcolor="#adff2f">
 				<th>]‹ÆˆõƒR[ƒh</th>
