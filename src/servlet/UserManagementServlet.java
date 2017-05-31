@@ -53,18 +53,20 @@ public class UserManagementServlet extends HttpServlet {
 
 		// formからの値を取得
 		String action = request.getParameter("ACTION");
-		String id = request.getParameter("id");
-		String password = request.getParameter("password");
-		// データベースのid,pass変数
-		String id_a = null;
-		String password_a = null;
-		// String user[] = new String[2];
 
 		// 移譲する先のjspを格納する変数url
 		String url = null;
 
 		// ログインボタンを押した
-		if (action.equals("111")) {
+		switch (action) {
+		case "111":
+			String id = request.getParameter("id");
+			String password = request.getParameter("password");
+			// データベースのid,pass変数
+			String id_a = null;
+			String password_a = null;
+			// String user[] = new String[2];
+
 			// DAO、Beanをインスタンス化
 			ArrayList<UserBean> userList = new ArrayList<UserBean>();
 			UserDAO dao = new UserDAO();
@@ -93,11 +95,12 @@ public class UserManagementServlet extends HttpServlet {
 			if (url != "menu.jsp") {
 				url = "login_failure.jsp";
 			}
+			break;
 
-		}
 		// ログイン画面へボタンを押した
-		else if (action.equals("222")) {
+		case "222":
 			url = "login_form.jsp";
+			break;
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);

@@ -6,7 +6,6 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
 	<title>従業員一覧画面</title>
@@ -14,16 +13,15 @@
 
 	<script type="text/javascript">
 	function DeleteCheck() {
+		<%--確認ダイアログを表示--%>
 		if (window.confirm('削除してよろしいですか？')) {
-	<%--確認ダイアログを表示--%>
+			<%--「OK」時は送信を実行 --%>
 			return true;
-	<%--「OK」時は送信を実行 --%>
-		} else {
-	<%--「キャンセル」時の処理 --%>
+		}else { <%--「キャンセル」時の処理 --%>
+			<%-- 警告ダイアログを表示 --%>
 			window.alert('キャンセルされました');
-	<%-- 警告ダイアログを表示 --%>
-		return false;
-	<%-- 送信を中止 --%>
+			<%-- 送信を中止 --%>
+			return false;
 		}
 	}
 </script>
@@ -39,7 +37,6 @@
 	<%@ include file="header.jsp"%>
 	<div class="center">
 		<h1>従業員一覧画面</h1>
-		<br>
 		<table class="list">
 			<tr bgcolor="#adff2f">
 				<th>従業員コード</th>
@@ -82,12 +79,12 @@
 					<%--名前(カナ)を出力 --%>
 					<td style="width: 140px;">
 						<%
-							if (employee.getSex() == 0) {
+						if (employee.getSex() == 0) {
 						%> <%--性別を判定 --%> <%="男"%> <%--選択が0だったら男を出力 --%> <%
- 	} else {
- %> <%="女"%> <%--その他だったら女を出力--%> <%
- 	}
- %>
+ 						} else {
+ 						%> <%="女"%> <%--その他だったら女を出力--%> <%
+ 						}
+ 						%>
 					</td>
 					<td style="width: 150px;"><%=employee.getBirth_day()%></td>
 					<%--生年月日を出力 --%>
@@ -107,7 +104,8 @@
 			%>
 		</table>
 		<br>
-		<form action="EmployeeManagementServlet" method="POST"">
+
+		<form style="top: 150px; position: fixed;z-index: 1;" action="EmployeeManagementServlet" method="POST"">
 			<input type="submit" value="メニュー画面へ" name="ACTION">
 		</form>
 	</div>

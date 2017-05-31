@@ -2,12 +2,12 @@
 	pageEncoding="Windows-31J"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
+<head >
 <meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
 <title>menu</title>
 <link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
-<body link="#000000">
+<body link="#000000" >
 
 
 
@@ -18,7 +18,7 @@
 			response.sendRedirect("unauthorized_access.jsp");
 		}
 	%>
-	<%@ include file="header.jsp"%>
+	<%@ include file="header.jsp" %>
 
 	<form method="POST" action="EmployeeSelectServlet" name="a">
 		<input type="hidden" name="ACTION" value="従業員一覧・削除">
@@ -40,13 +40,12 @@
 	<div align="center">
 		<h1>メニュー画面</h1>
 
-
 		<table class="s-tbl">
 
 			<tr bgcolor="#b0e0e6">
 				<th></th>
-				<th width="200">タイトル</th>
-				<th width="300">概要</th>
+				<th width="200"><b><font size="3">機能</font></b></th>
+				<th width="300"><b><font size="3">概要</font></b></th>
 			</tr>
 
 
@@ -60,9 +59,7 @@
 					href="javascript:document.forms['a'].submit();">従業員一覧・削除</a></td>
 				<td align="center"><a
 					style="text-decoration: none; display: block; line-height: 73px"
-					href="javascript:document.forms['a'].submit();">従業員の一覧を表示します。従業員の削除をします。
-				</a></td>
-
+					href="javascript:document.forms['a'].submit();">従業員の一覧の表示・削除を行います。</a></td>
 			</tr>
 
 			<tr>
@@ -74,7 +71,7 @@
 					href="javascript:document.forms['b'].submit();">従業員登録</a></td>
 				<td align="center"><a
 					style="top: 25%; text-decoration: none; display: block; width: 100%; height: 73px; line-height: 73px"
-					href="javascript:document.forms['b'].submit();">従業員の登録を行います。</a></td>
+					href="javascript:document.forms['b'].submit();">新規従業員の登録を行います。</a></td>
 			</tr>
 
 			<tr>
@@ -85,7 +82,7 @@
 					href="javascript:document.forms['d'].submit();">ユーザー情報登録</a></td>
 				<td align="center"><a
 					style="top: 25%; text-decoration: none; display: block; width: 100%; height: 73px; line-height: 73px"
-					href="javascript:document.forms['d'].submit();">ユーザー情報登録を行います。</a></td>
+					href="javascript:document.forms['d'].submit();">新規ユーザーの登録を行います。</a></td>
 			</tr>
 
 			<tr>
@@ -96,7 +93,7 @@
 					href="javascript:document.forms['c'].submit();">ログアウト</a></td>
 				<td align="center"><a
 					style="top: 25%; text-decoration: none; display: block; width: 100%; height: 73px; line-height: 73px"
-					href="javascript:document.forms['c'].submit();">ログアウトします</a></td>
+					href="javascript:document.forms['c'].submit();">ログアウトを行います。</a></td>
 			</tr>
 
 		</table>

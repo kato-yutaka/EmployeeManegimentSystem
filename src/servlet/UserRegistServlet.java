@@ -50,12 +50,13 @@ public class UserRegistServlet extends HttpServlet {
 
 		// JSPよりパラメータを取得
 		String action = request.getParameter("ACTION");
-		String user_id = request.getParameter("ID");
-		String password = request.getParameter("PASS");
 
 		switch (action) {
 		// ユーザの登録
 		case "regist":
+			String user_id = request.getParameter("ID");
+			String password = request.getParameter("PASS");
+
 			// ビジネスロジックAddUserをインスタンス化
 			AddUser add = new AddUser();
 			boolean overlap = add.overlapError(user_id);
@@ -80,6 +81,13 @@ public class UserRegistServlet extends HttpServlet {
 		// ユーザ登録画面へ
 		case "add_user":
 			url = "registUser.jsp";
+			break;
+
+		case "one_more":
+			url = "registUser.jsp";
+			String error = "onemore";
+			// requestスコープに格納
+			request.setAttribute("ONEMORE", error);
 			break;
 
 		}

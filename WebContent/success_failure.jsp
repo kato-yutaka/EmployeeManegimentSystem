@@ -23,7 +23,7 @@
 		<p>ユーザIDまたはパスワードが未入力か、既存のIDが入力されました。</p>
 		<br>
 		<form action="UserRegistServlet" method="POST">
-			<button type="submit" name="ACTION" value="add_user">ユーザ登録画面へ</button>
+			<button type="submit" name="ACTION" value="one_more">ユーザ登録画面へ</button>
 		</form>
 	</div>
 	<%@ include file="footer.jsp"%>

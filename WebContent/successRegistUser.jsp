@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
-	<title>Insert title here</title>
+	<title>登録完了</title>
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
@@ -23,7 +23,7 @@
 
 
 		<form action="EmployeeManagementServlet" method="POST">
-			<input type="submit" value="メニュー画面へ" name="ACTION">
+			<button type="submit" value="メニュー画面へ" name="ACTION">&ensp;メニュー画面へ&ensp;</button>
 		</form>
 	</div>
 </body>

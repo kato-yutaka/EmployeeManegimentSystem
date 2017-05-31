@@ -130,12 +130,12 @@
 		</table>
 		<br>
 		<div class="center">
-			<input type="submit" value="“ü—Í“à—e‚ğ“o˜^" name="ACTION">
+			<button type="submit" value="“ü—Í“à—e‚ğ“o˜^" name="ACTION">&ensp;“ü—Í“à—e‚ğ“o˜^&ensp;</button>
 		</div>
 	</form>
 	<form action="EmployeeManagementServlet" method="POST"">
 		<div class="center">
-			<input type="submit" value="ƒƒjƒ…[‰æ–Ê‚Ö" name="ACTION">
+			<button type="submit" value="ƒƒjƒ…[‰æ–Ê‚Ö" name="ACTION">&ensp;ƒƒjƒ…[‰æ–Ê‚Ö&ensp;</button>
 		</div>
 	</form>
 	<%@ include file="footer.jsp"%>
