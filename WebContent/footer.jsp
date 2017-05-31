@@ -10,10 +10,13 @@
 	<br>
 	<br>
 	<br>
-		<div class = "a">
+<div class = "footer">
+<div class = "g">
+<div class = "h" align="right">
 	<hr>
-	<div align="right">
+
 		<font size="4" color="#00cdcd">-- ゆるふわホイップ --</font>
+	</div>
 	</div>
 	</div>
 </body>
