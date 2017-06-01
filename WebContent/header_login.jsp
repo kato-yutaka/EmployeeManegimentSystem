@@ -11,7 +11,7 @@
 <body >
  <div class = "a">
 	<div align="left">
-		<font size="6" color="blue">従業員管理システム</font> <br>
+		<font size="6" color="blue">従業員管理システム&thinsp;version&thinsp;1.0</font> <br>
 	</div>
 	<hr>
 	</div>

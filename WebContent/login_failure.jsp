@@ -9,14 +9,14 @@
 </head>
 <body>
 
-	<%@ include file="header.jsp"%>
+	<%@ include file="header_login.jsp"%>
 	<div class="center">
 		<h1>
-			ログイン失敗しました</font>
+			ログイン失敗しました
 		</h1>
 
 		<p>
-			<b><font color="red">ユーザー名</font></b>または<b><font color="red">パスワード</font></b>が間違っています。<br>
+			<b><font color="red">ユーザID</font></b>または<b><font color="red">パスワード</font></b>が間違っています。<br>
 			ログイン画面に戻り、もう一度入力してください。
 		</p>
 		<form action="UserManagementServlet" method="POST">

@@ -14,10 +14,10 @@
 		<h1>ログイン画面</h1>
 
 		<form action="UserManagementServlet" method="POST" autocomplete="off">
-			ユーザー情報の入力<br>
+			ユーザ情報の入力<br>
 			<table>
 				<tr>
-					<td><b>ユーザー名</b>:</td>
+					<td><b>ユーザID</b>:</td>
 					<td><input type="text" name="id"></td>
 				</tr>
 				<tr>

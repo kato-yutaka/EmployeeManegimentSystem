@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
-	<title>登録完了</title>
+	<title>ユーザ登録完了</title>
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 </head>
 <body>
@@ -19,7 +19,7 @@
 	<div class="center">
 
 
-		<h1>登録完了しました。</h1>
+		<h1>ユーザ登録完了しました。</h1>
 
 
 		<form action="EmployeeManagementServlet" method="POST">

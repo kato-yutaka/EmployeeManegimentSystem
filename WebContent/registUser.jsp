@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=Windows-31J">
-	<title>ユーザー情報登録</title>
+	<title>ユーザ情報登録</title>
 	<link rel="stylesheet" href="emp_sys.css" type="text/css">
 	<script type="text/javascript">
 	// 半角のみ入力可能
@@ -32,7 +32,7 @@
 	<%@ include file="header.jsp"%>
 
 	<div class="center">
-		<h1>ユーザー情報登録</h1>
+		<h1>ユーザ情報登録</h1>
 		<%
 		if (error != null) {
 			out.print(
@@ -43,10 +43,10 @@
 	<form action="UserRegistServlet" method="POST" autocomplete="off">
 		<table>
 			<tr>
-				<td><b><font size="4">従業員情報</font></b></td>
+				<td><b><font size="4">ユーザ情報</font></b></td>
 			</tr>
 			<tr>
-				<td id=<%=error != null ? "bg-red" : "bg-blue"%>>ユーザーID(半角)<%=error != null ? "<img src=\"picture/Warning.png\" width=\"14\" height=\"14\">" : ""%></td>
+				<td id=<%=error != null ? "bg-red" : "bg-blue"%>>ユーザID(半角)<%=error != null ? "<img src=\"picture/Warning.png\" width=\"14\" height=\"14\">" : ""%></td>
 				<td><input type="text" name="ID" maxlength='24'
 					onInput="checkForm(this)"></td>
 			</tr>
