@@ -12,55 +12,7 @@ import entity.EmployeeBean;
 
 public class EmployeeDAO {
 
-	public void updateEmployee(EmployeeBean employeeBean) {
-		ConnectionManager cm = ConnectionManager.getInstance();
-
-		ArrayList<EmployeeBean> employeeList = new ArrayList<EmployeeBean>();
-
-		try (Connection con = cm.getConnection(); Statement stmt = con.createStatement()) {
-
-			String emp_code = employeeBean.getCode();
-			String l_name = employeeBean.getL_name();
-			String f_name = employeeBean.getF_name();
-
-			String l_kana_name = employeeBean.getL_kana_name();
-			String f_kana_name = employeeBean.getF_kana_name();
-			byte sex = employeeBean.getSex();
-			String section_name = employeeBean.getSection_name();
-			String section_code = null;
-			ResultSet res = stmt
-					.executeQuery("SELECT section_code FROM m_section where section_name =\'" + section_name + "\'");
-			while (res.next()) {
-				section_code = res.getString("section_code");
-				System.out.println(section_code);
-			}
-
-			stmt.executeUpdate(
-					"update m_employee SET l_name = \'" + l_name + "\' WHERE emp_code = \'" + emp_code + "\'");
-			stmt.executeUpdate(
-					"update m_employee SET f_name = \'" + f_name + "\' WHERE emp_code =  \'" + emp_code + "\'");
-			stmt.executeUpdate("update m_employee SET l_kana_name = \'" + l_kana_name + "\' WHERE emp_code =  \'"
-					+ emp_code + "\'");
-			stmt.executeUpdate("update m_employee SET f_kana_name = \'" + f_kana_name + "\' WHERE emp_code =  \'"
-					+ emp_code + "\'");
-			stmt.executeUpdate("update m_employee SET sex = \'" + sex + "\' WHERE emp_code =  \'" + emp_code + "\'");
-			stmt.executeUpdate("update m_employee SET section_code = \'" + section_code + "\' WHERE emp_code =  \'"
-					+ emp_code + "\'");
-
-		} catch (SQLException e) {
-			System.out.println("処理結果：異常が発生しました。");
-			e.printStackTrace();
-		}
-	}
-
 	public void insertEmployee(EmployeeBean employeeBean) {
-
-		/*
-		 * int count = stmt.executeUpdate("INSERT INTO m_employee VALUES(\'"+
-		 * emp_code + "\',\'"+ l_name + "\',\'"+ f_name + "\',\'"+ l_kana_name +
-		 * "\',\'"+ f_kana_name + "\',"+ sex + ",\'"+ birth_day + "\',\'"+
-		 * section_code + "\',\'"+ emp_date + "\',CURRENT_TIMESTAMP");
-		 */
 		ConnectionManager cm = ConnectionManager.getInstance();
 		try (Connection con = cm.getConnection();
 				Statement stmt = con.createStatement();
@@ -137,7 +89,7 @@ public class EmployeeDAO {
 			while (res.next()) {
 				EmployeeBean employee = new EmployeeBean();
 				employee.setCode(res.getString("emp_code"));
-				employee.setName(res.getString("l_name") + " " +res.getString("f_name"));
+				employee.setName(res.getString("l_name") + " " + res.getString("f_name"));
 				employee.setSex(res.getByte("sex"));
 				employee.setName_kana(res.getString("l_kana_name") + " " + res.getString("f_kana_name"));
 				employee.setBirth_day(res.getDate("Birth_day"));

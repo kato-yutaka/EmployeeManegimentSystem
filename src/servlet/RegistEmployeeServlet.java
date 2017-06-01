@@ -221,8 +221,8 @@ public class RegistEmployeeServlet extends HttpServlet {
 				if (emp_date_str != null && emp_date_str.length() != 0) {
 					if (Regist.checkDate(emp_date_str)) {
 						if (Regist.compareToday(emp_date_str)) {
-							if (Regist.compareDays(birth_day_str,emp_date_str)) {
-							// エラーなし
+							if (Regist.compareDays(birth_day_str, emp_date_str)) {
+								// エラーなし
 							} else {
 								is_error = true;
 								error_number.add(9);
@@ -310,14 +310,6 @@ public class RegistEmployeeServlet extends HttpServlet {
 			// DAO、Beanをインスタンス化
 			ArrayList<EmployeeBean> sectionList = new ArrayList<EmployeeBean>();
 
-			// エラー項目表示用
-			/*
-			 * ArrayList<Integer> tips = new ArrayList<Integer>(); if (
-			 * (ArrayList<Integer>)reg_session.getAttribute("error_tips") ==
-			 * null){ System.out.println("nullだ"); } tips.add(100);
-			 * reg_session.setAttribute("error_tips",tips );
-			 */
-
 			// DAOからのreturnをBeanに格納
 			try {
 				sectionList = dao.selectSection();
@@ -334,42 +326,6 @@ public class RegistEmployeeServlet extends HttpServlet {
 
 			// 移譲先の指定
 			url = "registEmployee.jsp";
-			break;
-
-		case "入力内容を変更":
-			// requestの値を取得
-			emp_code = request.getParameter("emp_code");
-			l_name = request.getParameter("l_name");
-			f_name = request.getParameter("f_name");
-			l_kana_name = request.getParameter("l_kana_name");
-			f_kana_name = request.getParameter("f_kana_name");
-			sex_str = request.getParameter("sex");
-			section_name = request.getParameter("section_name");
-
-			byte sex = Byte.parseByte(sex_str);
-			// Beanに値をセット
-			EmployeeBean employee = new EmployeeBean();
-			employee.setCode(emp_code);
-			employee.setL_name(l_name);
-			employee.setF_name(f_name);
-			employee.setSex(sex);
-			employee.setL_kana_name(l_kana_name);
-			employee.setF_kana_name(f_kana_name);
-			employee.setSection_name(section_name);
-
-			// アップデート実行
-			dao.updateEmployee(employee);
-			url = "successRegistEmployee.jsp";
-			reg_session.removeAttribute("emp_code");
-			reg_session.removeAttribute("l_name");
-			reg_session.removeAttribute("f_name");
-			reg_session.removeAttribute("l_kana_name");
-			reg_session.removeAttribute("f_kana_name");
-			reg_session.removeAttribute("sex_str");
-			reg_session.removeAttribute("birth_day_str");
-			reg_session.removeAttribute("section_name");
-			reg_session.removeAttribute("emp_date_str");
-			reg_session.removeAttribute("error_tips");
 			break;
 
 		case "従業員情報の変更":

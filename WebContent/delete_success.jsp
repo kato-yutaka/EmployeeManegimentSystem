@@ -29,7 +29,7 @@
 			‚ğíœ‚µ‚Ü‚µ‚½B
 		</p>
 		<form action="EmployeeManagementServlet" method="POST">
-			<input type="submit" name="ACTION" value="]‹Æˆõˆê——‚Ö">
+			<button type="submit" name="ACTION" value="]‹Æˆõˆê——‚Ö">&ensp;]‹Æˆõˆê——‚Ö&ensp;</button>
 		</form>
 	</div>
 	<%@ include file="footer.jsp"%>

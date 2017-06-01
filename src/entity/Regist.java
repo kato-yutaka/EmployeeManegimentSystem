@@ -75,7 +75,6 @@ public class Regist {
 				return true;
 			}
 		} catch (ParseException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 			return false;
 		}

@@ -65,7 +65,6 @@ public class UserManagementServlet extends HttpServlet {
 			// データベースのid,pass変数
 			String id_a = null;
 			String password_a = null;
-			// String user[] = new String[2];
 
 			// DAO、Beanをインスタンス化
 			ArrayList<UserBean> userList = new ArrayList<UserBean>();
