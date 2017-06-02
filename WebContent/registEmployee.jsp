@@ -17,16 +17,6 @@
 		}
 		$this.value = str;
 	}
-	function checkSpace($this) {
-		var str = $this.value;
-		while (str.match(/[\s]/)) {
-			str = str.replace(/[\s]/, "");
-		}
-		$this.value = str;
-	}
-	function deleteSpace($this){
-		TargetString = TargetString.replace(/\s+/g, "");
-	}
 </script>
 </head>
 <body>
@@ -83,7 +73,7 @@
 				<td>姓 <input type="text" name="l_name" maxlength='16' onInput="checkSpace(this)"
 					<%=(String) reg_session.getAttribute("l_name") != null
 					? " value = " + (String) reg_session.getAttribute("l_name") : ""%>>
-					名 <input type="text" name="f_name" maxlength='16' onInput="checkSpace(this)"
+					名 <input type="text" name="f_name" maxlength='16'
 					<%=(String) reg_session.getAttribute("f_name") != null
 					? " value = " + (String) reg_session.getAttribute("f_name") : ""%>></td>
 			</tr>
@@ -92,7 +82,7 @@
 				<td>姓(セイ)<input type="text" name="l_kana_name" maxlength='16' onInput="checkSpace(this)"
 					<%=(String) reg_session.getAttribute("l_kana_name") != null
 					? " value = " + (String) reg_session.getAttribute("l_kana_name") : ""%>>
-					名(メイ)<input type="text" name="f_kana_name" maxlength='16' onInput="checkSpace(this)"
+					名(メイ)<input type="text" name="f_kana_name" maxlength='16'
 					<%=(String) reg_session.getAttribute("f_kana_name") != null
 					? " value = " + (String) reg_session.getAttribute("f_kana_name") : ""%>></td>
 			</tr>
