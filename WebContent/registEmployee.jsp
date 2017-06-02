@@ -17,6 +17,16 @@
 		}
 		$this.value = str;
 	}
+	function checkSpace($this) {
+		var str = $this.value;
+		while (str.match(/[\s]/)) {
+			str = str.replace(/[\s]/, "");
+		}
+		$this.value = str;
+	}
+	function deleteSpace($this){
+		TargetString = TargetString.replace(/\s+/g, "");
+	}
 </script>
 </head>
 <body>
@@ -70,19 +80,19 @@
 
 			<tr>
 				<td id=<%=tips.contains(1) ? "bg-red" : "bg-blue"%>>氏名<%=tips.contains(1) ? "<img src=\"picture/Warning.png\" width=\"14\" height=\"14\">" : ""%></td>
-				<td>姓 <input type="text" name="l_name" maxlength='16'
+				<td>姓 <input type="text" name="l_name" maxlength='16' onInput="checkSpace(this)"
 					<%=(String) reg_session.getAttribute("l_name") != null
 					? " value = " + (String) reg_session.getAttribute("l_name") : ""%>>
-					名 <input type="text" name="f_name" maxlength='16'
+					名 <input type="text" name="f_name" maxlength='16' onInput="checkSpace(this)"
 					<%=(String) reg_session.getAttribute("f_name") != null
 					? " value = " + (String) reg_session.getAttribute("f_name") : ""%>></td>
 			</tr>
 			<tr>
 				<td id=<%=tips.contains(2) ? "bg-red" : "bg-blue"%>>氏名（フリガナ）<%=tips.contains(2) ? "<img src=\"picture/Warning.png\" width=\"14\" height=\"14\">" : ""%></td>
-				<td>姓(セイ)<input type="text" name="l_kana_name" maxlength='16'
+				<td>姓(セイ)<input type="text" name="l_kana_name" maxlength='16' onInput="checkSpace(this)"
 					<%=(String) reg_session.getAttribute("l_kana_name") != null
 					? " value = " + (String) reg_session.getAttribute("l_kana_name") : ""%>>
-					名(メイ)<input type="text" name="f_kana_name" maxlength='16'
+					名(メイ)<input type="text" name="f_kana_name" maxlength='16' onInput="checkSpace(this)"
 					<%=(String) reg_session.getAttribute("f_kana_name") != null
 					? " value = " + (String) reg_session.getAttribute("f_kana_name") : ""%>></td>
 			</tr>
